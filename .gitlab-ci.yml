@@ -5,7 +5,17 @@ before_script:
 
 stages:
   - validate
+  - compile
+  - test
 
-validate:
+dependencies:
+  stage: validate
   script: "mvn clean validate -B"
   
+compile:
+  stage: compile
+  script: "mvn compile -B"
+  
+test:
+  stage: test
+  script: "mvn test -B"
