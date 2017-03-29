@@ -1,20 +1,24 @@
 image: maven:3.3.9-jdk-8
 
+cache:
+  paths:
+    - .m2/
+
 before_script:
-  - echo "this will be called before every job"
+  - echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                            https://maven.apache.org/xsd/settings-1.0.0.xsd">
+                <localRepository>'$PWD'.m2</localRepository>
+          </settings>' > $HOME/.m2/settings.xml
 
 stages:
-  - validate
   - compile
   - test
 
-dependencies:
-  stage: validate
-  script: "mvn clean validate -B"
-  
 compile:
   stage: compile
-  script: "mvn compile -B"
+  script: "mvn clean compile -B"
   
 test:
   stage: test
