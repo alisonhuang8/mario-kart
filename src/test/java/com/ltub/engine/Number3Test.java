@@ -5,20 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ltub.engine.NumberTest;
+import com.ltub.engine.Number3;
 
-public class NumberTestTest {
+public class Number3Test {
 
-	private NumberTest numberTest;
+	private Number3 number3;
 
 	@Before
 	public void init() {
-		numberTest = new NumberTest();
+		number3 = new Number3();
 	}
 
 	@Test
 	public void test1() {
-		assertEquals(3, numberTest.getNumber3());
+		assertEquals(3, number3.getNumber3());
 	}
 
 }
