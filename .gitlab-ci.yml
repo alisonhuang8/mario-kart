@@ -1,7 +1,7 @@
+image: maven:3.3.9-jdk-8
+
 before_script:
   - echo "this will be called before every job"
 
-image: maven:3-jdk-8
-
 build:
-  script: "mvn install -B"
+  script: "mvn clean install -B"
