@@ -1,4 +1,4 @@
-package com.ltub.utils;
+package com.ltub.salad.utils;
 
 public class APerson {
 

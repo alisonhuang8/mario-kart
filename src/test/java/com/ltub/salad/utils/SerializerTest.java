@@ -1,9 +1,11 @@
-package com.ltub.utils;
+package com.ltub.salad.utils;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.ltub.salad.utils.Serializer;
 
 public class SerializerTest {
 

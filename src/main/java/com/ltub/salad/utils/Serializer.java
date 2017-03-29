@@ -1,4 +1,4 @@
-package com.ltub.utils;
+package com.ltub.salad.utils;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -18,7 +18,7 @@ public class Serializer {
 	}
 	
 	public Object deserialize(String xml) {
-		return xstream.fromXMLs(xml);
+		return xstream.fromXML(xml);
 	}
 	
 }

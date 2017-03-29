@@ -1,11 +1,11 @@
-package com.ltub.engine;
+package com.ltub.salad.engine;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ltub.engine.Number3;
+import com.ltub.salad.engine.Number3;
 
 public class Number3Test {
 
