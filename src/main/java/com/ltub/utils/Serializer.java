@@ -18,7 +18,7 @@ public class Serializer {
 	}
 	
 	public Object deserialize(String xml) {
-		return xstream.fromXML(xml);
+		return xstream.fromXMLs(xml);
 	}
 	
 }
