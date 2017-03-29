@@ -16,9 +16,9 @@ stages:
 compile:
   stage: compile
   script:
-    - "mvn $MAVEN_CLI_OPTS$ clean test-compile"
+    - "mvn $MAVEN_CLI_OPTS clean test-compile"
   
 test:
   stage: test
   script:
-    - "mvn $MAVEN_CLI_OPTS$ verify"
+    - "mvn $MAVEN_CLI_OPTS verify"
