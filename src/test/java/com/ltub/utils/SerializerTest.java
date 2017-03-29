@@ -27,7 +27,7 @@ public class SerializerTest {
 		APerson person = new APerson("Hello", "World");
 		String serializedPerson = serializer.serialize(person);
 		APerson reconstructedPerson = (APerson) serializer.deserialize(serializedPerson);
-		person.setFirstName("Goodbye");	// change original person
+		person.setFirstName("Hello");	// change original person
 		assertNotEquals(person, reconstructedPerson);
 	}
 
