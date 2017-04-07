@@ -1,6 +1,7 @@
 package engine.model;
 
 import java.util.Collection;
+import java.util.List;
 
 
 public interface ISpriteModel<T> {
@@ -8,5 +9,5 @@ public interface ISpriteModel<T> {
 	
 	public void removeSprite(T sprite);
 	
-	public Collection<T> getSprites();
+	public List<T> getSprites();
 }

@@ -30,7 +30,7 @@ public class GameFactory {
 		bus = new BasicEventBus();
 	}
 	
-	public Model createModel() {
+	public BasicModel createModel() {
 		return new BasicModel();
 	}
 	

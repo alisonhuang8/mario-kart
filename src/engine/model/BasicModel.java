@@ -1,7 +1,8 @@
 package engine.model;
 
 import java.util.Collection;
-	
+import java.util.List;
+
 import commons.RunningMode;
 import engine.gameloop.LoopComponent;
 import engine.model.SpriteModel.SpriteHandler;
@@ -57,9 +58,8 @@ public class BasicModel implements Model, IStatsModel, ISpriteModel<Sprite> {
 	}
 
 
-
 	@Override
-	public Collection<Sprite> getSprites() {
+	public List<Sprite> getSprites() {
 		return handler.getSprites(); 
 	}
 

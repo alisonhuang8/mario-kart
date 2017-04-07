@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commons.Point;
+import engine.model.BasicModel;
 import engine.model.Model;
 import engine.sprite.SelectionBound;
 import engine.sprite.Sprite;
@@ -24,7 +25,7 @@ public class SelectionChecker {
 	 * @param pos {@code Point} the clicked point
 	 * @return Sprite the clicked sprite
 	 */
-	public Sprite getSelection(Model model, Point pos) {
+	public Sprite getSelection(BasicModel model, Point pos) {
 		for (Sprite sprite: model.getSprites()) {
 			if (sprite.getSelectionBound() == SelectionBound.IMAGE) {
 				if (checkPointOnImage(sprite.getImage().getFXImage(), pos.x()-sprite.getDisplayPos().x(), pos.y()-sprite.getDisplayPos().y())) {
@@ -45,6 +46,7 @@ public class SelectionChecker {
 			}
 		}
 		// TODO if nothing is selected, return the background "sprite"
+	// list vs collection
 		return model.getSprites().get(0);
 	}
 

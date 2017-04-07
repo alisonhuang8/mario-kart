@@ -42,8 +42,8 @@ public class SpriteModel{
 		}
 
 		@Override
-		public Collection<Sprite> getSprites() {
-			return getCollection(); 
+		public List<Sprite> getSprites() {
+			return getList(); 
 		}
 		
 	}
@@ -72,8 +72,8 @@ public class SpriteModel{
 	}
 
 
-	private Collection<Sprite> getCollection() {
-		return Collections.unmodifiableCollection(sprites);
+	private List<Sprite> getList() {
+		return Collections.unmodifiableList(sprites);
 	}
 	
 }

@@ -4,6 +4,7 @@ import commons.Point;
 import engine.gameloop.GameLoop;
 import engine.input.ActionManager;
 import engine.input.InputManager;
+import engine.model.BasicModel;
 import engine.model.Model;
 import engine.playerstate.PlayerInputState;
 import engine.playerstate.PlayerSelectionState;
@@ -25,7 +26,7 @@ public class App extends Application {
 	public void start(Stage stage) throws Exception {
 		GameFactory gameFactory = new GameFactory();
 		
-		Model model = gameFactory.createModel();
+		BasicModel model = gameFactory.createModel();
 		View view = gameFactory.createView();
 		
 		// sprite1
@@ -62,6 +63,8 @@ public class App extends Application {
 		gameFactory.createInRangeManager();		
 		
 		GameLoop gameLoop = gameFactory.createGameLoop();
+		
+		// ask about list vs. collection
 		gameLoop.addLoopComponent((dt) -> collisionChecker.checkCollision(model.getSprites()));
 		gameLoop.addLoopComponent((dt) -> inRangeChecker.checkInRange(model.getSprites()));
 		gameLoop.addLoopComponent((dt) -> model.update(dt));
