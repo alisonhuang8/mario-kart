@@ -24,7 +24,7 @@ public class MasterDeveloperInterface {
 	public MasterDeveloperInterface() {
 		instantiateTabs();
 		developerScene = new Scene(developerTabs);
-		developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
+		//developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
 	}
 
 	private void instantiateTabs() {

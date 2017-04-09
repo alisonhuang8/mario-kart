@@ -17,7 +17,6 @@ public class MoveSpriteEvent extends BusEvent {
 	 * Filtered, will be executed when fired.
 	 */
 	public static final BusEventType<MoveSpriteEvent> READY = new BusEventType<>("MOVE_SPRITE_READY");
-
 	private ActionMode actionMode;
 	private Player actionSender;
 	private Sprite sprite;

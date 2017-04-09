@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.util.Pair;
 
 /**
