@@ -10,6 +10,10 @@ public class TeamMemberAttributeFactory implements AttributeFactory{
 	public static final String TEAM_VAR = "number";
 	public static final String BASE_PATH = "engine.sprite.";
 	
+	/*
+	 * Duplicate code 1.5
+	 */
+	
 	@Override
 	public TeamMember createAttribute(AttributeData data) {
 		try{

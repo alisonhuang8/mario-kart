@@ -10,6 +10,10 @@ public class MovableAttributeFactory implements AttributeFactory{
 	public static final String SPEED_VAR = "speed";
 	public static final String BASE_PATH = "engine.sprite.";
 		
+	/*
+	 * Duplicate code 1.4
+	 */
+	
 	@Override
 	public Movable createAttribute(AttributeData data) { 
 		try{

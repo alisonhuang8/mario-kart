@@ -7,6 +7,14 @@ import bus.EventBus;
 import data.AttributeData;
 import utilities.XStreamHandler;
 
+/*
+ * The spritecreation package should be moved outside of the engine.
+ * It is not part of the engine. It uses the engine.
+ * 
+ * - Keping
+ */
+
+
 /**
  * @author tahiaemran
  *
@@ -15,6 +23,12 @@ import utilities.XStreamHandler;
  *
  */
 public class GameBuildingManager {
+	/*
+	 * Wait, are you trying to build the sprite or the game.
+	 * If you want to build the game, this class shouldn't be under spritecreation package,
+	 * also, if you want to build a game, you create every game component here including 
+	 * the bus. Nobody needs to pass you the bus. 
+	 */
 	private XStreamHandler fileHandler; 
 	private List<AttributeData> fileAttributes; 
 	private SpriteBuildingManager spriteBuilder;
@@ -26,6 +40,31 @@ public class GameBuildingManager {
 		this.bus = bus;
 	}
 	
+	/*
+	 * The three constructors here are very strange. Constructors should only take
+	 * what is necessary for the class. It should be at least something like the following: 
+	 */	
+//	public GameBuildingManager() {
+//		this(new EventBus(), new XStreamHandler());
+//	}
+//	public GameBuildingManager(XStreamHandler xsh) {
+//		this(new EventBus(), xsh);
+//	}
+//	public GameBuildingManager(EventBus bus, XStreamHandler xsh) {
+//		this.bus = bus;
+//		this.fileHandler = xsh;
+//	}
+	/*
+	 * Don't make this kind of inconsistent constructors however hurry you are in.
+	 * (You can make it if you are sure nobody sees your code.)
+	 * Always remember that you are writing code not only for yourself, but also for
+	 * others. Be responsible for whoever uses your code.
+	 */
+	/*
+	 * Here if XStreamHandler is only a utility, and contains no mutable state, 
+	 * then you shouldn't need to pass
+	 */
+	
 	public GameBuildingManager(XStreamHandler xSH) {
 		this.fileHandler = xSH; 
 	}
@@ -33,6 +72,10 @@ public class GameBuildingManager {
 	public GameBuildingManager(){
 		
 	}
+	
+	/*
+	 * Usually I would expect a method with this kind of name to return something.
+	 */
 	
 	public void buildFromFile(File file){
 		System.out.println(file.getName());

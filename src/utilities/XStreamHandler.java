@@ -12,6 +12,15 @@ import data.AttributeData;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/*
+ * I think utilities should be something general - other teams could use this to.
+ * But inside this utility, it is all about "Attribute" and "ScreenModel", which
+ * nobody from other teams will understand. 
+ * 
+ * Please make the package name, class name, methods "consistent".
+ */
+
+
 public class XStreamHandler {
 	//TODO: Remove duplicate code using generics
 

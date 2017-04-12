@@ -12,6 +12,10 @@ public class AttackerAttributeFactory implements AttributeFactory {
 	public static final String DAMAGE_VAR = "damage";
 	public static final String BASE_PATH = "engine.sprite.";
 
+	/*
+	 * Duplicate code 1.1
+	 */
+	
 	@Override
 	public Attacker createAttribute(AttributeData data) {
 		try{

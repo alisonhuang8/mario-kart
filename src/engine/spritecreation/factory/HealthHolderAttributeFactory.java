@@ -10,6 +10,10 @@ public class HealthHolderAttributeFactory implements AttributeFactory{
 	public static final String HEALTH_VAR = "health";
 	public static final String BASE_PATH = "engine.sprite.";
 	
+	/*
+	 * Duplicate code 1.3
+	 */
+	
 	@Override
 	public HealthHolder createAttribute(AttributeData data) {
 		try{

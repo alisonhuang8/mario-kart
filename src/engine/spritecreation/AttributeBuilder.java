@@ -51,6 +51,13 @@ public class AttributeBuilder {
 		}	
 	}
 	
+	/*
+	 * This class is named "AttributeBuilder" but it is modifying sprite directly.
+	 * I would expect an "AttributeBuilder" to return an attribute for me and I can 
+	 * do whatever I like with the attribute.
+	 * If you want to use this code, then the it should be named "SpriteConfigurator".
+	 */
+	
 	public void configSprite(Sprite s) {
 		String methodName = "set" + attributeType; 
 		try {

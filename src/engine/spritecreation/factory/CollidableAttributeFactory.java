@@ -11,6 +11,11 @@ public class CollidableAttributeFactory implements AttributeFactory{
 	public static final String IMAGE_VAR = "collisionBoundsImage";
 	public static final String BASE_PATH = "engine.sprite.";
 	
+	
+	/*
+	 * Duplicate Code 1.2
+	 */
+	
 	@Override
 	public Collidable createAttribute(AttributeData data) {
 		try{

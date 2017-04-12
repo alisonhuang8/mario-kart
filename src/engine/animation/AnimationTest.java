@@ -10,6 +10,12 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/*
+ * Do we still need this animation thing?
+ * 
+ * - Keping
+ */
+
 public class AnimationTest extends Application {
 
 	private static final Image IMAGE = new Image("resources/jump.png");

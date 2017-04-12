@@ -7,6 +7,12 @@ import data.AttributeData;
 import engine.sprite.Sprite;
 import utilities.XStreamHandler;
 
+/*
+ * Writing test is greatly appreciated. It's even better if you could
+ * write it as JUnit test and put it in the same package (engine.spritecreation) under "test" folder.
+ */
+
+
 public class AttributeBuilderTester {
 
 	
