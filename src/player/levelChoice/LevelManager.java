@@ -11,35 +11,36 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import player.App;
 
 /**
  * @author Zhiyong
  *
  */
 public class LevelManager {
-	public static final String RESOURCES_LOCATION = "resources/menu";
+	private  ResourceBundle myResources = ResourceBundle.getBundle(App.RESOURCES_LOCATION);
 	public static final int WIDTH = 400;
 	public static final int HEIGHT = 300;
 	
-	
-	private  ResourceBundle myResources = ResourceBundle.getBundle(RESOURCES_LOCATION);
 	private int numberOfLevel;
 	private MenuBar menuBar;
 	
 	//TODO : add voice search like google
 	
-	//TODO: add password and username registration
 	
 	public LevelManager(){
 		numberOfLevel = 2;
 		
-		show();
+		
 		
 	}
-	private void show(){
+	public void show(){
 		
 		Menu level = initLevelMenu();
 		Menu setting = initSettingMenu();
@@ -49,10 +50,15 @@ public class LevelManager {
 		Stage primaryStage = new Stage();
 		primaryStage.setTitle("Game Level Choice");
 		Group root = new Group();
-		Scene scene = new Scene(root, WIDTH, HEIGHT);
 		root.getChildren().add(menuBar);
+		Scene scene = new Scene(root);
+		
+		Image image = new Image(getClass().getClassLoader().getResourceAsStream(myResources.getString("levelChoiceImagePath")));
+		scene.setFill(new ImagePattern(image));
 
 		primaryStage.setScene(scene);
+		//primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 
