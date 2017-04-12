@@ -40,6 +40,11 @@ public class App extends Application {
 //		sprite1.setImageOffset(new Point(30, 30));
 		sprite1.setDetectionRange(128);
 		
+		sprite1.queueAction(() -> movable1.moveTo(new GamePoint(300, 200)));
+		sprite1.queueAction(() -> movable1.moveTo(new GamePoint(500, 200))); 
+		sprite1.queueAction(() -> movable1.moveTo(new GamePoint(100, 400))); 
+		sprite1.queueAction(() -> movable1.moveTo(new GamePoint(300, 200))); 
+		
 		// sprite2
 		Sprite sprite2 = new Sprite();
 		sprite2.setPos(new GamePoint(200, 100));
