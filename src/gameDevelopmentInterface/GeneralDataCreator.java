@@ -1,5 +1,7 @@
 package gameDevelopmentInterface;
 
+import java.util.ResourceBundle;
+
 import data.GeneralModelData;
 import javafx.collections.ObservableMap;
 import javafx.geometry.Insets;
@@ -18,23 +20,26 @@ import javafx.util.Pair;
  * @author Jake
  */
 public class GeneralDataCreator extends GridPane {
+	private static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
+	private static final String RESOURCE_FILE_NAME = "gameAuthoringEnvironment";
+	private ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
 	private static final int INSETS = 50;
 	private static final int MAX_SCREEN_SIZE = 600;
-	private static final String SAVE_ALL_VALUES = "Save All Values";
-	private static final String NUM_STARTING_BONUSES = "Number of Starting Bonuses";
-	private static final String NUM_STARTING_GOLD = "Number of Starting Gold";
-	private static final String NUM_LEVELS = "Number of Levels";
-	private static final String NUM_LIVES = "Number of Lives";
-	private static final String SEND = "Send";
+	private static final String SAVE_ALL_VALUES = "SAVE_ALL_VALUES";
+	private static final String NUM_STARTING_BONUSES = "NUM_STARTING_BONUSES";
+	private static final String NUM_STARTING_GOLD = "NUM_STARTING_GOLD";
+	private static final String NUM_LEVELS = "NUM_LEVELS";
+	private static final String NUM_LIVES = "NUM_LIVES";
+	private static final String SEND = "SEND";
 	private TextArea myNumLivesInput = new TextArea();
 	private TextArea myNumLevelsInput = new TextArea();
 	private TextArea myStartingGoldInput = new TextArea();
 	private TextArea myStartingBonusesInput = new TextArea();
-	private Button sendNumLivesInput = new Button(SEND);
-	private Button sendNumLevelsInput = new Button(SEND);
-	private Button sendStartingGoldInput = new Button(SEND);
-	private Button sendStartingBonusesInput = new Button(SEND);
-	private Button saveAll = new Button(SAVE_ALL_VALUES);
+	private Button sendNumLivesInput = new Button(myResources.getString(SEND));
+	private Button sendNumLevelsInput = new Button(myResources.getString(SEND));
+	private Button sendStartingGoldInput = new Button(myResources.getString(SEND));
+	private Button sendStartingBonusesInput = new Button(myResources.getString(SEND));
+	private Button saveAll = new Button(myResources.getString(SAVE_ALL_VALUES));
 	private GeneralModelData myGeneralModel = new GeneralModelData();
 	private ObservableMap<String,String> myData = myGeneralModel.getAllData();
 	
@@ -51,10 +56,10 @@ public class GeneralDataCreator extends GridPane {
 	}
 
 	private void placeTiles() {
-		this.add(new Text(NUM_LIVES), 0, 0);
-		this.add(new Text(NUM_LEVELS), 1, 0);
-		this.add(new Text(NUM_STARTING_GOLD), 2, 0);
-		this.add(new Text(NUM_STARTING_BONUSES), 3, 0);
+		this.add(new Text(myResources.getString(NUM_LIVES)), 0, 0);
+		this.add(new Text(myResources.getString(NUM_LEVELS)), 1, 0);
+		this.add(new Text(myResources.getString(NUM_STARTING_GOLD)), 2, 0);
+		this.add(new Text(myResources.getString(NUM_STARTING_BONUSES)), 3, 0);
 		this.add(myNumLivesInput, 0, 1);
 		this.add(myNumLevelsInput, 1, 1);
 		this.add(myStartingGoldInput, 2, 1);
@@ -81,18 +86,18 @@ public class GeneralDataCreator extends GridPane {
 	}
 	
 	private void sendNumLives() {
-		myGeneralModel.addData(new Pair<String, String>(NUM_LIVES, myNumLivesInput.getText()));
+		myGeneralModel.addData(new Pair<String, String>(myResources.getString(NUM_LIVES), myNumLivesInput.getText()));
 	}
 	
 	private void sendNumLevels() {
-		myGeneralModel.addData(new Pair<String, String>(NUM_LEVELS, myNumLevelsInput.getText()));
+		myGeneralModel.addData(new Pair<String, String>(myResources.getString(NUM_LEVELS), myNumLevelsInput.getText()));
 	}
 	
 	private void sendStartingGold() {
-		myGeneralModel.addData(new Pair<String, String>(NUM_STARTING_GOLD, myStartingGoldInput.getText()));
+		myGeneralModel.addData(new Pair<String, String>(myResources.getString(NUM_STARTING_GOLD), myStartingGoldInput.getText()));
 	}
 	
 	private void sendStartingBonuses() {
-		myGeneralModel.addData(new Pair<String, String>(NUM_STARTING_BONUSES, myStartingBonusesInput.getText()));
+		myGeneralModel.addData(new Pair<String, String>(myResources.getString(NUM_STARTING_BONUSES), myStartingBonusesInput.getText()));
 	}
 }
