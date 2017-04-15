@@ -2,6 +2,7 @@ package gameDevelopmentInterface;
 
 import data.AttributesForScreenUse;
 import gameDevelopmentInterface.attributeCreator.AttributeHolderCreator;
+import gameDevelopmentInterface.attributeCreator.GroundUpAttributeCreator;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,7 +38,7 @@ public class MasterDeveloperInterface {
 	public MasterDeveloperInterface() {
 		instantiate();
 		developerScene = new Scene(view);
-		developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
+	//	developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
 	}
 
 	private void instantiateTabs() {
@@ -65,6 +66,7 @@ public class MasterDeveloperInterface {
 		private static final String CREATE_SPRITE = "Create Sprite";
 		private static final String CREATE_NEW_SCREEN = "Create new Screen";
 		private static final String CREATE_NEW_SPRITE = "Create new Sprite";
+		private static final String CREATE_NEW_ATTRIBUTE= "Create new Attribute";
 
 		private TabAdder() {
 			instantiate();
@@ -74,6 +76,7 @@ public class MasterDeveloperInterface {
 		private void instantiate() {
 			Button spriteButton = new Button(CREATE_NEW_SPRITE);
 			Button screenButton = new Button(CREATE_NEW_SCREEN);
+			Button attributeButton= new Button(CREATE_NEW_ATTRIBUTE);
 			spriteButton.setOnAction((clicked) -> {
 				Tab spriteTab = new Tab(CREATE_SPRITE, new AttributeHolderCreator(attributesModel));
 				developerTabs.getTabs().add(spriteTab);
@@ -83,7 +86,12 @@ public class MasterDeveloperInterface {
 						new ScreenModelCreator(attributesModel, myGeneralDataCreator));
 				developerTabs.getTabs().add(screenTab);
 			});
-			this.getChildren().addAll(spriteButton, screenButton);
+			attributeButton.setOnAction((clicked)->{
+				Tab attributeTab=new Tab(CREATE_NEW_ATTRIBUTE,
+						new GroundUpAttributeCreator());
+				developerTabs.getTabs().add(attributeTab);
+			});
+			this.getChildren().addAll(spriteButton, screenButton,attributeButton);
 		}	
 
 	}
