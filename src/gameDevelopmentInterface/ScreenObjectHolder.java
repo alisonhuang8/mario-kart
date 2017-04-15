@@ -40,7 +40,7 @@ public class ScreenObjectHolder extends HBox {
 			public void onChanged(@SuppressWarnings("rawtypes") ListChangeListener.Change change) {
 				myScreenModel.getPossibleSprites().forEach(attr -> {
 					if (attr.hasVariable(IMAGE_HOLDER)) {
-						String imageName = attr.getVariable(IMAGE);
+						String imageName = attr.getVariable(IMAGE_HOLDER);
 						boolean wasFound = false;
 						if (myScreenObjects.size() == 0) {
 							addObject(attr);
@@ -67,7 +67,6 @@ public class ScreenObjectHolder extends HBox {
 	 *            the sprite to add to the HBox
 	 */
 	public void addObject(AttributeData screenObject) {
-		System.out.println(screenObject.getName());
 		String imageName = screenObject.getVariable(IMAGE_HOLDER);
 		Image si = new Image(getClass().getClassLoader().getResourceAsStream(PATH_TO_IMAGE_FILES + imageName), 100, 100,
 				false, false);
