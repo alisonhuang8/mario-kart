@@ -7,6 +7,7 @@ import javax.script.ScriptException;
 import bus.BusEvent;
 import bus.BusEventHandler;
 import bus.BusEventType;
+import newSprite.ComponentSprite.Component;
 
 /**
  * Takes in strings, and converts them to methods for components to call when their events are fired.

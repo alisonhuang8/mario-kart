@@ -1,22 +1,10 @@
 package newSprite;
-
-<<<<<<< HEAD
-import bus.BasicEventBus;
-
-public class ComponentSprite {
-	private BasicEventBus myBus;
-	
-	public ComponentSprite(){
-		myBus=new BasicEventBus();
-=======
 import java.util.Collection;
 import java.util.Map;
-
 import bus.BasicEventBus;
 import bus.BusEvent;
 import bus.BusEventHandler;
 import bus.BusEventType;
-
 /**
  * 
  * @author Daniel
@@ -87,6 +75,5 @@ public abstract class ComponentSprite {
 		protected BasicEventBus getBus(){
 			return myBus;
 		}		
->>>>>>> 1d82dcde32665046f55e0c111f42231c691f6993
 	}
 }

@@ -67,7 +67,6 @@ public class MasterDeveloperInterface {
 	}
 
 	class TabAdder extends HBox {
-<<<<<<< HEAD
 		private static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
 		private static final String RESOURCE_FILE_NAME = "gameAuthoringEnvironment";
 		private ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
@@ -75,12 +74,6 @@ public class MasterDeveloperInterface {
 		private static final String CREATE_NEW_SCREEN = "CREATE_NEW_SCREEN";
 		private static final String CREATE_NEW_SPRITE = "CREATE_NEW_SPRITE";
 		private static final String CREATE_NEW_ATTRIBUTE= "CREATE_NEW_ATTRIBUTE";
-=======
-		private static final String CREATE_SPRITE = "Create Sprite";
-		private static final String CREATE_NEW_SCREEN = "Create new Screen";
-		private static final String CREATE_NEW_SPRITE = "Create new Sprite";
-		private static final String CREATE_NEW_ATTRIBUTE= "Create new Attribute";
->>>>>>> 1d82dcde32665046f55e0c111f42231c691f6993
 
 		private TabAdder() {
 			instantiate();
@@ -88,15 +81,9 @@ public class MasterDeveloperInterface {
 
 
 		private void instantiate() {
-<<<<<<< HEAD
 			Button spriteButton = new Button(myResources.getString(CREATE_NEW_SPRITE));
 			Button screenButton = new Button(myResources.getString(CREATE_NEW_SCREEN));
 			Button attributeButton= new Button(myResources.getString(CREATE_NEW_ATTRIBUTE));
-=======
-			Button spriteButton = new Button(CREATE_NEW_SPRITE);
-			Button screenButton = new Button(CREATE_NEW_SCREEN);
-			Button attributeButton= new Button(CREATE_NEW_ATTRIBUTE);
->>>>>>> 1d82dcde32665046f55e0c111f42231c691f6993
 			spriteButton.setOnAction((clicked) -> {
 				Tab spriteTab = new Tab(myResources.getString(CREATE_NEW_SPRITE), new AttributeHolderCreator(attributesModel));
 				developerTabs.getTabs().add(spriteTab);
@@ -107,11 +94,7 @@ public class MasterDeveloperInterface {
 				developerTabs.getTabs().add(screenTab);
 			});
 			attributeButton.setOnAction((clicked)->{
-<<<<<<< HEAD
 				Tab attributeTab=new Tab(myResources.getString(CREATE_NEW_ATTRIBUTE),
-=======
-				Tab attributeTab=new Tab(CREATE_NEW_ATTRIBUTE,
->>>>>>> 1d82dcde32665046f55e0c111f42231c691f6993
 						new GroundUpAttributeCreator());
 				developerTabs.getTabs().add(attributeTab);
 			});
