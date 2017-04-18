@@ -30,7 +30,7 @@ public class ImageTester extends Application{
 			Group root = new Group();
 			Scene scene = new Scene(root, 800, 800);
 			
-			Image image = new Image("resources/bahamut_left.png");
+			Image image = new Image("resources/maple-leaf.jpg");
 			
 			Rectangle r = new Rectangle(image.getWidth(),image.getHeight());
 			r.setFill(new ImagePattern(image));
