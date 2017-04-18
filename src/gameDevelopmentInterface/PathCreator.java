@@ -5,6 +5,7 @@ import java.util.Queue;
 
 import engine.camera.GamePoint;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
 /**
  * Starts the ability for the user to define a path by clicking
@@ -35,8 +36,9 @@ public class PathCreator {
 		ScreenMap target = myScreenModel.getScreen();
 		target.setOnMouseEntered(e -> target.getGrid().setGridLinesVisible(true));
 		target.setOnMouseExited(e -> target.getGrid().setGridLinesVisible(false));
-		target.setOnMousePressed(e -> targetSetOnMousePressed(target, e));
+		target.setOnMouseDragged(e -> targetSetOnMouseDragged(target, e));
 	}
+	
 	/**
 	 * Called by the buttons panel
 	 */
@@ -46,14 +48,28 @@ public class PathCreator {
 		}
 	}
 	
-	private void targetSetOnMousePressed(ScreenMap target, MouseEvent e) {
+	private void targetSetOnMouseDragged(ScreenMap target, MouseEvent e) {
 		double mouseX = e.getScreenX();
 		double mouseY = e.getScreenY();
 		GamePoint coords = target.getCoordOfMouseHover(mouseX, mouseY);
-		if (!replacementPath.contains(coords)) {
+		if (!coordAlreadyInPath(coords)) {
 			replacementPath.add(coords);
+			target.addBorderToCoordinate(coords);
 		}
 		e.consume();
+	}
+	
+	private boolean coordAlreadyInPath(GamePoint coords) {
+		double testX = coords.x();
+		double testY = coords.y();
+		for (GamePoint gp : replacementPath) {
+			double alreadyX = gp.x();
+			double alreadyY = gp.y();
+			if (testX == alreadyX && testY == alreadyY) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private boolean isValidPath(Queue<GamePoint> path) {

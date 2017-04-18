@@ -15,6 +15,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Pair;
 
 /**
  * This class will hold the grid on which players can place sprites or tiles to set up their
@@ -115,6 +116,15 @@ public class ScreenMap extends StackPane {
 				}
 			}			
 		}
+	}
+	
+	public void addBorderToCoordinate(GamePoint coord) {
+		CoordinateConversion cc = new CoordinateConversion();
+		Pair<Integer, Integer> gridCoord = cc.fromGamePointToPair(coord);
+		Rectangle border = new Rectangle(myGrid.getWidth()/getNumCols(), myGrid.getHeight()/getNumRows());
+		border.setFill(Color.TRANSPARENT);
+		border.setStroke(Color.BLACK);
+		myGrid.add(border, gridCoord.getKey(), gridCoord.getValue());
 	}
 
 	private int getColOrRowPlacement(double offset, double bounds, double step, double x, Bounds boundsInScreen) {

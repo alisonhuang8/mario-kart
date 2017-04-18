@@ -115,8 +115,7 @@ public class ScreenObjectHolder extends HBox {
 			for (Pair<String, Image> p : myScreenObjects.keySet()) {
 				String iName = p.getKey();
 				if (imageName.equals(iName)) {
-					AttributeData anActualPlacedScreenObject = (AttributeData) new UnoptimizedDeepCopy()
-							.copy(myScreenObjects.get(p));
+					AttributeData anActualPlacedScreenObject = (AttributeData) new UnoptimizedDeepCopy().copy(myScreenObjects.get(p));
 					anActualPlacedScreenObject.setVariable(myResources.getString(X_POSITION), coords.getKey() + "");
 					anActualPlacedScreenObject.setVariable(myResources.getString(Y_POSITION), coords.getValue() + "");
 					myScreenData.addObjectData(anActualPlacedScreenObject);

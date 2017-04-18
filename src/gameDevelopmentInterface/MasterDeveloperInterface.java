@@ -43,7 +43,7 @@ public class MasterDeveloperInterface {
 	public MasterDeveloperInterface() {
 		instantiate();
 		developerScene = new Scene(view);
-	//	developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
+		developerScene.getStylesheets().setAll(PATH_TO_STYLE_SHEETS);
 	}
 
 	private void instantiateTabs() {
