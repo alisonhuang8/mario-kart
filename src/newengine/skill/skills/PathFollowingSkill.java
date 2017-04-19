@@ -27,7 +27,7 @@ public class PathFollowingSkill extends Skill {
 		System.out.println("Being triggered");
 		Sprite source = this.getSource().get();
 		GamePoint gp = myPath.getPath().poll();
-		MoveEvent event = new MoveEvent(MoveEvent.SPECIFIC, source, new Target(gp));
+		MoveEvent event = new MoveEvent(MoveEvent.TYPE, source, new Target(gp));
 		source.emit(new QueueEvent(QueueEvent.ADD, event));
 	}
 
