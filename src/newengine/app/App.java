@@ -7,6 +7,7 @@ import java.util.Map;
 
 import bus.EventBus;
 import commons.point.GamePoint;
+import gameDevelopmentInterface.Path;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import newengine.events.GameInitializationEvent;
@@ -15,6 +16,7 @@ import newengine.events.sound.SoundEvent;
 import newengine.skill.Skill;
 import newengine.skill.SkillType;
 import newengine.skill.skills.MoveSkill;
+import newengine.skill.skills.PathFollowingSkill;
 import newengine.sprite.Sprite;
 import newengine.sprite.components.Collidable;
 import newengine.sprite.components.Collidable.CollisionBoundType;
@@ -77,13 +79,30 @@ public class App extends Application {
 		sprite2.addComponent(new Selectable(SelectionBoundType.IMAGE));
 		sprite2.addComponent(new EventQueue());
 		
+		//pathFollowingSprite
+		Sprite pathFollowingSprite = new Sprite();
+		Map<SkillType<? extends Skill>, Skill> pathFollowerSkillMap = new HashMap<>();
+		Path dummyPath = new Path();
+		pathFollowerSkillMap.put(PathFollowingSkill.TYPE, new PathFollowingSkill(dummyPath));
+		pathFollowingSprite.addComponent(new GameBus());
+		pathFollowingSprite.addComponent(new SkillSet(pathFollowerSkillMap));
+		pathFollowingSprite.addComponent(new Owner(player1));
+		pathFollowingSprite.addComponent(new Position(new GamePoint(300, 250), 0));
+		pathFollowingSprite.addComponent(new Images(imageSet2));
+		pathFollowingSprite.addComponent(new Speed(200));
+		pathFollowingSprite.addComponent(new Collidable(CollisionBoundType.IMAGE));
+		pathFollowingSprite.addComponent(new Selectable(SelectionBoundType.IMAGE));
+		pathFollowingSprite.addComponent(new EventQueue());
+		
 		List<Sprite> spritesToAdd = new ArrayList<>();
-		spritesToAdd.add(sprite1);
-		spritesToAdd.add(sprite2);
+		//spritesToAdd.add(sprite1);
+		//spritesToAdd.add(sprite2);
+		
+		spritesToAdd.add(pathFollowingSprite);
 		
 		EventBus bus = game.getBus();
 		bus.on(GameInitializationEvent.ANY, (e) -> {
-			bus.emit(new SoundEvent(SoundEvent.BACKGROUND_MUSIC, "data/sounds/01-dark-covenant.mp3"));
+			//bus.emit(new SoundEvent(SoundEvent.BACKGROUND_MUSIC, "data/sounds/01-dark-covenant.mp3"));
 			bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToAdd));
 			// TODO add other map elements to the game (like stats, buttons)
 		});
