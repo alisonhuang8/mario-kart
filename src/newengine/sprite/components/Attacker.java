@@ -25,6 +25,10 @@ public class Attacker extends Component {
 	public static final ComponentType<Attacker> TYPE = new ComponentType<>(Attacker.class.getName());
 	private double reloadPeriod = 1;
 	private double timeRemaining = 1;
+	
+	public Attacker() {
+		
+	}
 
 	@Override
 	public void afterAdded() {
@@ -40,7 +44,7 @@ public class Attacker extends Component {
 			Player weapons = new Player("weapons");
 
 			Sprite weapon = new Sprite();
-			LtubImage image1 = new LtubImage("images/skills/crosshairs.png");
+			LtubImage image1 = new LtubImage("images/skills/crosshairs.png"); //TODO Gets from user
 			ImageSet imageSet1 = new ImageSet(image1);
 			Map<SkillType<? extends Skill>, Skill> skillMap = new HashMap<>();
 			MoveSkill moveSkill = new MoveSkill();
@@ -49,9 +53,9 @@ public class Attacker extends Component {
 			weapon.addComponent(new Owner(weapons));
 			weapon.addComponent(new Position(source.getComponent(Position.TYPE).get().pos(), source.getComponent(Position.TYPE).get().heading()));
 			weapon.addComponent(new Images(imageSet1));
-			weapon.addComponent(new Speed(50));
+			weapon.addComponent(new Speed(50)); //TODO gets from user
 			weapon.addComponent(new Collidable(CollisionBoundType.IMAGE));
-			weapon.addComponent(new DamageStrength(-25));
+			weapon.addComponent(new DamageStrength(-25)); //TODO gets from user
 			weapon.addComponent(new GameBus());
 			
 			

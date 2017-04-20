@@ -101,4 +101,6 @@ public class Position extends Component {
 	public boolean isMoving() {
 		return isMoving;
 	}
+	
+	
 }
