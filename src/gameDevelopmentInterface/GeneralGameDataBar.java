@@ -43,7 +43,7 @@ public class GeneralGameDataBar extends HBox {
 		bonuses = new Text(myResources.getString(NUM_BONUSES) + data.get(myResources.getString(bonusKey)));
 		gold = new Text(myResources.getString(NUM_GOLD) + data.get(myResources.getString(goldKey)));
 		levels = new Text(myResources.getString(NUM_LEVEL) + data.get(myResources.getString(levelKey)));
-		lives = new Text(myResources.getString(NUM_LIVES) + data.get(myResources.getString(livesKey)));
+		lives = new Text(myResources.getString(NUM_LIVES) + data.get("Number of Lives"));
 		this.getChildren().addAll(lives, levels, gold, bonuses);
 	}
 

@@ -56,7 +56,7 @@ public class GeneralDataCreator extends GridPane {
 	}
 
 	private void placeTiles() {
-		this.add(new Text(myResources.getString(NUM_LIVES)), 0, 0);
+		this.add(new Text("Number of Lives"), 0, 0);
 		this.add(new Text(myResources.getString(NUM_LEVELS)), 1, 0);
 		this.add(new Text(myResources.getString(NUM_STARTING_GOLD)), 2, 0);
 		this.add(new Text(myResources.getString(NUM_STARTING_BONUSES)), 3, 0);
@@ -86,7 +86,7 @@ public class GeneralDataCreator extends GridPane {
 	}
 	
 	private void sendNumLives() {
-		myGeneralModel.addData(new Pair<String, String>(myResources.getString(NUM_LIVES), myNumLivesInput.getText()));
+		myGeneralModel.addData(new Pair<String, String>("Number of Lives", myNumLivesInput.getText()));
 	}
 	
 	private void sendNumLevels() {
