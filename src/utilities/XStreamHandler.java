@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class XStreamHandler {
 	//TODO: Remove duplicate code using generics
+	// TODO: delete me
 	
 	public SpriteMakerModel getAttributeFromFile() {
 		XStream xstream = new XStream(new DomDriver());
