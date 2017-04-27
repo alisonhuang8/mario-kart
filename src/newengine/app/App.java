@@ -53,7 +53,7 @@ public class App extends Application {
 		//List<Sprite> listSprites = spriteModel.getSprites();
 		//System.out.println(listSprites.size());
 		for (Sprite s : listSprites) {
-			System.out.println("Looping");
+			//System.out.println("Looping");
 			//System.out.println(s.getComponent(Images.TYPE).get().image().getFileName());
 		}
 		
