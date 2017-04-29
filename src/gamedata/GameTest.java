@@ -15,7 +15,7 @@ public class GameTest extends Application {
 		DeveloperData data = new DeveloperData();
 		
 		
-		
+			
 //		String filepath = "data/XMLfiles/game_test.xml";
 //		GameCreator creator = new GameCreator(filepath);
 //		Game game = creator.getGame();
