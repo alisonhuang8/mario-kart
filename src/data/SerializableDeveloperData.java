@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import gamecreation.level.LevelData;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 
 /**
  * @author tahiaemran
@@ -23,38 +24,32 @@ public class SerializableDeveloperData {
 	private SpritesForScreenUse screenSprites; 
 //	private String gameName; 
 //	private String gameIconFile; 
-	
-	DeveloperData dataToTranslate; // TODO: see if this serializes ok 
-	
+		
 	public SerializableDeveloperData(DeveloperData data){
-		this.dataToTranslate = data; 
 		this.screenSprites = data.getScreenSprites();
-		configData(); 
-		configSprites(); 
-		configLevels(); 
+		configData(data.getAllData()); 
+		configSprites(data.getSprites()); 
+		configLevels(data.getLevelData()); 
 		
 	}
 
 
-	private void configLevels() {
-		ObservableList<LevelData> levels = dataToTranslate.getLevelData();
+	private void configLevels(ObservableList<LevelData> observableList) {
 		myLevels = new ArrayList<LevelData>();
-		myLevels = levels.stream().collect(Collectors.toList());
+		myLevels = observableList.stream().collect(Collectors.toList());
 	}
 
 
-	private void configSprites() {
-		ObservableList<SpriteMakerModel> spriteData = dataToTranslate.getSprites();
+	private void configSprites(ObservableList<SpriteMakerModel> observableList) {
 		mySprites = new ArrayList<SpriteMakerModel>();
-		mySprites = spriteData.stream().collect(Collectors.toList());
+		mySprites = observableList.stream().collect(Collectors.toList());
 	}
 
-	private void configData() {
+	private void configData(ObservableMap<String, String> observableMap) {
 		gameData = new HashMap<String, String>();	
-		for (String dataName: dataToTranslate.getAllData().keySet()){
-			gameData.put(dataName, dataToTranslate.getAllData().get(dataName));
+		for (String dataName: observableMap.keySet()){
+			gameData.put(dataName,observableMap.get(dataName));
 		}
-		
 
 	}
 	
