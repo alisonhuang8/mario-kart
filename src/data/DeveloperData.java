@@ -82,21 +82,5 @@ public class DeveloperData {
 		return myData;
 	}
 	
-	public void setGameName(String name){
-		this.gameName = name;
-	}
-	
-	public String getGameName(){
-		return gameName;
-	}
-	
-	public void setGameIcon(String filepath){
-		gameIconFilePath = filepath;
-	}
-	
-	public String getGameIcon(){
-		return gameIconFilePath;
-	}
-	
 	
 }
