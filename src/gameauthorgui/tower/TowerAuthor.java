@@ -15,6 +15,7 @@ import utilities.XStreamHandler;
 
 /**
  * 
+ * 
  */
 public class TowerAuthor extends GameAuthor {
 	private static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
