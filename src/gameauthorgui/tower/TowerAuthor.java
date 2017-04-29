@@ -3,14 +3,15 @@ import java.util.ResourceBundle;
 
 import data.DeveloperData;
 import data.ScreenModelData;
+import data.SerializableDeveloperData;
 import gameDevelopmentInterface.BackgroundSetter;
 import gameDevelopmentInterface.GeneralDataCreator;
 import gameDevelopmentInterface.ScreenModelCreator;
 import gameDevelopmentInterface.spriteCreator.SpriteCreationScreen;
 import gameauthorgui.DeveloperStep;
 import gameauthorgui.GameAuthor;
-import gameauthorgui.WelcomeScreen;
 import gamecreation.level.LevelCreationPane;
+import utilities.XStreamHandler;
 
 /**
  * 
@@ -42,6 +43,13 @@ public class TowerAuthor extends GameAuthor {
 		addStep(new DeveloperStep(myResources.getString("SPAWNER_CREATION"),new SpawnerCreationScreen(myModelData)));
 		addStep(new DeveloperStep(myResources.getString("GENERAL_DATA"), myGeneralDataCreator));
 		addStep(new DeveloperStep(myResources.getString("SCREEN_SETTING"), new ScreenModelCreator(myModelData.getScreenSprites(),myGeneralDataCreator, myScreenModelData)));
+	}
+
+	@Override
+	public void save() {
+		SerializableDeveloperData serializableData = new SerializableDeveloperData(myModelData);
+		XStreamHandler XSH = new XStreamHandler(); 
+		XSH.saveToFile(serializableData);
 	}
 	
 }
