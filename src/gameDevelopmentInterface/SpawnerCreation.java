@@ -48,6 +48,7 @@ public class SpawnerCreation extends BorderPane {
 	}
 	
 	public void setCurrentMonsterToSpawn(SpriteMakerModel monster) {
+		monster.addComponent(new Position(0.1,0.1,0));
 		spriteToSpawn = monster;
 	}
 	
@@ -57,7 +58,7 @@ public class SpawnerCreation extends BorderPane {
 		spawnerData.addComponent(new GameBus());
 		spawnerData.addComponent(new SkillSet(spawnerSkills));
 		spawnerData.addComponent(new Owner(new Player("Spawner")));
-		spawnerData.addComponent(new Position(new GamePoint(100, 100), 0));
+		spawnerData.addComponent(new Position(new GamePoint(0.1, 0.1), 0));
 		spawnerData.addComponent(new Spawner(myMonsterAdder.getNumMonsters(), new Path(), 0.5));
 		return spawnerData;
 	}

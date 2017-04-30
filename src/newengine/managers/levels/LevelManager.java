@@ -1,21 +1,24 @@
 package newengine.managers.levels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bus.EventBus;
 import gamecreation.level.ILevelData;
-import gamecreation.level.LevelData;
+import gamedata.AuthDataTranslator;
+import newengine.events.SpriteModelEvent;
 import newengine.events.conditions.EndConditionTriggeredEvent;
 import newengine.events.conditions.SetEndConditionEvent;
-import newengine.events.spawner.SpawnPrefEvent;
+import newengine.sprite.Sprite;
+import newengine.sprite.components.Spawner;
 
 public class LevelManager{
 	private EventBus bus;
-	private List<LevelData> data;
+	private List<ILevelData> data;
 	private int numLevels;
 	private int currentLevel;
 	
-	public LevelManager(EventBus bus, List<LevelData> data){
+	public LevelManager(EventBus bus, List<ILevelData> data){
 		this.bus = bus;
 		this.data = data;
 		this.currentLevel = 1;
@@ -55,7 +58,16 @@ public class LevelManager{
 	private void loadLevel(ILevelData newLevel){
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETWIN, newLevel.getWinningCondition()));
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETLOSE, newLevel.getLosingCondition()));
-		bus.emit(new SpawnPrefEvent(SpawnPrefEvent.SETPREFS, newLevel.getSpawnTime()));	
+		
+		List<Sprite> spritesToAdd = new ArrayList<Sprite>();
+		newLevel.getSpawners().stream().forEach(e -> {
+			AuthDataTranslator translator = new AuthDataTranslator(e);
+			System.out.println("SPAWNER" + translator.getSprite().getID());
+			spritesToAdd.add(translator.getSprite());
+		});
+		
+		spritesToAdd.stream().forEach(e -> e.getComponent(Spawner.TYPE).get().setSpawnTime(newLevel.getSpawnTime()));
+		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToAdd));
 	}
 
 }

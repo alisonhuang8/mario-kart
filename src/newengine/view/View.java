@@ -158,6 +158,8 @@ public class View {
 			GamePoint spritePos = sprite.getComponent(Position.TYPE).get().pos();
 			sprite.getComponent(Images.TYPE).ifPresent((imagesComponent) -> {
 				LtubImage image = imagesComponent.image();
+				System.out.println(spritePos);
+				//GamePoint gamePos = new GamePoint(0,0);
 				GamePoint gamePos = new GamePoint(spritePos.x() - image.getImagePivot().x(), 
 						spritePos.y() - image.getImagePivot().y());
 				ViewPoint viewPos = camera.gameToView(gamePos);

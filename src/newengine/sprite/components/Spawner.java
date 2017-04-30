@@ -41,6 +41,10 @@ public class Spawner extends Component {
 	public ComponentType<? extends Component> getType() {
 		return TYPE;
 	}
+	
+	public void setSpawnTime(double spawnTime){
+		secondsBetween = spawnTime;
+	}
 
 	@Override
 	public Component clone() {

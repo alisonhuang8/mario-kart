@@ -26,6 +26,9 @@ public class SerializableDeveloperData {
 	private String gameName; 
 	private String gameIconFile; 
 	
+	private int numRows; 
+	private int numCols;
+	
 	//DeveloperData dataToTranslate; // TODO: see if this serializes ok 
 	
 	public SerializableDeveloperData(DeveloperData data){
@@ -33,7 +36,17 @@ public class SerializableDeveloperData {
 		configData(data.getAllData()); 
 		configSprites(data.getSprites()); 
 		myLevels = data.getReadOnlyLevelData();
+		numRows = data.getNumRows();
+		numCols = data.getNumCols();
 		
+	}
+	
+	public int getNumRows(){
+		return numRows;
+	}
+	
+	public int getNumCols(){
+		return numCols;
 	}
 
 

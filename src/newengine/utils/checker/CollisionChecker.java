@@ -34,6 +34,7 @@ public class CollisionChecker {
 		List<GamePoint> bound1 = s1.getComponent(Collidable.TYPE).get().boundPoints();
 		List<GamePoint> bound2 = s2.getComponent(Collidable.TYPE).get().boundPoints();
 		Polygon polygon1 = getFXPolygon(bound1, pos1);
+		System.out.println("sprite: " + s2 + " pos2 " + pos2);
 		Polygon polygon2 = getFXPolygon(bound2, pos2);
 		return polygon1.intersects(polygon2.getBoundsInLocal());
 	}

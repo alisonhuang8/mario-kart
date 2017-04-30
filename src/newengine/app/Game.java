@@ -3,6 +3,7 @@ import java.util.List;
 
 import bus.BasicEventBus;
 import bus.EventBus;
+import gamecreation.level.ILevelData;
 import gamecreation.level.LevelData;
 import javafx.scene.Scene;
 import newengine.events.GameInitializationEvent;
@@ -32,7 +33,7 @@ public class Game {
 	private View view;
 	private boolean mapInitialized = false;
 	
-	public Game(List<LevelData> levels){
+	public Game(List<ILevelData> list){
 		SpriteModel spriteModel = new SpriteModel(bus);
 		PlayerStatsModel playerStatsModel = new PlayerStatsModel(bus); // TODO CONNECT PLAYER AND PLAYERSTATSMODEL
 		PlayerRelationModel playerRelationModel = new PlayerRelationModel(bus);
@@ -52,7 +53,7 @@ public class Game {
 		TriggerManager triggerManager = new TriggerManager(bus, models);
 		TimerManager timerManager = new TimerManager(bus);
 		ConditionManager conditionManager = new ConditionManager(bus,spriteModel, playerStatsModel, playerRelationModel);
-		LevelManager levelManager = new LevelManager(bus, levels);
+		LevelManager levelManager = new LevelManager(bus, list);
 		
 		gameLoop.addLoopComponent((dt) -> collisionManager.checkCollisions(spriteModel.getSprites()));
 		gameLoop.addLoopComponent((dt) -> rangeManager.checkRanges(spriteModel.getSprites()));

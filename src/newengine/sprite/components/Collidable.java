@@ -39,6 +39,7 @@ public class Collidable extends Component {
 			// TODO
 		}
 	}
+
 	
 	/**
 	 * Get a list of points representing the polygon collision bound.

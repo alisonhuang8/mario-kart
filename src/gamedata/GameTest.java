@@ -11,9 +11,10 @@ public class GameTest extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// make a file chooser?
 		// create game from file 
-		String filepath = "data/XMLfiles/trash.xml";
+		String filepath = "src/FirstGameData.xml";
 		GameCreator creator = new GameCreator(filepath);
 		Game game = creator.getGame();
+	
 		
 		primaryStage.setScene(game.getScene());
 		game.start();

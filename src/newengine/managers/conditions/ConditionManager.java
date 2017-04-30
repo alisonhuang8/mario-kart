@@ -24,8 +24,8 @@ public class ConditionManager {
 	} 
 	
 	private void initHandlers() {
-		bus.on(SetEndConditionEvent.SETWIN, (e) -> {this.winning = setModels(e.getCondition());});
-		bus.on(SetEndConditionEvent.SETLOSE, (e) -> {this.losing = setModels(e.getCondition());});
+		bus.on(SetEndConditionEvent.SETWIN, (e) -> {System.out.println("help"); this.winning = setModels(new NoMonstersCondition());});//this.winning = setModels(e.getCondition());});
+		bus.on(SetEndConditionEvent.SETLOSE, (e) -> {System.out.println("help2"); this.losing = setModels(new NoLivesCondition());}); //this.losing = setModels(e.getCondition());});
 	}
 
 	public void checkConditions() {

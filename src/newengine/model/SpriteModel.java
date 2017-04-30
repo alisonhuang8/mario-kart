@@ -12,6 +12,7 @@ import newengine.events.trigger.SpriteTriggerActionEvent;
 import newengine.events.trigger.SpriteTriggerRegisterEvent;
 import newengine.sprite.Sprite;
 import newengine.sprite.SpriteID;
+import newengine.sprite.components.Spawner;
 /**
  * A container for sprites.
  * @author keping
@@ -32,6 +33,10 @@ public class SpriteModel {
 	
 	private void initHandlers() {
 		bus.on(SpriteModelEvent.ADD, (e) -> {
+			//FIXME: delete print statement
+			if(e.getSprites().size() > 0){
+			System.out.println("SPRITE ADDED TO MODEL");//+ e.getSprites().get(0).getComponent(Spawner.TYPE).isPresent());
+			}
 			addSprite(e.getSprites());
 		});
 		bus.on(SpriteModelEvent.REMOVE, (e) -> {

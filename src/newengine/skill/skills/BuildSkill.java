@@ -54,8 +54,13 @@ public class BuildSkill extends Skill {
 	
 	@Override
 	public void trigger() {
-		AuthDataTranslator translator = new AuthDataTranslator(mySpriteMakerModel);
-		Sprite spriteToCreate = translator.getSprite();
+		List<SpriteMakerModel> tempList = new ArrayList<>();
+		tempList.add(mySpriteMakerModel);
+		System.out.println(mySpriteMakerModel == null);
+		AuthDataTranslator translator = new AuthDataTranslator(tempList, 8, 8);
+		translator.translate();
+		List<Sprite> spritesToCreate =translator.getTranslated();
+		Sprite spriteToCreate = spritesToCreate.get(0);
 		Player player = getSource().get().getComponent(Owner.TYPE).get().player();
 		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
 			int cost = spriteToCreate.getComponent(Cost.TYPE).get().getCost();
