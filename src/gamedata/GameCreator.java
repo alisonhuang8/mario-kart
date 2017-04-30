@@ -17,8 +17,10 @@ import newengine.events.player.MainPlayerEvent;
 import newengine.events.stats.ChangeLivesEvent;
 import newengine.events.stats.ChangeWealthEvent;
 import newengine.model.PlayerStatsModel.WealthType;
+import newengine.skill.skills.BuildSkill;
 import newengine.sprite.Sprite;
 import newengine.sprite.components.Owner;
+import newengine.sprite.components.SkillSet;
 import player.helpers.GameLoadException;
 import utilities.XStreamHandler;
 
@@ -60,6 +62,9 @@ public class GameCreator {
 
 			// Read out the game 
 			SerializableDeveloperData gameData = (SerializableDeveloperData) xstream.fromXML(gameFile);
+			SkillSet skillSet = (SkillSet) gameData.getLevels().get(0).getSpawners().get(0).getComponentByType(SkillSet.TYPE);
+			BuildSkill bSkill = (BuildSkill) skillSet.getSkill(BuildSkill.TYPE);
+			System.out.println(bSkill.getModel().getName());
 			//Process Levels
 			List<ILevelData> levels = gameData.getLevels();
 			System.out.println(levels.get(0).getName());
@@ -93,7 +98,7 @@ public class GameCreator {
 	private void createGame() {
 		// Read out the game 
 		SerializableDeveloperData gameData = (SerializableDeveloperData) xstream.fromXML(fileToRead);
-	
+		System.out.println(gameData.getSprites().size());
 		//Process Levels
 		List<ILevelData> levels = gameData.getLevels();
 		System.out.println(levels.get(0).getName());
@@ -102,7 +107,6 @@ public class GameCreator {
 		EventBus bus = game.getBus();
 		//Process Sprites 
 		List<SpriteMakerModel> initialSpriteModels =  gameData.getSprites();
-		//TranslationController translator = new TranslationController(initialSpriteModels); 
 		AuthDataTranslator translator =new AuthDataTranslator(initialSpriteModels, gameData.getNumCols(), gameData.getNumRows());
 		translator.translate();
 		List<Sprite> createdSprites = (List<Sprite>) translator.getTranslated();  

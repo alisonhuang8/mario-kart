@@ -137,6 +137,7 @@ public class App extends Application {
 		
 		SpriteMakerModel child = new SpriteMakerModel();
 		Map<SkillType<? extends Skill>, Skill> childSkillMap = new HashMap<>();
+		childSkillMap.put(MoveSkill.TYPE, new MoveSkill());
 		child.addComponent(new GameBus());
 		child.addComponent(new SkillSet(childSkillMap));
 		child.addComponent(new Owner(player1));
@@ -145,6 +146,7 @@ public class App extends Application {
 		child.addComponent(new Health(100));
 		child.addComponent(new EventQueue(new LinkedList<>()));
 		child.addComponent(new PathFollower(new Path()));
+		child.addComponent(new Position(0.1,0.1, 0));
 
 		
 		
@@ -161,7 +163,7 @@ public class App extends Application {
 		sprite2.addComponent(new Owner(player1));
 		sprite2.addComponent(new Position(new GamePoint(100, 100), 0));
 		
-		sprite2.addComponent(new Spawner(10, new Path(), 0.1));
+		sprite2.addComponent(new Spawner(10, new Path(), 1.0));
 
 
 		

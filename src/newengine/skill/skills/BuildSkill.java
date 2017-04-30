@@ -54,28 +54,45 @@ public class BuildSkill extends Skill {
 	
 	@Override
 	public void trigger() {
+//		List<SpriteMakerModel> tempList = new ArrayList<>();
+//		tempList.add(mySpriteMakerModel);
+//		System.out.println(mySpriteMakerModel == null);
+//		AuthDataTranslator translator = new AuthDataTranslator(tempList, 8, 8);
+//		translator.translate();
+//		List<Sprite> spritesToCreate = translator.getTranslated();
+//		Sprite spriteToCreate = spritesToCreate.get(0);
+//		Player player = getSource().get().getComponent(Owner.TYPE).get().player();
+//		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
+//			int cost = spriteToCreate.getComponent(Cost.TYPE).get().getCost();
+//			getSource().get().getComponent(GameBus.TYPE).ifPresent((gameBusComponent) -> {
+//				gameBusComponent.getGameBus().emit(
+//						new CheckCostAndBuildEvent(cost, player, () -> {
+//							buildSprite(spriteToCreate, player, cost);
+//						}));
+//			});
+//		} else {
+//			buildSprite(spriteToCreate, player, 0); // cost 0
+//		}
+		
 		List<SpriteMakerModel> tempList = new ArrayList<>();
 		tempList.add(mySpriteMakerModel);
-		System.out.println(mySpriteMakerModel == null);
-		AuthDataTranslator translator = new AuthDataTranslator(tempList, 8, 8);
-		translator.translate();
-		List<Sprite> spritesToCreate =translator.getTranslated();
-		Sprite spriteToCreate = spritesToCreate.get(0);
-		Player player = getSource().get().getComponent(Owner.TYPE).get().player();
-		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
-			int cost = spriteToCreate.getComponent(Cost.TYPE).get().getCost();
-			getSource().get().getComponent(GameBus.TYPE).ifPresent((gameBusComponent) -> {
-				gameBusComponent.getGameBus().emit(
-						new CheckCostAndBuildEvent(cost, player, () -> {
-							buildSprite(spriteToCreate, player, cost);
-						}));
-			});
-		} else {
-			buildSprite(spriteToCreate, player, 0); // cost 0
+		
+		AuthDataTranslator translator = new AuthDataTranslator(tempList, 8,8);
+		Sprite spriteToCreate = translator.getSprite();
+		System.out.println("Build skill triggered");
+		Target target = this.getTarget().get();
+		// can override previous Position component
+		//spriteToCreate.addComponent(new Position(target.getLocation(), 0));
+		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
+			List<Sprite> spritesToCreate = new ArrayList<>();
+			//spritesToCreate.add(spriteToCreate.clone());
+			this.getSource().get().getComponent(GameBus.TYPE).get().getGameBus()
+					.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spriteToCreate));
 		}
 
 		
-//		AuthDataTranslator translator = new AuthDataTranslator(mySpriteModel);
+		
+//		AuthDataTranslator translator = new AuthDataTranslator(tempList, 8,8);
 //		Sprite spriteToCreate = translator.getSprite();
 //		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
 //			int cost = spriteToCreate.getComponent(Cost.TYPE).get().getCost();
@@ -90,9 +107,11 @@ public class BuildSkill extends Skill {
 	}
 	
 	private void buildSprite(Sprite spriteToCreate, Player player, int cost) {
-		Target target = this.getTarget().get();
-		// can override previous Position component
-		spriteToCreate.addComponent(new Position(target.getLocation(), 0));
+//		Target target = this.getTarget().get();
+//		// can override previous Position component
+//		double x = target.getLocation().x();
+//		double y = target.getLocation().y();
+//		spriteToCreate.addComponent(new Position(x,y, 0));
 		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
 			List<Sprite> spritesToCreate = new ArrayList<>();
 			spritesToCreate.add(spriteToCreate.clone());

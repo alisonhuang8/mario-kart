@@ -87,7 +87,9 @@ public class Sprite {
 	@Override
 	public Sprite clone() {
 		Sprite newSprite = new Sprite();
-		for (Component component : new ArrayList<Component>(components.values())) {
+		System.out.println("outside for");
+		for (Component component : newSprite.components.values()) {
+			System.out.println("Inside for");
 			Component newComponent = component.clone();
 			newSprite.addComponent(newComponent);
 		}

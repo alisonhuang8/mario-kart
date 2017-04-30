@@ -27,7 +27,7 @@ import newengine.sprite.component.ComponentType;
 import newengine.utils.Target;
 public class Position extends Component {
 	public static final ComponentType<Position> TYPE = new ComponentType<>(Position.class.getName());
-	private GamePoint pos;
+	private GamePoint myPos;
 	private double heading;
 	@XStreamOmitField
 	private Target target;
@@ -35,7 +35,8 @@ public class Position extends Component {
 	private boolean followingSprite = false;
 
 	public Position(GamePoint pos, double heading) {
-		this.pos = pos;
+		myPos = pos;
+		System.out.println(myPos.x() + " " + myPos.y());
 		this.heading = heading;
 	}
 
@@ -80,11 +81,12 @@ public class Position extends Component {
 		GamePoint pDest = getFollowingPoint();
 		updateMovePosition(dt, pDest);
 	}
+	
 	private void updateMovePosition(double dt, GamePoint pDest) {
 		double xDest = pDest.x();
 		double yDest = pDest.y();
-		double x = pos.x();
-		double y = pos.y();
+		double x = myPos.x();
+		double y = myPos.y();
 		if (MathUtils.doubleEquals(x, xDest) && MathUtils.doubleEquals(y, yDest)) {
 			if (sprite.getComponent(Weapon.TYPE).isPresent()){
 				System.out.println("weapon reaches target");
@@ -95,12 +97,12 @@ public class Position extends Component {
 		}
 		double xDiff = xDest - x;
 		double yDiff = yDest - y;
-		double dist = pos.distFrom(pDest);
+		double dist = myPos.distFrom(pDest);
 		double speed = sprite.getComponent(Speed.TYPE).get().speed();
 
 		if (speed * dt > dist) {
 			// arrives at destination at this frame.
-			pos = new GamePoint(xDest, yDest);
+			myPos = new GamePoint(xDest, yDest);
 			target.getSprite().ifPresent((targetSprite) -> {
 				System.out.println("weapon reaches target");
 				targetSprite.emit(new MoveEvent(MoveEvent.STOP, sprite, target));
@@ -119,7 +121,7 @@ public class Position extends Component {
 			vx = speed / dist * xDiff;
 			vy = speed / dist * yDiff;
 		}
-		pos = new GamePoint(x + vx * dt, y + vy * dt);
+		myPos = new GamePoint(x + vx * dt, y + vy * dt);
 		return;
 	}
 
@@ -130,10 +132,10 @@ public class Position extends Component {
 
 	@Override
 	public Position clone() {
-		return new Position(pos, heading);
+		return new Position(myPos, heading);
 	}
 	public GamePoint pos() {
-		return pos;
+		return myPos;
 	}
 	public double heading() {
 		return heading;
@@ -186,8 +188,8 @@ public class Position extends Component {
 	@Override
 	public Object[] getParameters() {
 		Object[] parameters=new Object[3];
-		parameters[0]=pos.x();
-		parameters[1]=pos.y();
+		parameters[0]=myPos.x();
+		parameters[1]=myPos.y();
 		parameters[2]=heading;
 		return parameters;
 	}
