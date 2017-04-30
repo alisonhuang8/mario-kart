@@ -2,7 +2,7 @@
   <gameData>
     <entry>
       <string>LEVEL_COMPLETION</string>
-      <string>500</string>
+      <string>100</string>
     </entry>
     <entry>
       <string>GAME_ICON</string>
@@ -14,7 +14,7 @@
     </entry>
     <entry>
       <string>NUM_GOLD</string>
-      <string>1000</string>
+      <string>100</string>
     </entry>
     <entry>
       <string>BUILD_IN_GAME</string>
@@ -22,14 +22,14 @@
     </entry>
     <entry>
       <string>GAME_NAME</string>
-      <string>MorningTest</string>
+      <string></string>
     </entry>
   </gameData>
   <mySprites/>
   <myLevels>
     <gamecreation.level.SerializableLevelData>
-      <name>Morning test</name>
-      <spawnTime>1.0743801652892562</spawnTime>
+      <name>level</name>
+      <spawnTime>3.1404958677685944</spawnTime>
       <spawners>
         <data.SpriteMakerModel>
           <myComponents>
@@ -39,7 +39,7 @@
               </newengine.sprite.component.ComponentType>
               <newengine.sprite.components.Spawner>
                 <secondsBetween>0.5</secondsBetween>
-                <totalNumber>10</totalNumber>
+                <totalNumber>5</totalNumber>
                 <needToSpawn>true</needToSpawn>
               </newengine.sprite.components.Spawner>
             </entry>
@@ -17772,7 +17772,7 @@ z9HO0NLP0dPQ0dPQ0NLPz9HO0NLP0dPQ0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN
                           </platformImage>
                         </image>
                       </icon>
-                      <mySpriteMakerModel>
+                      <mySpriteModel>
                         <myComponents>
                           <entry>
                             <newengine.sprite.component.ComponentType>
@@ -17813,10 +17813,10 @@ z9HO0NLP0dPQ0dPQ0NLPz9HO0NLP0dPQ0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN
                               <typename>newengine.sprite.components.Position</typename>
                             </newengine.sprite.component.ComponentType>
                             <newengine.sprite.components.Position>
-                              <pos>
+                              <myPos>
                                 <x>0.1</x>
                                 <y>0.1</y>
-                              </pos>
+                              </myPos>
                               <heading>0.0</heading>
                               <isMoving>false</isMoving>
                               <followingSprite>false</followingSprite>
@@ -17894,10 +17894,10 @@ z9HO0NLP0dPQ0dPQ0NLPz9HO0NLP0dPQ0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN
                           <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
                           <newengine.sprite.components.Collidable reference="../../myComponents/entry[8]/newengine.sprite.components.Collidable"/>
                           <newengine.sprite.components.Position>
-                            <pos>
+                            <myPos>
                               <x>0.1</x>
                               <y>0.1</y>
-                            </pos>
+                            </myPos>
                             <heading>0.0</heading>
                             <isMoving>false</isMoving>
                             <followingSprite>false</followingSprite>
@@ -17905,20 +17905,19 @@ z9HO0NLP0dPQ0dPQ0NLPz9HO0NLP0dPQ0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN0dLN
                           <newengine.sprite.components.Position reference="../../myComponents/entry[5]/newengine.sprite.components.Position"/>
                         </actualComponents>
                         <skills/>
-                      </mySpriteMakerModel>
-                      <skillType reference="../../newengine.skill.SkillType"/>
+                      </mySpriteModel>
                     </newengine.skill.skills.BuildSkill>
                   </entry>
                 </skills>
               </newengine.sprite.components.SkillSet>
             </entry>
             <entry>
-              <newengine.sprite.component.ComponentType reference="../../entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.skills.BuildSkill/mySpriteMakerModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.component.ComponentType reference="../../entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.skills.BuildSkill/mySpriteModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.Position>
-                <pos>
+                <myPos>
                   <x>0.1</x>
                   <y>0.1</y>
-                </pos>
+                </myPos>
                 <heading>0.0</heading>
                 <isMoving>false</isMoving>
                 <followingSprite>false</followingSprite>
