@@ -10,9 +10,11 @@ import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -70,6 +72,7 @@ public class View {
 	private StateDisplay stateDisplay;
 	private UpgradeBtn upgradeBtn;
 	private Canvas selectionCanvas; 
+	private BackgroundImage bgImage;
 
 	public View(EventBus bus, Camera camera) {		
 		this.bus = bus;
@@ -81,6 +84,10 @@ public class View {
 		gameWorldCanvas = new Canvas(canvasWidth, canvasHeight);
 		bottomPane = new HBox();
 		root.getChildren().addAll(statsPanel, gameWorldCanvas, bottomPane);
+		bgImage = new BackgroundImage(new Image("images/games/background.jpg"), BackgroundRepeat.REPEAT, 
+				BackgroundRepeat.REPEAT, null, null);
+		root.setBackground(new Background(bgImage));
+		
 		// selected sprite
 		Canvas selectionCanvas = new Canvas(selectionWidth, selectionHeight);
 		bottomPane.getChildren().add(selectionCanvas);
