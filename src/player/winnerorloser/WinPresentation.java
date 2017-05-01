@@ -57,12 +57,14 @@ public class WinPresentation implements ResultPresentation{
 		
 		vbButtons.getChildren().add(playButton);
 		vbButtons.getChildren().add(exitButton);
-		
-		vbTexts.getChildren().add(getText("For this game:    " + result.getGameName()));
-		vbTexts.getChildren().add(getText("You get the score:   " + result.getPoint()));
-		vbTexts.getChildren().add(getText("Your health is:    " + result.getHealth()));
+		vbTexts.getChildren().add(getText("Congratulations!"));
 		root.getChildren().add(vbTexts);
 		
+//		vbTexts.getChildren().add(getText("For this game:    " + result.getGameName()));
+//		vbTexts.getChildren().add(getText("You get the score:   " + result.getPoint()));
+//		vbTexts.getChildren().add(getText("Your health is:    " + result.getHealth()));
+//		root.getChildren().add(vbTexts);
+//		
 		root.getChildren().addAll(vbButtons);
 		//TODO : add animation and background
 		Scene scene = new Scene(root);
@@ -93,7 +95,7 @@ public class WinPresentation implements ResultPresentation{
 		
 		splash = new Text(10,50,message);
 		splash.setFont(Font.font(25));
-		splash.setFill(Color.DARKVIOLET);
+		splash.setFill(Color.BLACK);
 		return splash;
 	}
 

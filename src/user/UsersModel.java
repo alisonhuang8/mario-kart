@@ -32,6 +32,7 @@ public class UsersModel {
 	//TODO: finish this 
 	private User currentUser; 
 	private UserSocialPage currentUserPage; 
+	private Scene userScene;
 	// when they save a game, add it to their game history 
 	// when they play a game, add it to their game played history 
 
@@ -66,6 +67,7 @@ public class UsersModel {
 		this.currentUser = usernameToData.getOrDefault(username, 
 				new User(username, "resources/maple.jpg", new MessagingHandler()));
 		this.currentUserPage = new UserSocialPage(currentUser);
+		userScene = new Scene(this.currentUserPage);
 	}
 
 	public User getCurrentUser() {
@@ -73,7 +75,7 @@ public class UsersModel {
 	}
 	
 	public Scene getUserSocialPage() {
-		return new Scene(this.currentUserPage);
+		return userScene;
 	}
 
 	public void verifyUser(String username, String usernameandpassword){

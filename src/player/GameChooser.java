@@ -18,7 +18,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -43,7 +42,6 @@ public class GameChooser {
 	
 	public GameChooser(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		// gameFactory = new GameFactory();
 		initPresetGameChoices();
 		Scene scene = createScene();
 		primaryStage.setScene(scene);
@@ -51,8 +49,7 @@ public class GameChooser {
 	}
 
 	private void initPresetGameChoices() {	
-		presetGames.put("game1", new GameMetaData("game1", "images/games/supermario_logo.png", "filePath1"));
-		presetGames.put("game2", new GameMetaData("game2", "images/games/warcraft_logo.png", "filePath2"));
+		//No current preset game choices
 	}
 	
 	private Scene createScene() {
@@ -102,7 +99,7 @@ public class GameChooser {
 				startGame(fileChosen);
 			}
 		});
-		getRotation(button);
+		// getRotation(button);
 		return button;
 	}
 	

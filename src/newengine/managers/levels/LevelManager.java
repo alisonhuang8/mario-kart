@@ -14,7 +14,6 @@ import newengine.events.levels.SetLevelEvent;
 import newengine.events.levels.WinGameEvent;
 import newengine.sprite.Sprite;
 import newengine.sprite.components.Spawner;
-import player.winnerorloser.WinPresentation;
 
 public class LevelManager{
 	private EventBus bus;
@@ -53,7 +52,8 @@ public class LevelManager{
 			loadLevel(data.get(currentLevel-1));
 			return;
 		}
-			new WinPresentation();
+			
+			//new WinPresentation().show(new ResultAccessor());
 			
 			bus.emit(new WinGameEvent(WinGameEvent.WIN));
 	}

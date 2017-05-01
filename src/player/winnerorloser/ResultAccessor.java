@@ -9,8 +9,7 @@ package player.winnerorloser;
  */
 public class ResultAccessor {
 	
-	//TODO : get result from the game
-	
+
 	double getHealth() {
 		return 0;
 	}

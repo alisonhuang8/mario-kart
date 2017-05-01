@@ -17,8 +17,9 @@ import user.UsersModel;
 public class MainMenu {
 	
 	public static final String CSS_LOCATION = "/styleSheets/login.css";
-
 	public static final String STATIC_IMAGE = "/resources/health.jpg";
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 150;
 
 	private Stage primaryStage;
 	private UsersModel usersModel;
@@ -48,27 +49,32 @@ public class MainMenu {
 //		AnimationImage im = new AnimationImage();
 		
 		HBox hBox = new HBox();
-		hBox.getChildren().add(new ImageView(new Image(STATIC_IMAGE)));//im.getImageView());
+		//hBox.getChildren().add(new ImageView(new Image(STATIC_IMAGE)));//im.getImageView());
 		hBox.setLayoutX(300);
 		hBox.setLayoutY(200);
 		root.getChildren().add(hBox);
 		initHandlers();
-		scene = new Scene(root, App.WIDTH, App.HEIGHT);
+		scene = new Scene(root, WIDTH, HEIGHT);
 		scene.getStylesheets().setAll(CSS_LOCATION);
 		primaryStage.setScene(scene);
 	}
 
 	private void initHandlers() {
 		playGame.setOnMouseClicked((event) -> {
-			new GameChooser(primaryStage);
+			//new GameChooser(primaryStage);
+			new GameChooser(new Stage());
 		});
 		authorGame.setOnMouseClicked((event) -> {
+			Stage authorStage = new Stage();
 			TowerAuthor developerView = new TowerAuthor();
-			primaryStage.setScene(developerView.getScene());
-			primaryStage.setFullScreen(true);
+			authorStage.setScene(developerView.getScene());
+			authorStage.show();
+			//primaryStage.setFullScreen(true);
 		});
 		socialCenter.setOnMouseClicked((event) -> {
-			primaryStage.setScene(usersModel.getUserSocialPage());
+			Stage mediaStage = new Stage();
+			mediaStage.setScene(usersModel.getUserSocialPage());
+			mediaStage.show();
 		});
 	}
 	

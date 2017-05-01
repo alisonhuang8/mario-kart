@@ -90,7 +90,6 @@ public class BasicLevelCreator extends LevelCreator{
 		errorAlert.setHeaderText("Error in saving condition");
 		if(conditionBox.getValue().contains("(Input)")){
 			try {
-				System.out.println(map.get(conditionBox.getValue()).getConstructor(int.class).newInstance(Integer.parseInt(conditionBox.getTextInput())).getClass().getName());
 				return map.get(conditionBox.getValue()).getConstructor(int.class).newInstance(Integer.parseInt(conditionBox.getTextInput()));
 			} catch (Exception e) {
 				errorAlert.showAndWait();
@@ -98,7 +97,6 @@ public class BasicLevelCreator extends LevelCreator{
 		}
 		else{
 			try {
-				System.out.println( map.get(conditionBox.getValue()).newInstance().getClass().getName());
 				return map.get(conditionBox.getValue()).newInstance();
 			} catch (Exception e) {
 				errorAlert.showAndWait();
@@ -107,37 +105,4 @@ public class BasicLevelCreator extends LevelCreator{
 		return null;
 	}
 	
-//	private class ComboListener implements ChangeListener<String> {
-//		private ComboBoxParameterInput input;
-//		
-//		public ComboListener(ComboBoxParameterInput input){
-//			this.input = input;
-//		}
-//
-//		@Override
-//		public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//			if(input.getValue().contains("(Input)")){
-//				input.appendTextInput();
-//				input.getDoneButton().setOnAction(e -> createCondition());
-//			}
-//			else{
-//				input.removeTextInput();
-//				createCondition();
-//			}
-//		}
-//		
-//		private void createCondition(){
-//			try {
-//				if(input.getValue().contains("(Input)")
-//				
-//				getData().setWinningCondition(winningConditions.get(input.getValue()).newInstance());
-//			} catch(Exception exc){
-//				//FIXME
-//				exc.printStackTrace();
-//				System.out.println("Not a valid condition");
-//			}
-//		}
-//			
-//	}
-
 }
