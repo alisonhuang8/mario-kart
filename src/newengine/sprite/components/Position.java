@@ -89,7 +89,7 @@ public class Position extends Component {
 		sprite.getComponent(PathFollower.TYPE).ifPresent((pathFollower) -> {
 			
 			if (sprite.getComponent(EventQueue.TYPE).get().isEmpty()) {
-				System.out.println("sprite has stopped moving and reached end of path");
+				System.out.println("sprite" + sprite.getID() +  "has stopped moving and reached end of path");
 				sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new ChangeLivesEvent(ChangeLivesEvent.CHANGE,
 						sprite.getComponent(Owner.TYPE).get().player(), -1));
 				sprite.getComponent(GameBus.TYPE).get().getGameBus()
@@ -107,7 +107,7 @@ public class Position extends Component {
 		if (!sprite.getComponent(Speed.TYPE).isPresent()) {
 			return;
 		}
-		System.out.println(pos.x() + " " + pos.y());
+		//System.out.println(pos.x() + " " + pos.y());
 
 		double xDest = pDest.x();
 		double yDest = pDest.y();

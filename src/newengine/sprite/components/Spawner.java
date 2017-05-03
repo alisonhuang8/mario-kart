@@ -27,8 +27,8 @@ public class Spawner extends Component {
 	// FIXME don't need path actually
 	@ConstructorForDeveloper
 	public Spawner(@VariableName(name = "Monsters") int spritesToSpawn,
-			@VariableName(name = "Followed path") Path pathSpritesFollow,
 			@VariableName(name = "Spawn interval") double spawnBetweenTime, SpriteMakerModel spriteToSpawn) {
+		System.out.println("New spawner being made");
 		secondsBetween = spawnBetweenTime;
 		totalNumber = spritesToSpawn;
 		PathFollower pf = (PathFollower) spriteToSpawn.getComponentByType(PathFollower.TYPE);
@@ -41,12 +41,16 @@ public class Spawner extends Component {
 
 	public void onUpdated(double dt) {		
 		if (needToSpawn) {
+			System.out.println("NEED TO SPAWN: " + needToSpawn);
 			sprite.getComponent(GameBus.TYPE).get().getGameBus()
-			.emit(new PeriodicEvent(5, 3.0, () -> 
-			sprite.emit(new TriggerSkillEvent(BuildSkill.TYPE, new Target(startingPosition)))));
+			.emit(new PeriodicEvent(totalNumber, secondsBetween, () -> {
+			sprite.emit(new TriggerSkillEvent(BuildSkill.TYPE, new Target(startingPosition)));
+			System.out.println("BUILD SKILL IN PERIODIC EVENT TRIGGERED in SPAWNER");
+
+			}));
 			needToSpawn = false;
-			sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new DelayedEvent(DelayedEvent.ANY, totalNumber * secondsBetween + 10, 
-					() -> sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new SpawnerDoneEvent(SpawnerDoneEvent.DONE))));
+//			sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new DelayedEvent(DelayedEvent.ANY, totalNumber * secondsBetween + 10, 
+	//				() -> sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new SpawnerDoneEvent(SpawnerDoneEvent.DONE))));
 		}
 		
 	}

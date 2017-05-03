@@ -55,12 +55,6 @@ public class Sprite {
 	}
 
 	public void addComponent(Component component) {
-		if (component == null) {
-			System.out.println("component is null");
-		}
-		if (component.getType().equals(Images.TYPE)) {
-			System.out.println("Images component is getting added to the sprite");
-		}
 		components.put(component.getType(), component);
 		component.onAdded(this);
 	}

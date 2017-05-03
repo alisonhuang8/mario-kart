@@ -86,6 +86,7 @@ public class LevelManager{
 	}
 	
 	private void loadLevel(ILevelData newLevel){
+		System.out.println("LEVEL LOADED");
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETWIN, newLevel.getWinningCondition()));
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETLOSE, newLevel.getLosingCondition()));
 		
@@ -95,7 +96,9 @@ public class LevelManager{
 			return (new AuthDataTranslator(spriteMakerModel)).getSprite();
 		}).collect(Collectors.toList()));
 		
-
+		
+		System.out.println("Number of spawners: "+sprites.size());
+		System.out.println("SOURCE: LEVEL MANAGER SPAWNER");
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
 		
 		List<Sprite> pathSprites = new ArrayList<>();
@@ -123,6 +126,8 @@ public class LevelManager{
 				pathSprites.add(step);
 			}
 		}
+		System.out.println("PATH SPRITES:" + pathSprites.size());
+		System.out.println("SOURCE: LEVEL MANAGER PATH SPRITES");
 		
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, pathSprites));
 	}

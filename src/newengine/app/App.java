@@ -70,34 +70,34 @@ public class App extends Application {
 
 //		XStreamHandler xHandler = new XStreamHandler();
 //		XStream xStream = new XStream(new DomDriver());
-		
-		List<SpriteMakerModel> listSpriteModels = myData.getLevelData().get(0).getSpawners();
-		
-		//SpriteCreator jakeTestCreator = new SpriteCreator();
-		//List<SpriteMakerModel> listSpriteModels = jakeTestCreator.getSprites();// = translator.getSprites();
-		List<Sprite> listSprites = new ArrayList<>();
-		for (SpriteMakerModel smm : listSpriteModels) {
-			AuthDataTranslator translator = new AuthDataTranslator(smm);
-			listSprites.add(translator.getSprite());
-		}
-		Player player2 = new Player("Player 2");
+//		
+//		List<SpriteMakerModel> listSpriteModels = myData.getLevelData().get(0).getSpawners();
+//		
+//		//SpriteCreator jakeTestCreator = new SpriteCreator();
+//		//List<SpriteMakerModel> listSpriteModels = jakeTestCreator.getSprites();// = translator.getSprites();
+//		List<Sprite> listSprites = new ArrayList<>();
+//		for (SpriteMakerModel smm : listSpriteModels) {
+//			AuthDataTranslator translator = new AuthDataTranslator(smm);
+//			listSprites.add(translator.getSprite());
+//		}
+//		Player player2 = new Player("Player 2");
 
 
 
 		EventBus bus = game.getBus();
 
 		//List<Sprite> listSprites = spriteModel.getSprites();
-		//System.out.println(listSprites.size());
-		for (Sprite s : listSprites) {
-			//System.out.println(s.getComponent(SkillSet.TYPE).get().skills());
-		}
+//		//System.out.println(listSprites.size());
+//		for (Sprite s : listSprites) {
+//			//System.out.println(s.getComponent(SkillSet.TYPE).get().skills());
+//		}
 		
 		Sprite towerBuilder = new Sprite(new SpriteID("__TOWER_BUILDER"));
 		towerBuilder.addComponent(new GameBus());
 		towerBuilder.addComponent(new Owner(player1));
 		//towerBuilder.addComponent(createTowerBuilderSkillSet(player1));
 		towerBuilder.addComponent(new Images("images/characters/bahamut_right.png"));
-		listSprites.add(towerBuilder);
+	//	listSprites.add(towerBuilder);
 		
 		
 		
@@ -174,7 +174,7 @@ public class App extends Application {
 		monster.addComponent(new GameBus());
 		monster.addComponent(new EventQueue(new LinkedList<>()));
 		monster.addComponent(new SkillSet(skillMap2));
-		monster.addComponent(new Owner(player2));
+	//	monster.addComponent(new Owner(player2));
 		monster.addComponent(new PathFollower(new Path()));
 		monster.addComponent(new Position(new GamePoint(100, 100), 0));
 		monster.addComponent(new SoundEffect("data/sounds/Psyessr4.wav"));
@@ -236,9 +236,9 @@ public class App extends Application {
 			bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToAdd));
 			bus.emit(new MainPlayerEvent(player1));
 			bus.emit(new ChangeLivesEvent(ChangeLivesEvent.SET, player1, 3));
-			bus.emit(new ChangeLivesEvent(ChangeLivesEvent.SET, player2, 3));
+			//bus.emit(new ChangeLivesEvent(ChangeLivesEvent.SET, player2, 3));
 			bus.emit(new ChangeWealthEvent(ChangeWealthEvent.CHANGE, player1, WealthType.GOLD, 100));
-			bus.emit(new ChangeWealthEvent(ChangeWealthEvent.CHANGE, player2, WealthType.GOLD, 100));
+			//bus.emit(new ChangeWealthEvent(ChangeWealthEvent.CHANGE, player2, WealthType.GOLD, 100));
 			bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETWIN, new GoldMinimumCondition(1000)));
 			bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETLOSE, new NoLivesCondition()));
 		});

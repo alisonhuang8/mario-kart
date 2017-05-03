@@ -87,6 +87,7 @@ public class GameCreator {
 			bus.on(GameInitializationEvent.ANY, (e) -> {
 				bus.emit(new InitILevelsEvent(myData.getLevels()));
 				bus.emit(new SoundEvent(SoundEvent.BACKGROUND_MUSIC, "data/sounds/01-dark-covenant.mp3"));
+				System.out.println("SOURCE: GAME CREATOR");
 				bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
 				bus.emit(new MainPlayerEvent(userPlayer));
 				//bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, pathSprites));
@@ -110,32 +111,6 @@ public class GameCreator {
 	private boolean isTower(SpriteMakerModel smm){
 		Owner owner = (Owner) smm.getComponentByType(Owner.TYPE);
 		return owner.player().getName().equals("TOWERS");
-	}
-	
-	private List<Sprite> makePathSprites(List<Sprite> sprites){
-		List<Sprite> pathSprites = new ArrayList<>();
-		
-		
-		
-//		List<GamePoint> alreadyAdded = new ArrayList<>();
-//		for (Sprite sprite : sprites) {
-//			System.out.println("sprites path is being added " + sprite.getID());
-//			System.out.println(sprite.hasComponent(PathFollower.TYPE));
-//			sprite.getComponent(PathFollower.TYPE).ifPresent((pathFollower) -> {
-//				System.out.println("has path follower and makes points queue");
-//				Queue<GamePoint> points = pathFollower.getPath().getPath();
-//				while (!points.isEmpty()){
-//					if (alreadyAdded.contains(points.peek())) continue;
-//					Sprite step = new Sprite();
-//					step.addComponent(new Position(points.poll()));
-//					LtubImage ltubimage = new LtubImage("images/characters/Grass.jpg");
-//					step.addComponent(new Images(ltubimage));
-//					step.addComponent(new GameBus());
-//					pathSprites.add(step);
-//				}
-//			});
-//		}
-		return pathSprites;
 	}
 
 }

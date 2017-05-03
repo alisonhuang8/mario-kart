@@ -55,7 +55,7 @@ public class BuildSkill extends Skill {
 		this.mySpriteMakerModel = model;
 	}
 	
-	@Override
+	@Override                                                           
 	public void trigger() {
 //<<<<<<< HEAD
 //		
@@ -73,6 +73,7 @@ public class BuildSkill extends Skill {
 //=======
 		AuthDataTranslator translator = new AuthDataTranslator(mySpriteMakerModel);
 		Sprite spriteToCreate = translator.getSprite();
+		
 		Player player = getSource().get().getComponent(Owner.TYPE).get().player();
 		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
 			System.out.println("cost monney");
@@ -84,7 +85,7 @@ public class BuildSkill extends Skill {
 						}));
 			});
 		} else {
-			System.out.println("FREE");
+			System.out.println("CALL BUILD SPRITE FOR FREE");
 			buildSprite(spriteToCreate, player, 0); // cost 0
 		}
 
@@ -103,6 +104,26 @@ public class BuildSkill extends Skill {
 //		}
 	}
 	
+	private void buildSprite(SpriteMakerModel mySpriteMakerModel, Player player, int cost) {
+		Target target = this.getTarget().get();
+		// can override previous Position component
+		mySpriteMakerModel.addComponent(new Position(target.getLocation(), 0));
+		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
+			List<Sprite> spritesToCreate = new ArrayList<>();
+			AuthDataTranslator translator = new AuthDataTranslator(mySpriteMakerModel);
+			Sprite spriteToCreate = translator.getSprite();
+			spritesToCreate.add(spriteToCreate);
+			System.out.println("Size of spritesToCreate: " + spritesToCreate.size());
+			EventBus bus = this.getSource().get().getComponent(GameBus.TYPE).get().getGameBus();
+			// emit change wealth event besides check cost and build event, 
+			// only to utilize the already existing change wealth event handling 
+			bus.emit(new ChangeWealthEvent(ChangeWealthEvent.CHANGE, player, WealthType.GOLD, -cost));
+			System.out.println("SOURCE: BUILD SKILL");
+			bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToCreate));
+		}
+		
+	}
+
 	private void buildSprite(Sprite spriteToCreate, Player player, int cost) {
 		Target target = this.getTarget().get();
 		// can override previous Position component
@@ -110,10 +131,12 @@ public class BuildSkill extends Skill {
 		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
 			List<Sprite> spritesToCreate = new ArrayList<>();
 			spritesToCreate.add(spriteToCreate.clone());
+			System.out.println("Size of spritesToCreate: " + spritesToCreate.size());
 			EventBus bus = this.getSource().get().getComponent(GameBus.TYPE).get().getGameBus();
 			// emit change wealth event besides check cost and build event, 
 			// only to utilize the already existing change wealth event handling 
 			bus.emit(new ChangeWealthEvent(ChangeWealthEvent.CHANGE, player, WealthType.GOLD, -cost));
+			System.out.println("SOURCE: BUILD SKILLL");
 			bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToCreate));
 		}
 	}

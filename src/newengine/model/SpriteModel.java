@@ -32,6 +32,9 @@ public class SpriteModel {
 	
 	private void initHandlers() {
 		bus.on(SpriteModelEvent.ADD, (e) -> {
+			System.out.println("SPRITE ADDED");
+			System.out.println("Number of sprites added:" + e.getSprites().size());
+			e.getSprites().stream().forEach(g -> System.out.print("SPRITE MODEL EVENT IS NOW ADDING ID: " + g.getID()));
 			addSprite(e.getSprites());
 		});
 		bus.on(SpriteModelEvent.REMOVE, (e) -> {
@@ -73,9 +76,9 @@ public class SpriteModel {
 		for (Sprite sprite : sprites) {
 			if (!(this.sprites.contains(sprite))) {
 				this.spritesToAdd.add(sprite);
-				for (SpriteTriggerRegisterEvent e : spriteTriggerRegisterEvents) {
-					sprite.on(e.getTriggerBusEventType(), e.getTriggerHandler());
-				}
+//				for (SpriteTriggerRegisterEvent e : spriteTriggerRegisterEvents) {
+//					sprite.on(e.getTriggerBusEventType(), e.getTriggerHandler());
+//				}
 				sprite.emit(new SetGameBusEvent(bus));
 			}
 		}
@@ -109,6 +112,12 @@ public class SpriteModel {
 	public void update(double dt) {
 		sprites.removeAll(spritesToRemove);
 		spritesToRemove.clear();
+		if(spritesToAdd.size() > 1){
+			System.out.println("ADDED NUMBER OF SPRITE:" + spritesToAdd.size());
+			System.out.println("MODEL ADDING ID: " + spritesToAdd.get(0).getID());
+			System.out.println("MODEL ADDING ID: " + spritesToAdd.get(1).getID());
+		}
+		
 		sprites.addAll(spritesToAdd);
 		spritesToAdd.clear();
 		for (Sprite sprite : sprites) {
