@@ -55,6 +55,7 @@ public class SpawnerCreation extends BorderPane {
 	
 	public SpriteMakerModel getSpawner() {
 		Map<SkillType<? extends Skill>, Skill> spawnerSkills = new HashMap<>();
+		System.out.println("ADDING SPRITE TO SPAWNER MAP");
 		spawnerSkills.put(BuildSkill.TYPE, new BuildSkill(spriteToSpawn));
 		spawnerData.addComponent(new GameBus());
 		spawnerData.addComponent(new SkillSet(spawnerSkills));

@@ -133,8 +133,8 @@ public class BuildSkill extends Skill {
 		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
 			List<Sprite> spritesToCreate = new ArrayList<>();
 			Sprite sprite = spriteToCreate.clone();
-			sprite.getComponent(Spawner.TYPE).get().doNotSpawn();
-			sprite.removeComponent(SkillSet.TYPE);
+//			sprite.getComponent(Spawner.TYPE).get().doNotSpawn();
+//			sprite.removeComponent(SkillSet.TYPE);
 			spritesToCreate.add(sprite);
 			System.out.println("Size of spritesToCreate: " + spritesToCreate.size());
 			EventBus bus = this.getSource().get().getComponent(GameBus.TYPE).get().getGameBus();

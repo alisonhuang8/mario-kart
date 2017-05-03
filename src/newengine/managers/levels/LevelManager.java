@@ -101,6 +101,8 @@ public class LevelManager{
 		System.out.println("SOURCE: LEVEL MANAGER SPAWNER");
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
 		
+		System.out.println("WHAT IS INSIDE SPAWNER SKILL MAP? "+ sprites.get(0).getComponent(SkillSet.TYPE).get().getSkill(BuildSkill.TYPE));
+		
 		List<Sprite> pathSprites = new ArrayList<>();
 		SkillSet skillSet = (SkillSet) spriteMakerModels.get(0).getComponentByType(SkillSet.TYPE);
 		BuildSkill buildSkill = (BuildSkill) skillSet.getSkill(BuildSkill.TYPE);
