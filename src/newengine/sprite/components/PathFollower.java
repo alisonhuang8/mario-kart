@@ -23,7 +23,7 @@ public class PathFollower extends Component{
 	
 	@ConstructorForDeveloper
 	public PathFollower(@VariableName(name = "SelectedPath") Path path){
-		this.path=path;
+		this.path= randomlyGeneratePath();
 	}
 
 	
@@ -33,6 +33,17 @@ public class PathFollower extends Component{
 	}
 	public Path getPath() {
 		return this.path;
+	}
+	
+	private Path randomlyGeneratePath(){
+		Path path = new Path();
+		for (int i=0; i<12; i++){
+			double xPos = Math.random() * 550;
+			double yPos = Math.random() * 550;
+			path.getPath().add(new GamePoint(xPos, yPos));
+		}
+		
+		return path;
 	}
 	
 	public void afterAdded(){

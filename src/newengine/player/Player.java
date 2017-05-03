@@ -8,19 +8,20 @@ public class Player {
 	 * Those things cannot be controlled by either the user or the AI.
 	 */
 	public static final Player NATURE = new Player("NATURE"); 
-	
+
 	public static final String MAIN_PLAYER = "Player 1";
-	
+
 	private String name;
-	
+
+
 	public Player(String name) {
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Test if this sprite can control the other player
 	 * @param other
@@ -29,15 +30,29 @@ public class Player {
 	public boolean canControl(Player other) {
 		return other.equals(this);
 	}
-	
-	public boolean isEnemyWith(Player other) {
-		// currently all other players are enemy. TODO
-		if (other.equals(NATURE) || this.equals(NATURE)) {
-			return false;
+
+		public boolean isEnemyWith(Player other) {
+			// currently all other players are enemy. TODO
+			if (other.equals(NATURE) || this.equals(NATURE)) {
+				return false;
+			}
+			return !this.equals(other);
 		}
-		return !this.equals(other);
-	}
-	
+
+//	public boolean isEnemyWith(Player other){
+//		
+//		if (this.name.equals("PREDATOR") && other.getName().equals("HERO")){
+//			return true;
+//		}
+//		
+//		if (this.name.equals("HERO") && other.getName().equals("PREY")){
+//			return true;
+//		}
+//
+//		return false;
+//		
+//	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

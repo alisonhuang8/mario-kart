@@ -1,0 +1,555 @@
+<data.SerializableDeveloperData>
+  <gameData>
+    <entry>
+      <string>LEVEL_COMPLETION</string>
+      <string></string>
+    </entry>
+    <entry>
+      <string>GAME_ICON</string>
+      <string></string>
+    </entry>
+    <entry>
+      <string>NUM_LIVES</string>
+      <string>5</string>
+    </entry>
+    <entry>
+      <string>NUM_GOLD</string>
+      <string>0</string>
+    </entry>
+    <entry>
+      <string>BUILD_IN_GAME</string>
+      <string>false</string>
+    </entry>
+    <entry>
+      <string>GAME_NAME</string>
+      <string></string>
+    </entry>
+  </gameData>
+  <mySprites>
+    <data.SpriteMakerModel>
+      <myComponents>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Speed</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Speed>
+            <speed>75.0</speed>
+          </newengine.sprite.components.Speed>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.RangeShootingAI</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.RangeShootingAI/>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Health</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Health>
+            <initHealth>150</initHealth>
+            <health>150</health>
+          </newengine.sprite.components.Health>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Owner</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Owner>
+            <owner>
+              <name>HERO</name>
+            </owner>
+            <teamNumber>HERO</teamNumber>
+          </newengine.sprite.components.Owner>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Range</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Range>
+            <range>75.0</range>
+          </newengine.sprite.components.Range>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.SkillSet</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.SkillSet>
+            <skills>
+              <entry>
+                <newengine.skill.SkillType>
+                  <type>newengine.skill.skills.MoveSkill</type>
+                </newengine.skill.SkillType>
+                <newengine.skill.skills.MoveSkill>
+                  <icon>
+                    <filename>images/skills/walk.png</filename>
+                  </icon>
+                </newengine.skill.skills.MoveSkill>
+              </entry>
+              <entry>
+                <newengine.skill.SkillType>
+                  <type>newengine.skill.skills.FireProjectileSkill</type>
+                </newengine.skill.SkillType>
+                <newengine.skill.skills.FireProjectileSkill>
+                  <icon>
+                    <filename>images/skills/crosshairs.png</filename>
+                  </icon>
+                  <cooldown>3.0</cooldown>
+                </newengine.skill.skills.FireProjectileSkill>
+              </entry>
+            </skills>
+          </newengine.sprite.components.SkillSet>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Selectable</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Selectable>
+            <boundType>IMAGE</boundType>
+          </newengine.sprite.components.Selectable>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Attacker</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Attacker>
+            <reloadPeriod>1.0</reloadPeriod>
+            <timeRemaining>1.0</timeRemaining>
+            <damageStrength>55</damageStrength>
+            <ltubImage>
+              <filename>resources/crosshairs.png</filename>
+            </ltubImage>
+          </newengine.sprite.components.Attacker>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Collidable</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Collidable>
+            <boundType>IMAGE</boundType>
+            <bound/>
+          </newengine.sprite.components.Collidable>
+        </entry>
+      </myComponents>
+      <myScriptMap>
+        <entry>
+          <null/>
+          <string></string>
+        </entry>
+      </myScriptMap>
+      <spriteName>mario</spriteName>
+      <spriteDescription></spriteDescription>
+      <actualComponents>
+        <newengine.sprite.components.Attacker reference="../../myComponents/entry[8]/newengine.sprite.components.Attacker"/>
+        <newengine.sprite.components.Collidable reference="../../myComponents/entry[9]/newengine.sprite.components.Collidable"/>
+        <newengine.sprite.components.Health reference="../../myComponents/entry[3]/newengine.sprite.components.Health"/>
+        <newengine.sprite.components.Owner reference="../../myComponents/entry[4]/newengine.sprite.components.Owner"/>
+        <newengine.sprite.components.Range reference="../../myComponents/entry[5]/newengine.sprite.components.Range"/>
+        <newengine.sprite.components.RangeShootingAI reference="../../myComponents/entry[2]/newengine.sprite.components.RangeShootingAI"/>
+        <newengine.sprite.components.Selectable reference="../../myComponents/entry[7]/newengine.sprite.components.Selectable"/>
+        <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
+        <newengine.sprite.components.SkillSet reference="../../myComponents/entry[6]/newengine.sprite.components.SkillSet"/>
+      </actualComponents>
+      <skills/>
+    </data.SpriteMakerModel>
+    <data.SpriteMakerModel>
+      <myComponents>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Speed>
+            <speed>75.0</speed>
+          </newengine.sprite.components.Speed>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[2]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.RangeShootingAI/>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[4]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Owner>
+            <owner>
+              <name>PREDATOR</name>
+            </owner>
+            <teamNumber>PREDATOR</teamNumber>
+          </newengine.sprite.components.Owner>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Range>
+            <range>75.0</range>
+          </newengine.sprite.components.Range>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.Images</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.Images>
+            <imageFilePath>resources/Bowser.png</imageFilePath>
+          </newengine.sprite.components.Images>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[7]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Selectable>
+            <boundType>IMAGE</boundType>
+          </newengine.sprite.components.Selectable>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[8]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Attacker>
+            <reloadPeriod>1.0</reloadPeriod>
+            <timeRemaining>1.0</timeRemaining>
+            <damageStrength>55</damageStrength>
+            <ltubImage>
+              <filename>resources/pvzbullet.png</filename>
+            </ltubImage>
+          </newengine.sprite.components.Attacker>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType>
+            <typename>newengine.sprite.components.PathFollower</typename>
+          </newengine.sprite.component.ComponentType>
+          <newengine.sprite.components.PathFollower>
+            <path>
+              <myPath class="linked-list">
+                <commons.point.GamePoint>
+                  <x>4.988860196594841</x>
+                  <y>319.96120005684776</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>95.4671619776566</x>
+                  <y>500.0824384792507</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>344.8455876479664</x>
+                  <y>330.0061515624336</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>226.2991042254715</x>
+                  <y>139.83356923180887</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>509.5639992880124</x>
+                  <y>443.1385858211051</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>278.8226353835939</x>
+                  <y>384.28635747789514</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>256.55291645180705</x>
+                  <y>508.3792780416539</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>318.3120142680876</x>
+                  <y>322.44389304398015</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>328.3507914221844</x>
+                  <y>546.9930824057528</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>64.95895053629485</x>
+                  <y>101.59381357036962</y>
+                </commons.point.GamePoint>
+              </myPath>
+              <pathName>A Nameless Path</pathName>
+            </path>
+            <finalPoint>
+              <x>0.0</x>
+              <y>0.0</y>
+            </finalPoint>
+          </newengine.sprite.components.PathFollower>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[9]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Collidable>
+            <boundType>IMAGE</boundType>
+            <bound/>
+          </newengine.sprite.components.Collidable>
+        </entry>
+      </myComponents>
+      <myScriptMap>
+        <entry>
+          <null/>
+          <string></string>
+        </entry>
+      </myScriptMap>
+      <spriteName>bowser</spriteName>
+      <spriteDescription></spriteDescription>
+      <actualComponents>
+        <newengine.sprite.components.Attacker reference="../../myComponents/entry[7]/newengine.sprite.components.Attacker"/>
+        <newengine.sprite.components.Collidable reference="../../myComponents/entry[9]/newengine.sprite.components.Collidable"/>
+        <newengine.sprite.components.Images reference="../../myComponents/entry[5]/newengine.sprite.components.Images"/>
+        <newengine.sprite.components.Owner reference="../../myComponents/entry[3]/newengine.sprite.components.Owner"/>
+        <newengine.sprite.components.PathFollower reference="../../myComponents/entry[8]/newengine.sprite.components.PathFollower"/>
+        <newengine.sprite.components.Range reference="../../myComponents/entry[4]/newengine.sprite.components.Range"/>
+        <newengine.sprite.components.RangeShootingAI reference="../../myComponents/entry[2]/newengine.sprite.components.RangeShootingAI"/>
+        <newengine.sprite.components.Selectable reference="../../myComponents/entry[6]/newengine.sprite.components.Selectable"/>
+        <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
+      </actualComponents>
+      <skills/>
+    </data.SpriteMakerModel>
+  </mySprites>
+  <myLevels>
+    <gamecreation.level.SerializableLevelData>
+      <name>kill 5 monsters</name>
+      <winning class="newengine.managers.conditions.GoldMinimumCondition">
+        <goldMin>49</goldMin>
+      </winning>
+      <losing class="newengine.managers.conditions.NoLivesCondition"/>
+      <spawnTime>9.586776859504132</spawnTime>
+      <spawners>
+        <data.SpriteMakerModel>
+          <myComponents>
+            <entry>
+              <newengine.sprite.component.ComponentType>
+                <typename>newengine.sprite.components.Spawner</typename>
+              </newengine.sprite.component.ComponentType>
+              <newengine.sprite.components.Spawner>
+                <secondsBetween>9.586776859504132</secondsBetween>
+                <totalNumber>8</totalNumber>
+                <needToSpawn>true</needToSpawn>
+                <startingPosition>
+                  <x>539.2210359930347</x>
+                  <y>352.05537268292227</y>
+                </startingPosition>
+              </newengine.sprite.components.Spawner>
+            </entry>
+            <entry>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel/myComponents/entry[4]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.components.Owner>
+                <owner>
+                  <name>TOWERS</name>
+                </owner>
+              </newengine.sprite.components.Owner>
+            </entry>
+            <entry>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel/myComponents/entry[6]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.components.SkillSet>
+                <skills>
+                  <entry>
+                    <newengine.skill.SkillType>
+                      <type>newengine.skill.skills.BuildSkill</type>
+                    </newengine.skill.SkillType>
+                    <newengine.skill.skills.BuildSkill>
+                      <icon>
+                        <filename>resources/GoombaNSMB.png</filename>
+                      </icon>
+                      <mySpriteMakerModel>
+                        <myComponents>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Speed</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Speed>
+                              <speed>50.0</speed>
+                            </newengine.sprite.components.Speed>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Owner</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Owner>
+                              <owner>
+                                <name>PREY</name>
+                              </owner>
+                              <teamNumber>PREY</teamNumber>
+                            </newengine.sprite.components.Owner>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Images</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Images>
+                              <imageFilePath>resources/GoombaNSMB.png</imageFilePath>
+                            </newengine.sprite.components.Images>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Selectable</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Selectable>
+                              <boundType>IMAGE</boundType>
+                            </newengine.sprite.components.Selectable>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Position</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Position>
+                              <pos>
+                                <x>0.1</x>
+                                <y>0.1</y>
+                              </pos>
+                              <heading>0.0</heading>
+                              <isMoving>false</isMoving>
+                              <followingSprite>false</followingSprite>
+                            </newengine.sprite.components.Position>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.PathFollower</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.PathFollower>
+                              <path>
+                                <myPath class="linked-list">
+                                  <commons.point.GamePoint reference="../../../../../../../../../../../../entry/newengine.sprite.components.Spawner/startingPosition"/>
+                                  <commons.point.GamePoint>
+                                    <x>356.6742811228418</x>
+                                    <y>175.16382316396601</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>50.67343828292889</x>
+                                    <y>360.3767721490583</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>69.56103515800126</x>
+                                    <y>360.9102964060047</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>445.71809296867525</x>
+                                    <y>306.3936079142945</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>364.63928536007995</x>
+                                    <y>131.91951600358044</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>38.30313309663602</x>
+                                    <y>330.053843180974</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>3.488263757246296</x>
+                                    <y>385.7050806841473</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>6.420715503853758</x>
+                                    <y>59.624330479667904</y>
+                                  </commons.point.GamePoint>
+                                  <commons.point.GamePoint>
+                                    <x>226.2951656617915</x>
+                                    <y>122.65270997418756</y>
+                                  </commons.point.GamePoint>
+                                </myPath>
+                                <pathName>A Nameless Path</pathName>
+                              </path>
+                              <finalPoint>
+                                <x>0.0</x>
+                                <y>0.0</y>
+                              </finalPoint>
+                            </newengine.sprite.components.PathFollower>
+                          </entry>
+                          <entry>
+                            <newengine.sprite.component.ComponentType>
+                              <typename>newengine.sprite.components.Collidable</typename>
+                            </newengine.sprite.component.ComponentType>
+                            <newengine.sprite.components.Collidable>
+                              <boundType>IMAGE</boundType>
+                              <bound/>
+                            </newengine.sprite.components.Collidable>
+                          </entry>
+                        </myComponents>
+                        <myScriptMap>
+                          <entry>
+                            <null/>
+                            <string></string>
+                          </entry>
+                        </myScriptMap>
+                        <spriteName>mushroom</spriteName>
+                        <spriteDescription></spriteDescription>
+                        <actualComponents>
+                          <newengine.sprite.components.Collidable reference="../../myComponents/entry[7]/newengine.sprite.components.Collidable"/>
+                          <newengine.sprite.components.Images reference="../../myComponents/entry[3]/newengine.sprite.components.Images"/>
+                          <newengine.sprite.components.Owner reference="../../myComponents/entry[2]/newengine.sprite.components.Owner"/>
+                          <newengine.sprite.components.PathFollower reference="../../myComponents/entry[6]/newengine.sprite.components.PathFollower"/>
+                          <newengine.sprite.components.Selectable reference="../../myComponents/entry[4]/newengine.sprite.components.Selectable"/>
+                          <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
+                          <newengine.sprite.components.Position>
+                            <pos>
+                              <x>0.1</x>
+                              <y>0.1</y>
+                            </pos>
+                            <heading>0.0</heading>
+                            <isMoving>false</isMoving>
+                            <followingSprite>false</followingSprite>
+                          </newengine.sprite.components.Position>
+                          <newengine.sprite.components.Position reference="../../myComponents/entry[5]/newengine.sprite.components.Position"/>
+                        </actualComponents>
+                        <skills/>
+                      </mySpriteMakerModel>
+                      <skillType reference="../../newengine.skill.SkillType"/>
+                    </newengine.skill.skills.BuildSkill>
+                  </entry>
+                </skills>
+              </newengine.sprite.components.SkillSet>
+            </entry>
+            <entry>
+              <newengine.sprite.component.ComponentType reference="../../entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.skills.BuildSkill/mySpriteMakerModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.components.Position>
+                <pos>
+                  <x>0.1</x>
+                  <y>0.1</y>
+                </pos>
+                <heading>0.0</heading>
+                <isMoving>false</isMoving>
+                <followingSprite>false</followingSprite>
+              </newengine.sprite.components.Position>
+            </entry>
+            <entry>
+              <newengine.sprite.component.ComponentType>
+                <typename>newengine.sprite.components.GameBus</typename>
+              </newengine.sprite.component.ComponentType>
+              <newengine.sprite.components.GameBus/>
+            </entry>
+          </myComponents>
+          <myScriptMap/>
+          <spriteName></spriteName>
+          <spriteDescription></spriteDescription>
+          <actualComponents>
+            <newengine.sprite.components.GameBus/>
+            <newengine.sprite.components.SkillSet>
+              <skills>
+                <entry>
+                  <newengine.skill.SkillType reference="../../../../../myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.SkillType"/>
+                  <newengine.skill.skills.BuildSkill>
+                    <icon>
+                      <filename>resources/GoombaNSMB.png</filename>
+                    </icon>
+                    <mySpriteMakerModel reference="../../../../../../myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.skills.BuildSkill/mySpriteMakerModel"/>
+                    <skillType reference="../../../../../../myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.SkillType"/>
+                  </newengine.skill.skills.BuildSkill>
+                </entry>
+              </skills>
+            </newengine.sprite.components.SkillSet>
+            <newengine.sprite.components.Owner>
+              <owner>
+                <name>TOWERS</name>
+              </owner>
+            </newengine.sprite.components.Owner>
+            <newengine.sprite.components.Position>
+              <pos>
+                <x>0.1</x>
+                <y>0.1</y>
+              </pos>
+              <heading>0.0</heading>
+              <isMoving>false</isMoving>
+              <followingSprite>false</followingSprite>
+            </newengine.sprite.components.Position>
+            <newengine.sprite.components.Spawner>
+              <secondsBetween>9.586776859504132</secondsBetween>
+              <totalNumber>8</totalNumber>
+              <needToSpawn>true</needToSpawn>
+              <startingPosition reference="../../../myComponents/entry/newengine.sprite.components.Spawner/startingPosition"/>
+            </newengine.sprite.components.Spawner>
+            <newengine.sprite.components.GameBus reference="../../myComponents/entry[5]/newengine.sprite.components.GameBus"/>
+            <newengine.sprite.components.SkillSet reference="../../myComponents/entry[3]/newengine.sprite.components.SkillSet"/>
+            <newengine.sprite.components.Owner reference="../../myComponents/entry[2]/newengine.sprite.components.Owner"/>
+            <newengine.sprite.components.Position reference="../../myComponents/entry[4]/newengine.sprite.components.Position"/>
+            <newengine.sprite.components.Spawner reference="../../myComponents/entry/newengine.sprite.components.Spawner"/>
+          </actualComponents>
+          <skills/>
+        </data.SpriteMakerModel>
+      </spawners>
+    </gamecreation.level.SerializableLevelData>
+  </myLevels>
+</data.SerializableDeveloperData>

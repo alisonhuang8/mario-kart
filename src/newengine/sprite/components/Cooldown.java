@@ -76,4 +76,10 @@ public class Cooldown extends Component {
 		return null;
 	}
 
+	public double getTimeRemaining(SkillType skillType){
+		if (remainingTime.containsKey(skillType)){
+			return remainingTime.get(skillType);
+		}
+		return 0.0;
+	}
 }

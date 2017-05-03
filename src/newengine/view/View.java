@@ -245,7 +245,7 @@ public class View {
 				Player player = sprite.getComponent(Owner.TYPE).get().player();
 				Player mainPlayer = playerRelationModel.getMainPlayer();
 				
-				if (player.equals(mainPlayer) && sprite.getComponent(SkillSet.TYPE).isPresent()) {
+				if (!player.isEnemyWith(mainPlayer) && sprite.getComponent(SkillSet.TYPE).isPresent()) {
 					skillBox.render(sprite.getComponent(SkillSet.TYPE).get().skills());
 					return;
 				}

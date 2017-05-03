@@ -78,10 +78,12 @@ public class PathCreator extends BorderPane {
 		double mouseY = point.getY();
 		GamePoint coords = target.getCoordOfMouseHover(mouseX, mouseY);
 		GamePoint actualGameLocation = target.getActualLocationOfSprite(coords);
-		if (!coordAlreadyInPath(actualGameLocation, newPath)) {
-			newPath.add(actualGameLocation);
-			target.addBorderToCoordinate(coords);
-		}
+		newPath.add(actualGameLocation);
+		target.addBorderToCoordinate(coords);
+//		if (!coordAlreadyInPath(actualGameLocation, newPath)) {
+//			newPath.add(actualGameLocation);
+//			target.addBorderToCoordinate(coords);
+//		}
 		
 		e.consume();
 	}

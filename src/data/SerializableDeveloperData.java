@@ -39,7 +39,7 @@ public class SerializableDeveloperData {
 
 	public Player getUserPlayer() {
 		//TODO
-		return new Player("TOWERS");
+		return new Player("HERO");
 	}
 
 	private void configSprites(ObservableList<SpriteMakerModel> data) {

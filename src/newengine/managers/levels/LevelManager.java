@@ -131,7 +131,7 @@ public class LevelManager{
 			}	
 		}
 		System.out.println("Size of pathSprites: "+pathSprites.size());
-		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, pathSprites));
+		//bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, pathSprites));
 		
 	}
 

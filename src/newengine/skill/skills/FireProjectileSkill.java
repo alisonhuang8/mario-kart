@@ -22,6 +22,7 @@ public class FireProjectileSkill extends Skill {
 
 	@ConstructorForDeveloper
 	public FireProjectileSkill(@VariableName(name = "Cooldown") double cooldown){
+		icon = new LtubImage("images/skills/crosshairs.png");
 		this.cooldown = cooldown;
 	}
 

@@ -51,10 +51,10 @@ public class Camera {
 		bus.on(CameraEvent.RESET, (e) -> {
 			reset();
 		});
-		bus.on(SelectSpriteEvent.SINGLE, (e) -> {
-			this.selectedSprite = e.getSprite();
-			center();
-		});
+//		bus.on(SelectSpriteEvent.SINGLE, (e) -> {
+//			this.selectedSprite = e.getSprite();
+//			center();
+//		});
 		bus.on(SpriteModelEvent.REMOVE, (e) -> {
 			if (this.selectedSprite == e.getSprites()) {
 				this.selectedSprite = null;
