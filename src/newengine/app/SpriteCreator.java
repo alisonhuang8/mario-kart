@@ -8,7 +8,7 @@ import java.util.Map;
 
 import commons.point.GamePoint;
 import data.SpriteMakerModel;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import newengine.player.Player;
 import newengine.skill.Skill;
 import newengine.skill.SkillType;

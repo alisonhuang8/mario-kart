@@ -1,4 +1,4 @@
-package gameDevelopmentInterface;
+package gameDevelopmentInterface.Path;
 
 import java.util.LinkedList;
 import java.util.Queue;

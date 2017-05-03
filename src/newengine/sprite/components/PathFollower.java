@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 import commons.point.GamePoint;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import helperAnnotations.ConstructorForDeveloper;
 import helperAnnotations.DeveloperMethod;
 import helperAnnotations.VariableName;

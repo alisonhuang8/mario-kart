@@ -8,7 +8,7 @@ import java.util.Queue;
 import bus.BasicEventBus;
 import commons.point.GamePoint;
 import data.SpriteMakerModel;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import javafx.collections.ObservableList;
 import newengine.events.skill.AddSkillEvent;
 import newengine.skill.Skill;

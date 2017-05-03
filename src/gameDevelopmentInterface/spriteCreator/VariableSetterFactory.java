@@ -7,7 +7,7 @@ import java.util.HashMap;
 import data.DeveloperData;
 import data.SpriteMakerModel;
 import exception.UnsupportedTypeException;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import gameDevelopmentInterface.spriteCreator.variableSetters.EnumSetter;
 import gameDevelopmentInterface.spriteCreator.variableSetters.FileVariableSetter;
 import gameDevelopmentInterface.spriteCreator.variableSetters.ImageVariableSetter;

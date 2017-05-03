@@ -10,7 +10,7 @@ import bus.EventBus;
 import commons.point.GamePoint;
 import data.DeveloperData;
 import data.SpriteMakerModel;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import gamedata.AuthDataTranslator;
 import javafx.application.Application;
 import javafx.stage.Stage;

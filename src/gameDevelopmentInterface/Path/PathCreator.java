@@ -1,4 +1,4 @@
-package gameDevelopmentInterface;
+package gameDevelopmentInterface.Path;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,6 +6,7 @@ import java.util.Queue;
 import commons.point.GamePoint;
 import data.DeveloperData;
 import data.ScreenModelData;
+import gameDevelopmentInterface.ScreenMap;
 import javafx.geometry.Point2D;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -35,6 +36,7 @@ public class PathCreator extends BorderPane {
 		return myDeveloperData;
 	}
 	public void clearPath() {
+		myPath.getPath().clear();
 		this.getChildren().clear();
 		target = new ScreenMap(myDeveloperData);
 		target.resize(350, 350);

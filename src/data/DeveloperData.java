@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import gamecreation.level.ILevelData;
 import gamecreation.level.LevelData;
 import gamecreation.level.SerializableLevelData;

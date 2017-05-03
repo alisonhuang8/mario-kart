@@ -1,8 +1,9 @@
-package gameDevelopmentInterface;
+package gameDevelopmentInterface.Path;
 
 import java.util.Optional;
 
 import data.DeveloperData;
+import gameDevelopmentInterface.ScreenMap;
 import gameauthorgui.inputhelpers.IntegerInputText;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
@@ -31,13 +32,14 @@ public class PathButtonsPanel extends VBox {
 		makeButtons();
 		rowsBox.getChildren().addAll(rowsInput, sendNumRows);
 		colsBox.getChildren().addAll(colsInput, sendNumCols);
-		this.getChildren().addAll(startPath, checkPath, clearScreen, refresh, rowsBox, colsBox);
+		this.getChildren().addAll(startPath, checkPath, clearScreen, //refresh, 
+				rowsBox, colsBox);
 	}
 	
 	private void makeButtons() {
 		startPath = new Button("Start Path");
 		checkPath = new Button("Add path to paths list");
-		clearScreen = new Button("Clear path(s) off screen");
+		clearScreen = new Button("Refresh");
 		refresh = new Button("Refresh page");
 		sendNumCols = new Button("Reset number of cols");
 		sendNumRows = new Button("Reset number of rows");
@@ -50,14 +52,10 @@ public class PathButtonsPanel extends VBox {
 			dialog.setTitle("Name your path");
 			dialog.setContentText("Name your path:");
 
-			// Traditional way to get the response value.
 			Optional<String> result = dialog.showAndWait();
 			if (result.isPresent()){
 				myPathCreator.getDeveloperData().addPath(new Path(result.get(), myPathCreator.getReplacementPath()));
-			}
-			
-			//myPathCreator.getDeveloperData().addPath(new Path("TestPath", myPathCreator.getReplacementPath()));
-			
+			}			
 			myPathCreator.getReplacementPath().forEach(gamePoint -> System.out.println(gamePoint.x() + " " + gamePoint.y()));
 		});
 		clearScreen.setOnAction(e -> {

@@ -2,6 +2,7 @@ package gameDevelopmentInterface;
 
 import data.DeveloperData;
 import data.ScreenModelData;
+import gameDevelopmentInterface.Path.PathCreator;
 
 public class AuthoredGame {
 	private DeveloperData myGeneralData;

@@ -2,7 +2,7 @@ package newengine.sprite.components;
 
 import commons.point.GamePoint;
 import data.SpriteMakerModel;
-import gameDevelopmentInterface.Path;
+import gameDevelopmentInterface.Path.Path;
 import helperAnnotations.ConstructorForDeveloper;
 import helperAnnotations.VariableName;
 import newengine.events.skill.TriggerSkillEvent;

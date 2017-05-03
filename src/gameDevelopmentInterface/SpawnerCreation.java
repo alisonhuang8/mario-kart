@@ -6,6 +6,7 @@ import java.util.Map;
 import commons.point.GamePoint;
 import data.DeveloperData;
 import data.SpriteMakerModel;
+import gameDevelopmentInterface.Path.Path;
 import gamecreation.level.SpawnerLevelEditorHolder;
 import javafx.scene.layout.BorderPane;
 import newengine.player.Player;
