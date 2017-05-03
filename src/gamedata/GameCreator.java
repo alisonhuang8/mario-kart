@@ -69,8 +69,8 @@ public class GameCreator {
 			
 			XStreamHandler xstreamHandler = new XStreamHandler();
 			SerializableDeveloperData myData = xstreamHandler.<SerializableDeveloperData>getObjectFromFile(gameFile);
-			// serializableDeveloperData?
 			
+			System.out.println("TAKEN OUT OF SERIALIZABLE LEVEL DATA");
 			// sync the players authoring and game.
 			// player 1: the user, towers
 			// enemy: the monsters

@@ -6,9 +6,12 @@ import bus.BusEvent;
 import bus.BusEventType;
 import newengine.skill.Skill;
 import newengine.skill.SkillType;
+import newengine.sprite.IDGenerator;
+import newengine.sprite.SpriteID;
 import newengine.utils.Target;
 
 public class TriggerSkillEvent extends BusEvent {
+	private SpriteID ID = IDGenerator.generateID();
 	
 	public static final BusEventType<TriggerSkillEvent> ANY = new BusEventType<>(
 			TriggerSkillEvent.class.getName() + "ANY");
@@ -32,6 +35,10 @@ public class TriggerSkillEvent extends BusEvent {
 	
 	public Optional<Target> getTarget() {
 		return Optional.ofNullable(target);	
+	}
+	
+	public SpriteID getID(){
+		return ID;
 	}
 
 }

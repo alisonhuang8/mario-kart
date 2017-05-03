@@ -55,13 +55,11 @@ public class LevelData extends Observable implements ILevelData {
 	
 	@Override
 	public Condition getWinningCondition() {
-		//return new NoMonstersCondition();
 		return winningCondition;
 	}
 
 	@Override
 	public Condition getLosingCondition() {
-		//return new NoLivesCondition();
 		return losingCondition;
 	}
 
@@ -74,6 +72,7 @@ public class LevelData extends Observable implements ILevelData {
 	}
 
 	public void addSpawner(SpriteMakerModel spawner) {
+		System.out.println("ADDED TO THE LEVEL DATA");
 		spawners.add(spawner);
 	}
 

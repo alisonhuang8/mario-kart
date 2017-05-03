@@ -1,25 +1,24 @@
 package gamedata;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Queue;
+import java.util.Map;
 
 import bus.BasicEventBus;
-import commons.point.GamePoint;
 import data.SpriteMakerModel;
-import gameDevelopmentInterface.Path;
 import javafx.collections.ObservableList;
 import newengine.events.skill.AddSkillEvent;
 import newengine.skill.Skill;
 import newengine.sprite.Sprite;
 import newengine.sprite.component.Component;
+import newengine.sprite.component.ComponentType;
 import newengine.sprite.components.Cooldown;
 import newengine.sprite.components.EventQueue;
 import newengine.sprite.components.GameBus;
 import newengine.sprite.components.Images;
-import newengine.sprite.components.PathFollower;
 import newengine.sprite.components.Position;
+import newengine.sprite.components.SkillSet;
 
 /**
  * @author tahiaemran
@@ -38,6 +37,7 @@ public class AuthDataTranslator implements Translator<Sprite> {
 	private BasicEventBus gameBus = new BasicEventBus();
 	private int numRows = 8;
 	private int numCols = 8;
+	private boolean toAdd = true;
 
 	private List<Sprite> constructedSprites = new ArrayList<Sprite>();
 
@@ -75,9 +75,12 @@ public class AuthDataTranslator implements Translator<Sprite> {
 	}
 
 	private void makeSingleSprite(SpriteMakerModel spriteToMake) {
+		spriteToMake.getActualComponents().stream().forEach(e -> {
+			System.out.println("WHAT THE FUCK IS IN THIS LIST!! " + e.getType().getType());
+		});
 		constructed = handleComponents(spriteToMake.getActualComponents());
 		constructed.addComponent(new GameBus());
-//		constructed.addComponent(new EventQueue(new LinkedList<>()));
+		//		constructed.addComponent(new EventQueue(new LinkedList<>()));
 		constructed.addComponent(new Cooldown());
 
 	}
@@ -103,7 +106,7 @@ public class AuthDataTranslator implements Translator<Sprite> {
 	private Sprite handleSkills(Sprite sprite, List<Skill> skills) {
 		skills.stream().forEach(skill -> sprite.emit(new AddSkillEvent(AddSkillEvent.TYPE, skill)));
 		return sprite;
-}
+	}
 
 
 
@@ -112,6 +115,7 @@ public class AuthDataTranslator implements Translator<Sprite> {
 	}
 
 	private Sprite handleComponents(List<Component> transferComponents) {
+		
 		Sprite sprite = new Sprite(); 
 		transferComponents.add(0, new EventQueue());
 		System.out.println("constructed in translate: " + sprite);
@@ -132,12 +136,29 @@ public class AuthDataTranslator implements Translator<Sprite> {
 			//System.out.println(comp.getType().getType());
 			if (comp.getType().equals(Images.TYPE)){
 				sprite.addComponent(comp);
-				}
+			}
 		}
-		transferComponents.stream().forEach(component -> {
-			//if (component.getType() != Position.TYPE || component.getType() != Images.TYPE) {
-				sprite.addComponent(component);
-			//}
+		
+		Map<ComponentType<? extends Component>, Component> checked = new HashMap<ComponentType<? extends Component>, Component>();
+		
+		transferComponents.stream().forEach(e ->{
+			checked.put(e.getType(), e);
+		});
+		
+		
+		transferComponents.stream().forEach(component -> {			
+//			if (component.getType() == SkillSet.TYPE && toAdd){
+//				toAdd = false;
+//				sprite.addComponent(component);
+//			} else if(component.getType() != SkillSet.TYPE){
+			
+			sprite.addComponent(component);
+//			}
+			
+		});
+
+		checked.values().stream().forEach(e -> {
+			System.out.println(e + " COMPONENTS!!!!!" + sprite.getID());
 		});
 		
 		return sprite;

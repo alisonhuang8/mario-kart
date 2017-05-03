@@ -64,7 +64,7 @@ public class SpriteCreator {//extends Application {
 		skillMap2.put(BuildSkill.TYPE, new BuildSkill(toSpawn));
 		sprite2.addComponent(new Images("images/characters/bahamut_right.png"));
 		sprite2.addComponent(new GameBus());
-		sprite2.addComponent(new SkillSet(skillMap2));
+		//sprite2.addComponent(new SkillSet(skillMap2));
 		sprite2.addComponent(new Owner(player1));
 		sprite2.addComponent(new Position(new GamePoint(100, 100), 0));
 		//sprite2.addComponent(new Spawner(100, new Path(), 0.01));

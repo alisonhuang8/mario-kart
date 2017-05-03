@@ -90,18 +90,19 @@ public class LevelManager{
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETWIN, newLevel.getWinningCondition()));
 		bus.emit(new SetEndConditionEvent(SetEndConditionEvent.SETLOSE, newLevel.getLosingCondition()));
 		
+		
 		List<SpriteMakerModel> spriteMakerModels = newLevel.getSpawners();
+		
+		System.out.println("BEFORE AUTHDATATRANSLATOR IN LEVEL MANAGER");
+		
 		List<Sprite> sprites = new ArrayList<>();
 		sprites.addAll(spriteMakerModels.stream().map((spriteMakerModel) -> {
 			return (new AuthDataTranslator(spriteMakerModel)).getSprite();
 		}).collect(Collectors.toList()));
+				
+		System.out.println("AFTER AUTHDATATRANSLATOR IN LEVEL MANAGER");
 		
-		
-		System.out.println("Number of spawners: "+sprites.size());
-		System.out.println("SOURCE: LEVEL MANAGER SPAWNER");
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
-		
-		System.out.println("WHAT IS INSIDE SPAWNER SKILL MAP? "+ sprites.get(0).getComponent(SkillSet.TYPE).get().getSkill(BuildSkill.TYPE));
 		
 		List<Sprite> pathSprites = new ArrayList<>();
 		SkillSet skillSet = (SkillSet) spriteMakerModels.get(0).getComponentByType(SkillSet.TYPE);

@@ -55,6 +55,7 @@ public class Sprite {
 	}
 
 	public void addComponent(Component component) {
+		System.out.println(component.getType().getType() + " SPRITE ID " + this.getID());
 		components.put(component.getType(), component);
 		component.onAdded(this);
 	}
@@ -99,6 +100,10 @@ public class Sprite {
 	@Override
 	public String toString() {
 		return "sprite(" + spriteID + ")";
+	}
+	
+	public Map<ComponentType<? extends Component>, Component> getMap(){
+		return components;
 	}
 
 //	public <T extends BusEvent> void produceHandler(BusEventType<T> eventType, String script) {

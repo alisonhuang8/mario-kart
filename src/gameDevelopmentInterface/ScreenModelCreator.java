@@ -22,7 +22,7 @@ import javafx.scene.layout.BorderPane;
 public class ScreenModelCreator extends BorderPane {
 	private ObservableMap<String,String> myGeneralData;
 	private ScreenModelData myScreenData;
-	private ScreenObjectHolder myObjectsToPlace;
+//	private ScreenObjectHolder myObjectsToPlace;
 	private ScreenMap myScreen;
 	private TowerSetButtonsPanel myButtonsPanel;
 	private SpritesForScreenUse mySpriteModelsToDrag;
@@ -34,8 +34,8 @@ public class ScreenModelCreator extends BorderPane {
 		possibleSprites = myModel.getTilesToDrag();
 		myScreen = new ScreenMap(myModel);
 		myButtonsPanel = new TowerSetButtonsPanel(this);
-		myObjectsToPlace = new ScreenObjectHolder(myModel, this);
-		this.setBottom(myObjectsToPlace);
+//		myObjectsToPlace = new ScreenObjectHolder(myModel, this);
+//		this.setBottom(myObjectsToPlace);
 		this.setCenter(new ScrollingEnvironmentSetter(myScreen));
 		this.setRight(myButtonsPanel);
 	}

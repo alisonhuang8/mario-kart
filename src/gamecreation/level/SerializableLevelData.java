@@ -26,6 +26,7 @@ public class SerializableLevelData implements ILevelData {
 		this.losing = data.getLosingCondition();
 		this.spawnTime = data.getSpawnTime();
 		this.spawners = data.getSpawners();
+		System.out.println("ADDED TO SERIALIZABLE DATA");
 	}
 
 	@Override

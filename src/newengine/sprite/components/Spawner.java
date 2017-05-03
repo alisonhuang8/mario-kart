@@ -39,8 +39,9 @@ public class Spawner extends Component {
 		return totalNumber;
 	}
 
-	public void onUpdated(double dt) {		
+	public void onUpdated(double dt) {
 		if (needToSpawn) {
+			System.out.println(sprite.getComponent(SkillSet.TYPE));
 			System.out.println("NEED TO SPAWN: " + needToSpawn);
 			sprite.getComponent(GameBus.TYPE).get().getGameBus()
 			.emit(new PeriodicEvent(totalNumber, secondsBetween, () -> {

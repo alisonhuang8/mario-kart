@@ -12,10 +12,14 @@ import newengine.events.skill.ResetSkillCooldownEvent;
 import newengine.events.skill.TriggerSkillEvent;
 import newengine.skill.Skill;
 import newengine.skill.SkillType;
+import newengine.sprite.IDGenerator;
+import newengine.sprite.SpriteID;
 import newengine.sprite.component.Component;
 import newengine.sprite.component.ComponentType;
 
 public class SkillSet extends Component {
+	
+	private SpriteID ID;
 
 	public static final ComponentType<SkillSet> TYPE = new ComponentType<>(SkillSet.class.getName());
 	private Map<SkillType<? extends Skill>, Skill> skills = new HashMap<>();
@@ -40,6 +44,8 @@ public class SkillSet extends Component {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void afterAdded() {
+		System.out.println("AFTER ADDED METHOD OF SKILL SET");
+		ID = IDGenerator.generateID();
 		for (Skill skill: skills.values()) {
 			skill.setSource(sprite);
 		}
@@ -48,6 +54,9 @@ public class SkillSet extends Component {
 			e.getSkill().setSource(sprite);
 		});
 		sprite.on(TriggerSkillEvent.ANY,  (e) -> {
+			System.out.println("TRIGGER SKILL ID: " + this.ID + " handling the trigger skill event #"+ e.getID() + " by " + sprite.getID());
+			
+			
 			Skill skill = skills.get(e.getType());
 			if (sprite.getComponent(Cooldown.TYPE).isPresent() &&
 					!sprite.getComponent(Cooldown.TYPE).get().isReady(e.getType())) {
