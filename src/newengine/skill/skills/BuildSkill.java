@@ -21,6 +21,8 @@ import newengine.sprite.components.GameBus;
 import newengine.sprite.components.Images;
 import newengine.sprite.components.Owner;
 import newengine.sprite.components.Position;
+import newengine.sprite.components.SkillSet;
+import newengine.sprite.components.Spawner;
 import newengine.utils.Target;
 
 public class BuildSkill extends Skill {
@@ -130,7 +132,10 @@ public class BuildSkill extends Skill {
 		spriteToCreate.addComponent(new Position(target.getLocation(), 0));
 		if (this.getSource().get().getComponent(GameBus.TYPE).isPresent()) {
 			List<Sprite> spritesToCreate = new ArrayList<>();
-			spritesToCreate.add(spriteToCreate.clone());
+			Sprite sprite = spriteToCreate.clone();
+			sprite.getComponent(Spawner.TYPE).get().doNotSpawn();
+			sprite.removeComponent(SkillSet.TYPE);
+			spritesToCreate.add(sprite);
 			System.out.println("Size of spritesToCreate: " + spritesToCreate.size());
 			EventBus bus = this.getSource().get().getComponent(GameBus.TYPE).get().getGameBus();
 			// emit change wealth event besides check cost and build event, 

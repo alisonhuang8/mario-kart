@@ -56,7 +56,7 @@ public class SkillSet extends Component {
 			if (skill != null) {
 				skill.setSource(sprite);
 				e.getTarget().ifPresent((target) -> skill.setTarget(target));
-				System.out.println("SKILL SET TRIGGERED");
+				System.out.println("SKILL SET TRIGGERED FOR TYPE" + skill.getType());
 				skill.trigger();
 			}
 			sprite.emit(new ResetSkillCooldownEvent(e.getType()));

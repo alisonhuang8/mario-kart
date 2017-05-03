@@ -44,6 +44,7 @@ public class Spawner extends Component {
 			System.out.println("NEED TO SPAWN: " + needToSpawn);
 			sprite.getComponent(GameBus.TYPE).get().getGameBus()
 			.emit(new PeriodicEvent(totalNumber, secondsBetween, () -> {
+				System.out.println("HOW MANY SPRITES TO MAKE " + totalNumber + "ORRRRR" + totalNumber/2);
 			sprite.emit(new TriggerSkillEvent(BuildSkill.TYPE, new Target(startingPosition)));
 			System.out.println("BUILD SKILL IN PERIODIC EVENT TRIGGERED in SPAWNER");
 
@@ -66,7 +67,10 @@ public class Spawner extends Component {
 		return null;
 	}
 
-
+	public void doNotSpawn(){
+		needToSpawn = false;
+	}
+	
 	@Override
 	public Object[] getGUIParameters() {
 		// TODO Auto-generated method stub
