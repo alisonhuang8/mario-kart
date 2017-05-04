@@ -30,6 +30,14 @@
     </entry>
     <entry>
       <newengine.sprite.component.ComponentType>
+        <typename>newengine.sprite.components.Images</typename>
+      </newengine.sprite.component.ComponentType>
+      <newengine.sprite.components.Images>
+        <imageFilePath>resources/GoombaNSMB.png</imageFilePath>
+      </newengine.sprite.components.Images>
+    </entry>
+    <entry>
+      <newengine.sprite.component.ComponentType>
         <typename>newengine.sprite.components.Selectable</typename>
       </newengine.sprite.component.ComponentType>
       <newengine.sprite.components.Selectable>
@@ -44,44 +52,52 @@
         <path>
           <myPath class="linked-list">
             <commons.point.GamePoint>
-              <x>527.3431293974685</x>
-              <y>244.9713363207287</y>
+              <x>20.696390485914062</x>
+              <y>175.28211696326926</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>501.1353901351984</x>
-              <y>231.27357279408494</y>
+              <x>227.40470812104257</x>
+              <y>150.40378704914457</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>401.0445669298896</x>
-              <y>331.76849840395255</y>
+              <x>239.20489887691852</x>
+              <y>158.26132889746327</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>367.23220716394303</x>
-              <y>218.33918108771428</y>
+              <x>548.8160081554106</x>
+              <y>280.7741523072786</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>387.85601654530967</x>
-              <y>310.5423795820694</y>
+              <x>352.94814410150184</x>
+              <y>479.2153287929988</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>396.21064583247863</x>
-              <y>10.536294949175634</y>
+              <x>539.382919465587</x>
+              <y>496.9452121597617</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>205.59246003052078</x>
-              <y>224.03725797238968</y>
+              <x>418.6474479479769</x>
+              <y>411.5565549693041</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>325.5947187361017</x>
-              <y>120.00249592836163</y>
+              <x>457.64482906579866</x>
+              <y>184.39139994320973</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>221.90123367722248</x>
-              <y>315.0610933474014</y>
+              <x>354.3596741596663</x>
+              <y>232.13233625066246</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>244.81666146035312</x>
-              <y>167.92038871007182</y>
+              <x>211.15360133935732</x>
+              <y>374.0586189287192</y>
+            </commons.point.GamePoint>
+            <commons.point.GamePoint>
+              <x>100.01675594502622</x>
+              <y>299.6979078504714</y>
+            </commons.point.GamePoint>
+            <commons.point.GamePoint>
+              <x>302.723693020999</x>
+              <y>139.32427890890054</y>
             </commons.point.GamePoint>
           </myPath>
           <pathName>A Nameless Path</pathName>
@@ -108,14 +124,15 @@
       <string></string>
     </entry>
   </myScriptMap>
-  <spriteName>goomba</spriteName>
+  <spriteName>mushroom</spriteName>
   <spriteDescription></spriteDescription>
   <actualComponents>
-    <newengine.sprite.components.Collidable reference="../../myComponents/entry[6]/newengine.sprite.components.Collidable"/>
+    <newengine.sprite.components.Collidable reference="../../myComponents/entry[7]/newengine.sprite.components.Collidable"/>
     <newengine.sprite.components.Health reference="../../myComponents/entry[2]/newengine.sprite.components.Health"/>
+    <newengine.sprite.components.Images reference="../../myComponents/entry[4]/newengine.sprite.components.Images"/>
     <newengine.sprite.components.Owner reference="../../myComponents/entry[3]/newengine.sprite.components.Owner"/>
-    <newengine.sprite.components.PathFollower reference="../../myComponents/entry[5]/newengine.sprite.components.PathFollower"/>
-    <newengine.sprite.components.Selectable reference="../../myComponents/entry[4]/newengine.sprite.components.Selectable"/>
+    <newengine.sprite.components.PathFollower reference="../../myComponents/entry[6]/newengine.sprite.components.PathFollower"/>
+    <newengine.sprite.components.Selectable reference="../../myComponents/entry[5]/newengine.sprite.components.Selectable"/>
     <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
   </actualComponents>
   <skills/>

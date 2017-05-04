@@ -11,6 +11,7 @@ import newengine.events.sprite.ChangeHealthEvent;
 import newengine.events.sprite.MoveEvent;
 import newengine.events.sprite.StateChangeEvent;
 import newengine.events.sprite.UpgradeEvent;
+import newengine.events.stats.ChangeLivesEvent;
 import newengine.events.stats.ChangeWealthEvent;
 import newengine.model.PlayerStatsModel.WealthType;
 import newengine.player.Player;
@@ -30,20 +31,20 @@ public class Health extends Component {
 		this.initHealth = health;
 		this.health = health;
 	}
-	
+
 	@Override
 	public ComponentType<? extends Component> getType() {
 		return TYPE;
 	}
-	
+
 	public int getHealth(){
 		return health;
 	}
-	
+
 	public int getInitHealth(){
 		return initHealth;
 	}
-	
+
 	@Override
 	public void afterAdded(){
 		sprite.on(ChangeHealthEvent.ANY, e -> {
@@ -64,15 +65,20 @@ public class Health extends Component {
 			Sprite weapon = e.getSprite();
 			Sprite target = e.getTarget().getSprite().get();
 			weapon.getComponent(Owner.TYPE).ifPresent((weaponOwner) -> {
-					if (weaponOwner.player().isEnemyWith((target.getComponent(Owner.TYPE).get().player()))) {
-						weapon.getComponent(DamageStrength.TYPE).ifPresent((damageStrength) -> {
-							int damage = damageStrength.getStrength();
-							sprite.emit(new ChangeHealthEvent(ChangeHealthEvent.ANY, -damage));
-							System.out.println("health decremented");
-						});				
-					}
-				});	
+				if (weaponOwner.player().isEnemyWith((target.getComponent(Owner.TYPE).get().player()))) {
+					weapon.getComponent(DamageStrength.TYPE).ifPresent((damageStrength) -> {
+						int damage = damageStrength.getStrength();
+						sprite.emit(new ChangeHealthEvent(ChangeHealthEvent.ANY, -damage));
+						System.out.println("health decremented");
+						if (target.getComponent(Owner.TYPE).get().player().getName().equals("TOWERS")){
+							sprite.getComponent(GameBus.TYPE).get().getGameBus().emit(new ChangeLivesEvent(ChangeLivesEvent.CHANGE,
+									sprite.getComponent(Owner.TYPE).get().player(), -1));
+						}
+					});				
+				}
+			});	
 			// TODO check collision with other monster-type sprites
+			
 		});	
 	}
 
@@ -82,7 +88,7 @@ public class Health extends Component {
 		sprite.emit(new StateChangeEvent(StateChangeEvent.HEALTH, sprite, health));
 		checkForDeath();
 	}
-	
+
 	private void checkForDeath() {
 		if (health <= 0) {
 			List<Sprite> spritesToRemove = new ArrayList<>();
@@ -94,7 +100,7 @@ public class Health extends Component {
 			});
 		}
 	}
-	
+
 	@Override
 	public Component clone() {
 		return new Health(health);

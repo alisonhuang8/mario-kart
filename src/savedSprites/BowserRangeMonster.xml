@@ -41,16 +41,6 @@
         <skills>
           <entry>
             <newengine.skill.SkillType>
-              <type>newengine.skill.skills.MoveSkill</type>
-            </newengine.skill.SkillType>
-            <newengine.skill.skills.MoveSkill>
-              <icon>
-                <filename>images/skills/walk.png</filename>
-              </icon>
-            </newengine.skill.skills.MoveSkill>
-          </entry>
-          <entry>
-            <newengine.skill.SkillType>
               <type>newengine.skill.skills.FireProjectileSkill</type>
             </newengine.skill.SkillType>
             <newengine.skill.skills.FireProjectileSkill>
@@ -88,7 +78,7 @@
         <timeRemaining>1.0</timeRemaining>
         <damageStrength>1</damageStrength>
         <ltubImage>
-          <filename>resources/pvzbullet.png</filename>
+          <filename>resources/bulletImages/pvzbullet.png</filename>
         </ltubImage>
       </newengine.sprite.components.Attacker>
     </entry>
@@ -100,44 +90,52 @@
         <path>
           <myPath class="linked-list">
             <commons.point.GamePoint>
-              <x>258.30481564194525</x>
-              <y>546.0842635368414</y>
+              <x>78.89650894046406</x>
+              <y>332.6834444196202</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>394.6433432033648</x>
-              <y>296.4066632104502</y>
+              <x>474.4864060773338</x>
+              <y>24.82631348354562</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>332.19652797461004</x>
-              <y>231.77889753402403</y>
+              <x>528.8304205905666</x>
+              <y>37.46495468828792</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>103.4464154316342</x>
-              <y>423.68943282690304</y>
+              <x>316.81133015308427</x>
+              <y>150.39552794051892</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>12.57439029499537</x>
-              <y>148.3579846784928</y>
+              <x>121.268108770438</x>
+              <y>366.6149702046689</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>66.39994297452134</x>
-              <y>252.59370018207653</y>
+              <x>428.1672133491462</x>
+              <y>5.316563906075383</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>73.17182028608445</x>
-              <y>98.14240092787725</y>
+              <x>109.63228847696334</x>
+              <y>545.1011190610587</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>378.91353918565824</x>
-              <y>464.57311275554935</y>
+              <x>501.640985997784</x>
+              <y>388.21961444919907</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>499.9000535027991</x>
-              <y>343.6658677764481</y>
+              <x>376.10403872425604</x>
+              <y>411.1487559878029</y>
             </commons.point.GamePoint>
             <commons.point.GamePoint>
-              <x>170.18752256084025</x>
-              <y>126.3695502371647</y>
+              <x>210.32041106099854</x>
+              <y>155.13058464881095</y>
+            </commons.point.GamePoint>
+            <commons.point.GamePoint>
+              <x>455.9521367840935</x>
+              <y>294.77671229533127</y>
+            </commons.point.GamePoint>
+            <commons.point.GamePoint>
+              <x>520.6504982351364</x>
+              <y>204.96047834579974</y>
             </commons.point.GamePoint>
           </myPath>
           <pathName>A Nameless Path</pathName>

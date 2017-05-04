@@ -107,7 +107,10 @@ public class Position extends Component {
 		if (!sprite.getComponent(Speed.TYPE).isPresent()) {
 			return;
 		}
-
+		if (pDest == null){
+			return;
+		}
+		
 		double xDest = pDest.x();
 		double yDest = pDest.y();
 		double x = pos.x();

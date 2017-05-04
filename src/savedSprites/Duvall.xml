@@ -19,18 +19,10 @@
     </entry>
     <entry>
       <newengine.sprite.component.ComponentType>
-        <typename>newengine.sprite.components.Cost</typename>
-      </newengine.sprite.component.ComponentType>
-      <newengine.sprite.components.Cost>
-        <cost>100</cost>
-      </newengine.sprite.components.Cost>
-    </entry>
-    <entry>
-      <newengine.sprite.component.ComponentType>
         <typename>newengine.sprite.components.Range</typename>
       </newengine.sprite.component.ComponentType>
       <newengine.sprite.components.Range>
-        <range>250.0</range>
+        <range>50.0</range>
       </newengine.sprite.components.Range>
     </entry>
     <entry>
@@ -44,7 +36,10 @@
               <type>newengine.skill.skills.FireProjectileSkill</type>
             </newengine.skill.SkillType>
             <newengine.skill.skills.FireProjectileSkill>
-              <cooldown>2.0</cooldown>
+              <icon>
+                <filename>images/skills/crosshairs.png</filename>
+              </icon>
+              <cooldown>3.0</cooldown>
             </newengine.skill.skills.FireProjectileSkill>
           </entry>
         </skills>
@@ -55,7 +50,7 @@
         <typename>newengine.sprite.components.Images</typename>
       </newengine.sprite.component.ComponentType>
       <newengine.sprite.components.Images>
-        <imageFilePath>resources/towerImages/pvsturret1.png</imageFilePath>
+        <imageFilePath>resources/duvall.gif</imageFilePath>
       </newengine.sprite.components.Images>
     </entry>
     <entry>
@@ -73,11 +68,20 @@
       <newengine.sprite.components.Attacker>
         <reloadPeriod>1.0</reloadPeriod>
         <timeRemaining>1.0</timeRemaining>
-        <damageStrength>75</damageStrength>
+        <damageStrength>1</damageStrength>
         <ltubImage>
           <filename>resources/bulletImages/pvzbullet.png</filename>
         </ltubImage>
       </newengine.sprite.components.Attacker>
+    </entry>
+    <entry>
+      <newengine.sprite.component.ComponentType>
+        <typename>newengine.sprite.components.Collidable</typename>
+      </newengine.sprite.component.ComponentType>
+      <newengine.sprite.components.Collidable>
+        <boundType>IMAGE</boundType>
+        <bound/>
+      </newengine.sprite.components.Collidable>
     </entry>
   </myComponents>
   <myScriptMap>
@@ -86,17 +90,17 @@
       <string></string>
     </entry>
   </myScriptMap>
-  <spriteName>1</spriteName>
-  <spriteDescription>tower</spriteDescription>
+  <spriteName>duvall</spriteName>
+  <spriteDescription></spriteDescription>
   <actualComponents>
-    <newengine.sprite.components.Cost reference="../../myComponents/entry[3]/newengine.sprite.components.Cost"/>
-    <newengine.sprite.components.Attacker reference="../../myComponents/entry[8]/newengine.sprite.components.Attacker"/>
-    <newengine.sprite.components.Images reference="../../myComponents/entry[6]/newengine.sprite.components.Images"/>
+    <newengine.sprite.components.Attacker reference="../../myComponents/entry[7]/newengine.sprite.components.Attacker"/>
+    <newengine.sprite.components.Collidable reference="../../myComponents/entry[8]/newengine.sprite.components.Collidable"/>
+    <newengine.sprite.components.Images reference="../../myComponents/entry[5]/newengine.sprite.components.Images"/>
     <newengine.sprite.components.Owner reference="../../myComponents/entry[2]/newengine.sprite.components.Owner"/>
-    <newengine.sprite.components.Range reference="../../myComponents/entry[4]/newengine.sprite.components.Range"/>
+    <newengine.sprite.components.Range reference="../../myComponents/entry[3]/newengine.sprite.components.Range"/>
     <newengine.sprite.components.RangeShootingAI reference="../../myComponents/entry/newengine.sprite.components.RangeShootingAI"/>
-    <newengine.sprite.components.Selectable reference="../../myComponents/entry[7]/newengine.sprite.components.Selectable"/>
-    <newengine.sprite.components.SkillSet reference="../../myComponents/entry[5]/newengine.sprite.components.SkillSet"/>
+    <newengine.sprite.components.Selectable reference="../../myComponents/entry[6]/newengine.sprite.components.Selectable"/>
+    <newengine.sprite.components.SkillSet reference="../../myComponents/entry[4]/newengine.sprite.components.SkillSet"/>
   </actualComponents>
   <skills/>
 </data.SpriteMakerModel>

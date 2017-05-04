@@ -11,23 +11,28 @@ import newengine.sprite.component.ComponentType;
 import newengine.utils.Target;
 
 public class RangeShootingAI extends Component {
-	
+
 	public static final ComponentType<RangeShootingAI> TYPE = new ComponentType<>(RangeShootingAI.class.getName());
 
 	@ConstructorForDeveloper
 	public RangeShootingAI(){
-		
+
 	}
-	
+
 	@Override
 	public void afterAdded() {
 		sprite.on(InRangeEvent.ANY, (e) -> {
 			Sprite shootTarget = null;
 			for (Sprite detectee: e.getDetectees()) {
-				if (detectee.getComponent(Owner.TYPE).get().player().isEnemyWith(
-						sprite.getComponent(Owner.TYPE).get().player()) && !detectee.getComponent(Weapon.TYPE).isPresent()) {
-					shootTarget = detectee;
-					break;
+				if (!detectee.getComponent(Images.TYPE).isPresent()){
+					continue;
+				}
+				else if(!detectee.getComponent(Images.TYPE).get().image().getFileName().equals("resources/Bowser.png")){
+					if (detectee.getComponent(Owner.TYPE).get().player().isEnemyWith(
+							sprite.getComponent(Owner.TYPE).get().player()) && !detectee.getComponent(Weapon.TYPE).isPresent()) {
+						shootTarget = detectee;
+						break;
+					}
 				}
 			}
 			if (shootTarget != null) {
@@ -36,7 +41,7 @@ public class RangeShootingAI extends Component {
 			}
 		});
 	}
-	
+
 	@Override
 	public ComponentType<? extends Component> getType() {
 		return TYPE;
@@ -52,7 +57,7 @@ public class RangeShootingAI extends Component {
 		// TODO Auto-generated method stub
 		return new Object[] {};
 	}
-	
-	
+
+
 
 }
