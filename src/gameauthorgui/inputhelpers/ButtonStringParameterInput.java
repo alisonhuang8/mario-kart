@@ -11,6 +11,7 @@ public class ButtonStringParameterInput extends HBox{
 	public ButtonStringParameterInput(String varName) {
 		super();
 		this.text = new StringParameterInput(varName);
+		//TODO: ADD TO RESOURCE FILE
 		this.done = new Button("Done");
 		this.getChildren().addAll(text, done);
 	}

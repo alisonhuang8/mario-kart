@@ -33,6 +33,7 @@ public class PeriodicTimer {
 			if (repeatingTimes > 0) {
 				repeatingTimes--;
 			}
+			System.out.println("TIMER CALLED");
 			timeRemained = interval;
 		}
 	}

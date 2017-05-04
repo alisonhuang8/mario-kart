@@ -3,7 +3,6 @@ package gamecreation.level;
 import gameDevelopmentInterface.SpawnerCreation;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
-import utilities.AlertHandler;
 
 public class SpawnerLevelEditorHolder extends LevelEditorHolder{
 	private SpawnerCreation myCreationSpawner;
@@ -15,6 +14,7 @@ public class SpawnerLevelEditorHolder extends LevelEditorHolder{
 	}
 
 	private void createSpawnerButton(){
+		// TODO: MAYBE ADD RESOURCE??
 		Button spawnerButton = new Button("Add Spawner to all levels");
 //		spawnerButton.setOnAction(action -> getLevelData().stream().forEach(level -> {
 //			level.addSpawner(myCreationSpawner.getSpawner());

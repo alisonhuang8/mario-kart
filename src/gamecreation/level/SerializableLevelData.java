@@ -4,7 +4,6 @@ import java.util.List;
 
 import data.SpriteMakerModel;
 import newengine.managers.conditions.Condition;
-import newengine.managers.conditions.NoMonstersCondition;
 
 /**
  * The necessity of this class is that LevelData in its current implementation is observable for front-end 

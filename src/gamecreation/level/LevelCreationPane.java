@@ -36,6 +36,7 @@ public class LevelCreationPane extends BorderPane {
 	}
 	
 	private Text createTitle(){
+		// TODO: KILL THE MAGIC VALUES
 		Text title = new Text("Level Creation");
 		title.setFont(new Font(50));
 		return title;

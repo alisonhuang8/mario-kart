@@ -57,6 +57,7 @@ public class BasicLevelCreator extends LevelCreator{
 	 */
 	@Override
 	public void createContent() {
+		// TODO: KILL THE MAGIC VALUES
 		content = new VBox();
 		initConditions();
 		StringParameterInput title = new StringParameterInput(myResources.getString("levelTitle"));

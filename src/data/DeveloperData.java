@@ -13,7 +13,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.util.Pair;
-import newengine.managers.conditions.Condition;
 /**
  * 
  * @author Jake

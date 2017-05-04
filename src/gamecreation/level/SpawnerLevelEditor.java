@@ -4,7 +4,6 @@ import gameDevelopmentInterface.SpawnerCreation;
 import gameauthorgui.inputhelpers.DoubleParameterInput;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import utilities.AlertHandler;
 
 public class SpawnerLevelEditor extends LevelEditor {
 	private VBox content;
@@ -18,6 +17,7 @@ public class SpawnerLevelEditor extends LevelEditor {
 
 	public void createContent() {
 		content = new VBox();
+		// TODO: ADD RESOURCES
 		spawnTime = new DoubleParameterInput("Time between spawn (sec)", 0, 10);
 		spawnTime.getDoubleProperty().addListener(e -> getData().setSpawnTime(spawnTime.getValue()));
 		Button addSpawner = new Button("Add this Spawner to this Level");

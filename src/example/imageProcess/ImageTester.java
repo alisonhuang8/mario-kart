@@ -42,7 +42,7 @@ public class ImageTester extends Application{
 			Rectangle r = new Rectangle(image.getWidth(),image.getHeight());
 			r.setFill(new ImagePattern(image));
 
-           ImageTransformation it = new ImageTransformation();
+          // ImageTransformation it = new ImageTransformation();
 
              root.getChildren().addAll(r);
              

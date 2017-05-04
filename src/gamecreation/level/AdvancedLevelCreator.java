@@ -32,7 +32,7 @@ public class AdvancedLevelCreator extends LevelCreator{
 	@Override
 	public void createContent() {
 		content = new VBox();
-		//TODO magic values
+		//TODO ADD RESOURCE FILES
 		numEnemies = new IntegerInputSlider("Number of Enemies", 0, MAX_NUM_ENEMIES);
 		spawnTime = new DoubleParameterInput("Time between spawn (sec)",0, MAX_TIME_SPAWN);
 		damageMultiplier = new DoubleParameterInput("Damage Multiplier", 0, MAX_DAMAGE_MULTI);
