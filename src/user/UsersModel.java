@@ -20,7 +20,6 @@ public class UsersModel {
 	 */
 	public class MessagingHandler{
 		public void sendMessage(String sender, String message, String reciever){
-			System.out.println("entering handler");
 			sendAMessage(sender, message, reciever); 
 		}
 	}
@@ -77,7 +76,6 @@ public class UsersModel {
 	public void verifyUser(String username, String usernameandpassword){
 		if (passwordVerify.contains(usernameandpassword)){
 			currentUser = usernameToData.get(username); 
-			// TODO: connect here to the gameplayer 
 		}
 	}
 

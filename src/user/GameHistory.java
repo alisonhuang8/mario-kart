@@ -57,7 +57,7 @@ public class GameHistory extends Observable {
 		stats.addCustomStat(statName, stat);
 	}
 	
-	public boolean containsRecordedStat(String name){
+	public boolean containsRecordedStat(String name){ 
 		return (stats.getCustomStat(name)!=null);
 	}
 	

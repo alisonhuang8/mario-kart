@@ -8,11 +8,20 @@ import user.UsersModel.MessagingHandler;
 /**
  * @author tahiaemran
  *
+ * this class represents all the pertinent data for any user, used to construct their social page/ center 
+ * and updated upon every game they author or play, or every message they send
+ * 
+ * assumptions:
+ * 
+ * dependencies:
+ * 
+ * use case:
+ * 
+ * 
  */
 public class User {
 
 	private String name; 
-	private String directory; 
 	private Image image; 
 
 	private UserHistory history; 
@@ -21,7 +30,6 @@ public class User {
 	private MessagingHandler handler; 
 
 	public User(String username, String imageFile, MessagingHandler MH) {
-		// directory
 		this.name = username; 
 		this.image = new Image(imageFile, 150, 150, false, false);
 		history = new UserHistory(); 
@@ -30,7 +38,6 @@ public class User {
 	}
 
 	public void onGameEnded(String gameFile, int score){
-		// check if game is new 
 		history.checkHighScore(gameFile,score);
 		history.incrementPlays(gameFile);
 	}
@@ -65,8 +72,7 @@ public class User {
 	public void sendMessage(String recipient, String message){
 		handler.sendMessage(name, message, recipient);
 		messages.addSent(recipient, message);
-		System.out.println("message being sent to recipient " + recipient);
-	}
+		}
 	
 	public Map<String,String> getDisplayableMessages(){
 		return messages.getDisplayableMessages();

@@ -22,7 +22,7 @@
     </entry>
     <entry>
       <string>GAME_NAME</string>
-      <string>new beets </string>
+      <string>dwight vs. beets</string>
     </entry>
   </gameData>
   <mySprites>
@@ -72,31 +72,31 @@
             <path>
               <myPath class="linked-list">
                 <commons.point.GamePoint>
-                  <x>450.0</x>
-                  <y>550.0</y>
+                  <x>50.0</x>
+                  <y>450.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>150.0</x>
+                  <y>450.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>250.0</x>
+                  <y>450.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>350.0</x>
+                  <y>450.0</y>
                 </commons.point.GamePoint>
                 <commons.point.GamePoint>
                   <x>450.0</x>
                   <y>450.0</y>
                 </commons.point.GamePoint>
                 <commons.point.GamePoint>
-                  <x>450.0</x>
-                  <y>350.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>450.0</x>
-                  <y>250.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>450.0</x>
-                  <y>150.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>450.0</x>
-                  <y>50.0</y>
+                  <x>550.0</x>
+                  <y>450.0</y>
                 </commons.point.GamePoint>
               </myPath>
-              <pathName>right</pathName>
+              <pathName>bottom</pathName>
             </path>
             <finalPoint>
               <x>0.0</x>
@@ -120,7 +120,101 @@
           <string></string>
         </entry>
       </myScriptMap>
-      <spriteName>beet 1</spriteName>
+      <spriteName>second beet</spriteName>
+      <spriteDescription></spriteDescription>
+      <actualComponents>
+        <newengine.sprite.components.Collidable reference="../../myComponents/entry[6]/newengine.sprite.components.Collidable"/>
+        <newengine.sprite.components.Health reference="../../myComponents/entry[2]/newengine.sprite.components.Health"/>
+        <newengine.sprite.components.Images reference="../../myComponents/entry[4]/newengine.sprite.components.Images"/>
+        <newengine.sprite.components.Owner reference="../../myComponents/entry[3]/newengine.sprite.components.Owner"/>
+        <newengine.sprite.components.PathFollower reference="../../myComponents/entry[5]/newengine.sprite.components.PathFollower"/>
+        <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
+      </actualComponents>
+      <skills/>
+    </data.SpriteMakerModel>
+    <data.SpriteMakerModel>
+      <myComponents>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Speed>
+            <speed>200.0</speed>
+          </newengine.sprite.components.Speed>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[2]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Health>
+            <initHealth>100</initHealth>
+            <health>100</health>
+          </newengine.sprite.components.Health>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[3]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Owner>
+            <owner>
+              <name>MONSTERS</name>
+            </owner>
+            <teamNumber>MONSTERS</teamNumber>
+          </newengine.sprite.components.Owner>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[4]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Images>
+            <imageFilePath>resources/beets.png</imageFilePath>
+          </newengine.sprite.components.Images>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.PathFollower>
+            <path>
+              <myPath class="linked-list">
+                <commons.point.GamePoint>
+                  <x>50.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>150.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>250.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>350.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>550.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+              </myPath>
+              <pathName>top</pathName>
+            </path>
+            <finalPoint>
+              <x>0.0</x>
+              <y>0.0</y>
+            </finalPoint>
+          </newengine.sprite.components.PathFollower>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[6]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Collidable>
+            <boundType>IMAGE</boundType>
+            <bound/>
+          </newengine.sprite.components.Collidable>
+        </entry>
+      </myComponents>
+      <myScriptMap>
+        <entry>
+          <null/>
+          <string></string>
+        </entry>
+      </myScriptMap>
+      <spriteName>first beet</spriteName>
       <spriteDescription></spriteDescription>
       <actualComponents>
         <newengine.sprite.components.Collidable reference="../../myComponents/entry[6]/newengine.sprite.components.Collidable"/>
@@ -159,7 +253,101 @@
         <entry>
           <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[4]/newengine.sprite.component.ComponentType"/>
           <newengine.sprite.components.Images>
-            <imageFilePath>resources/beets2.png</imageFilePath>
+            <imageFilePath>resources/beets.png</imageFilePath>
+          </newengine.sprite.components.Images>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.PathFollower>
+            <path>
+              <myPath class="linked-list">
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>50.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>250.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>350.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>450.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>450.0</x>
+                  <y>550.0</y>
+                </commons.point.GamePoint>
+              </myPath>
+              <pathName>right</pathName>
+            </path>
+            <finalPoint>
+              <x>0.0</x>
+              <y>0.0</y>
+            </finalPoint>
+          </newengine.sprite.components.PathFollower>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[6]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Collidable>
+            <boundType>IMAGE</boundType>
+            <bound/>
+          </newengine.sprite.components.Collidable>
+        </entry>
+      </myComponents>
+      <myScriptMap>
+        <entry>
+          <null/>
+          <string></string>
+        </entry>
+      </myScriptMap>
+      <spriteName>beet 3</spriteName>
+      <spriteDescription></spriteDescription>
+      <actualComponents>
+        <newengine.sprite.components.Collidable reference="../../myComponents/entry[6]/newengine.sprite.components.Collidable"/>
+        <newengine.sprite.components.Health reference="../../myComponents/entry[2]/newengine.sprite.components.Health"/>
+        <newengine.sprite.components.Images reference="../../myComponents/entry[4]/newengine.sprite.components.Images"/>
+        <newengine.sprite.components.Owner reference="../../myComponents/entry[3]/newengine.sprite.components.Owner"/>
+        <newengine.sprite.components.PathFollower reference="../../myComponents/entry[5]/newengine.sprite.components.PathFollower"/>
+        <newengine.sprite.components.Speed reference="../../myComponents/entry/newengine.sprite.components.Speed"/>
+      </actualComponents>
+      <skills/>
+    </data.SpriteMakerModel>
+    <data.SpriteMakerModel>
+      <myComponents>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Speed>
+            <speed>220.0</speed>
+          </newengine.sprite.components.Speed>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[2]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Health>
+            <initHealth>100</initHealth>
+            <health>100</health>
+          </newengine.sprite.components.Health>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[3]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Owner>
+            <owner>
+              <name>MONSTERS</name>
+            </owner>
+            <teamNumber>MONSTERS</teamNumber>
+          </newengine.sprite.components.Owner>
+        </entry>
+        <entry>
+          <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry[4]/newengine.sprite.component.ComponentType"/>
+          <newengine.sprite.components.Images>
+            <imageFilePath>resources/beets.png</imageFilePath>
           </newengine.sprite.components.Images>
         </entry>
         <entry>
@@ -169,19 +357,7 @@
               <myPath class="linked-list">
                 <commons.point.GamePoint>
                   <x>150.0</x>
-                  <y>50.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>150.0</x>
-                  <y>150.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>150.0</x>
-                  <y>250.0</y>
-                </commons.point.GamePoint>
-                <commons.point.GamePoint>
-                  <x>150.0</x>
-                  <y>350.0</y>
+                  <y>550.0</y>
                 </commons.point.GamePoint>
                 <commons.point.GamePoint>
                   <x>150.0</x>
@@ -189,7 +365,19 @@
                 </commons.point.GamePoint>
                 <commons.point.GamePoint>
                   <x>150.0</x>
-                  <y>550.0</y>
+                  <y>350.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>150.0</x>
+                  <y>250.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>150.0</x>
+                  <y>150.0</y>
+                </commons.point.GamePoint>
+                <commons.point.GamePoint>
+                  <x>150.0</x>
+                  <y>50.0</y>
                 </commons.point.GamePoint>
               </myPath>
               <pathName>left</pathName>
@@ -214,7 +402,7 @@
           <string></string>
         </entry>
       </myScriptMap>
-      <spriteName>beet 2</spriteName>
+      <spriteName>beet 4</spriteName>
       <spriteDescription></spriteDescription>
       <actualComponents>
         <newengine.sprite.components.Collidable reference="../../myComponents/entry[6]/newengine.sprite.components.Collidable"/>
@@ -263,16 +451,6 @@
           </newengine.sprite.component.ComponentType>
           <newengine.sprite.components.SkillSet>
             <skills>
-              <entry>
-                <newengine.skill.SkillType>
-                  <type>newengine.skill.skills.MoveSkill</type>
-                </newengine.skill.SkillType>
-                <newengine.skill.skills.MoveSkill>
-                  <icon>
-                    <filename>images/skills/walk.png</filename>
-                  </icon>
-                </newengine.skill.skills.MoveSkill>
-              </entry>
               <entry>
                 <newengine.skill.SkillType>
                   <type>newengine.skill.skills.FireProjectileSkill</type>
@@ -340,7 +518,7 @@
         <goldMin>500</goldMin>
       </winning>
       <losing class="newengine.managers.conditions.NoLivesCondition"/>
-      <spawnTime>2.2148761670451522</spawnTime>
+      <spawnTime>3.9669421487603307</spawnTime>
       <spawners>
         <data.SpriteMakerModel>
           <myComponents>
@@ -349,11 +527,11 @@
                 <typename>newengine.sprite.components.Spawner</typename>
               </newengine.sprite.component.ComponentType>
               <newengine.sprite.components.Spawner>
-                <secondsBetween>4.165289264079953</secondsBetween>
+                <secondsBetween>4.297520661157025</secondsBetween>
                 <totalNumber>20</totalNumber>
                 <needToSpawn>true</needToSpawn>
                 <startingPosition>
-                  <x>450.0</x>
+                  <x>150.0</x>
                   <y>550.0</y>
                 </startingPosition>
               </newengine.sprite.components.Spawner>
@@ -367,7 +545,7 @@
               </newengine.sprite.components.Owner>
             </entry>
             <entry>
-              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[3]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[5]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.SkillSet>
                 <skills>
                   <entry>
@@ -385,7 +563,7 @@
                               <typename>newengine.sprite.components.Speed</typename>
                             </newengine.sprite.component.ComponentType>
                             <newengine.sprite.components.Speed>
-                              <speed>200.0</speed>
+                              <speed>220.0</speed>
                             </newengine.sprite.components.Speed>
                           </entry>
                           <entry>
@@ -439,27 +617,27 @@
                                 <myPath class="linked-list">
                                   <commons.point.GamePoint reference="../../../../../../../../../../../../entry/newengine.sprite.components.Spawner/startingPosition"/>
                                   <commons.point.GamePoint>
-                                    <x>450.0</x>
+                                    <x>150.0</x>
                                     <y>450.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>450.0</x>
+                                    <x>150.0</x>
                                     <y>350.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>450.0</x>
+                                    <x>150.0</x>
                                     <y>250.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>450.0</x>
+                                    <x>150.0</x>
                                     <y>150.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>450.0</x>
+                                    <x>150.0</x>
                                     <y>50.0</y>
                                   </commons.point.GamePoint>
                                 </myPath>
-                                <pathName>right</pathName>
+                                <pathName>left</pathName>
                               </path>
                               <finalPoint>
                                 <x>0.0</x>
@@ -483,7 +661,7 @@
                             <string></string>
                           </entry>
                         </myScriptMap>
-                        <spriteName>beet 1</spriteName>
+                        <spriteName>beet 4</spriteName>
                         <spriteDescription></spriteDescription>
                         <actualComponents>
                           <newengine.sprite.components.Collidable reference="../../myComponents/entry[7]/newengine.sprite.components.Collidable"/>
@@ -547,11 +725,11 @@
             <entry>
               <newengine.sprite.component.ComponentType reference="../../../../data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.Spawner>
-                <secondsBetween>2.2148761670451522</secondsBetween>
+                <secondsBetween>3.9669421487603307</secondsBetween>
                 <totalNumber>20</totalNumber>
                 <needToSpawn>true</needToSpawn>
                 <startingPosition>
-                  <x>150.0</x>
+                  <x>450.0</x>
                   <y>50.0</y>
                 </startingPosition>
               </newengine.sprite.components.Spawner>
@@ -565,14 +743,14 @@
               </newengine.sprite.components.Owner>
             </entry>
             <entry>
-              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[3]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[5]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.SkillSet>
                 <skills>
                   <entry>
                     <newengine.skill.SkillType reference="../../../../../../../data.SpriteMakerModel/myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.SkillType"/>
                     <newengine.skill.skills.BuildSkill>
                       <icon>
-                        <filename>resources/beets2.png</filename>
+                        <filename>resources/beets.png</filename>
                       </icon>
                       <mySpriteMakerModel>
                         <myComponents>
@@ -609,7 +787,7 @@
                               <typename>newengine.sprite.components.Images</typename>
                             </newengine.sprite.component.ComponentType>
                             <newengine.sprite.components.Images>
-                              <imageFilePath>resources/beets2.png</imageFilePath>
+                              <imageFilePath>resources/beets.png</imageFilePath>
                             </newengine.sprite.components.Images>
                           </entry>
                           <entry>
@@ -633,27 +811,27 @@
                                 <myPath class="linked-list">
                                   <commons.point.GamePoint reference="../../../../../../../../../../../../entry/newengine.sprite.components.Spawner/startingPosition"/>
                                   <commons.point.GamePoint>
-                                    <x>150.0</x>
+                                    <x>450.0</x>
                                     <y>150.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>150.0</x>
+                                    <x>450.0</x>
                                     <y>250.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>150.0</x>
+                                    <x>450.0</x>
                                     <y>350.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>150.0</x>
+                                    <x>450.0</x>
                                     <y>450.0</y>
                                   </commons.point.GamePoint>
                                   <commons.point.GamePoint>
-                                    <x>150.0</x>
+                                    <x>450.0</x>
                                     <y>550.0</y>
                                   </commons.point.GamePoint>
                                 </myPath>
-                                <pathName>left</pathName>
+                                <pathName>right</pathName>
                               </path>
                               <finalPoint>
                                 <x>0.0</x>
@@ -677,7 +855,7 @@
                             <string></string>
                           </entry>
                         </myScriptMap>
-                        <spriteName>beet 2</spriteName>
+                        <spriteName>beet 3</spriteName>
                         <spriteDescription></spriteDescription>
                         <actualComponents>
                           <newengine.sprite.components.Collidable reference="../../myComponents/entry[7]/newengine.sprite.components.Collidable"/>
@@ -742,14 +920,14 @@
         <goldMin>800</goldMin>
       </winning>
       <losing class="newengine.managers.conditions.NoLivesCondition"/>
-      <spawnTime>1.0743801652892562</spawnTime>
+      <spawnTime>2.892561983471075</spawnTime>
       <spawners>
         <data.SpriteMakerModel>
           <myComponents>
             <entry>
               <newengine.sprite.component.ComponentType reference="../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.Spawner>
-                <secondsBetween>2.479338842975207</secondsBetween>
+                <secondsBetween>2.231404958677686</secondsBetween>
                 <totalNumber>20</totalNumber>
                 <needToSpawn>true</needToSpawn>
                 <startingPosition reference="../../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel/myComponents/entry/newengine.sprite.components.Spawner/startingPosition"/>
@@ -764,7 +942,7 @@
               </newengine.sprite.components.Owner>
             </entry>
             <entry>
-              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[3]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[5]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.SkillSet>
                 <skills>
                   <entry>
@@ -814,7 +992,7 @@
             <entry>
               <newengine.sprite.component.ComponentType reference="../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel/myComponents/entry/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.Spawner>
-                <secondsBetween>1.0743801652892562</secondsBetween>
+                <secondsBetween>2.892561983471075</secondsBetween>
                 <totalNumber>20</totalNumber>
                 <needToSpawn>true</needToSpawn>
                 <startingPosition reference="../../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel[2]/myComponents/entry/newengine.sprite.components.Spawner/startingPosition"/>
@@ -829,14 +1007,14 @@
               </newengine.sprite.components.Owner>
             </entry>
             <entry>
-              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[3]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
+              <newengine.sprite.component.ComponentType reference="../../../../../../../mySprites/data.SpriteMakerModel[5]/myComponents/entry[5]/newengine.sprite.component.ComponentType"/>
               <newengine.sprite.components.SkillSet>
                 <skills>
                   <entry>
                     <newengine.skill.SkillType reference="../../../../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel/myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.SkillType"/>
                     <newengine.skill.skills.BuildSkill>
                       <icon>
-                        <filename>resources/beets2.png</filename>
+                        <filename>resources/beets.png</filename>
                       </icon>
                       <mySpriteMakerModel reference="../../../../../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel[2]/myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.skills.BuildSkill/mySpriteMakerModel"/>
                       <skillType reference="../../../../../../../../../../gamecreation.level.SerializableLevelData/spawners/data.SpriteMakerModel/myComponents/entry[3]/newengine.sprite.components.SkillSet/skills/entry/newengine.skill.SkillType"/>
