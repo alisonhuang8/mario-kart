@@ -31,11 +31,10 @@ import newengine.sprite.components.Position;
  */
 public class AuthDataTranslator implements Translator<Sprite> {
 
-	// TODO: make a single translator for single sprite translatino
-	// TODO: instantiate skills
-
 	private List<SpriteMakerModel> spritesToMake;
 	private BasicEventBus gameBus = new BasicEventBus();
+	private SpriteConstructor spriteConstructor; 
+	
 	private int numRows = 8;
 	private int numCols = 8;
 
@@ -77,13 +76,11 @@ public class AuthDataTranslator implements Translator<Sprite> {
 	private void makeSingleSprite(SpriteMakerModel spriteToMake) {
 		constructed = handleComponents(spriteToMake.getActualComponents());
 		constructed.addComponent(new GameBus());
-//		constructed.addComponent(new EventQueue(new LinkedList<>()));
 		constructed.addComponent(new Cooldown());
 
 	}
 
 	public Sprite getSprite() {
-		System.out.println("constructed: " + constructed);
 		return constructed;
 	}
 

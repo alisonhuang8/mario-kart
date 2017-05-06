@@ -25,6 +25,7 @@ public class SerializableDeveloperData {
 	public static final String LEVEL_COMPLETION_BONUS = "LEVEL_COMPLETION";
 	public static final String GAME_NAME = "GAME_NAME";
 	public static final String GAME_ICON = "GAME_ICON";
+	
 	private Map<String, String> gameData; 
 	private List<SpriteMakerModel> mySprites; 
 	private List<ILevelData> myLevels; 
