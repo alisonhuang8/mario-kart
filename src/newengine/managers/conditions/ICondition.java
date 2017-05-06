@@ -4,7 +4,7 @@ import newengine.model.PlayerRelationModel;
 import newengine.model.PlayerStatsModel;
 import newengine.model.SpriteModel;
 //This entire file is part of my masterpiece.
-//YOUR NAME
+//Matthew Tribby
 /**
  * This interface governs the expectation for a condition. A condition is used to determine whether a certain condition is met 
  * based on the data encapsulated in the condition. This is needed for the strategy design pattern of the ConditionManager
