@@ -35,6 +35,10 @@ public class PathFollower extends Component{
 		return this.path;
 	}
 	
+	public GamePoint getStartingPosition() {
+		return this.path.getPath().peek();
+	}
+	
 	public void afterAdded(){
 		if (path.getPath().peek() == null){
 			return;

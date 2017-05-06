@@ -1,83 +1,88 @@
+// This entire file is part of my masterpiece.
+// Jake Conroy
 package gameDevelopmentInterface;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import data.DeveloperData;
+import java.util.ResourceBundle;
 import data.SpriteMakerModel;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import newengine.sprite.components.EventQueue;
-import newengine.sprite.components.GameBus;
 import newengine.sprite.components.Health;
 import newengine.sprite.components.Images;
 import newengine.sprite.components.PathFollower;
-import newengine.sprite.components.SkillSet;
 import newengine.sprite.components.Speed;
-import utilities.AlertHandler;
+
+/**
+ * 
+ * The purpose of this code is to hold ImageView objects that represent
+ * the monsters that the user could put into the spawner. So that it does
+ * not run off the screen, I have made it extend ScrollPane. I think that
+ * this class is well designed because it uses a resource bundle to get 
+ * the strings that appear on the screen, it handles errors in a robust way
+ * by showing alert messages to the user that depict what action they took
+ * that caused an error, and the "isMonster" method is quite clean and makes
+ * use of optionals to make my code look cleaner than if I was checking to
+ * see whether each condition of the boolean was equal to null. Finally, I
+ * also believe that the methods in the "loadFromFile" method are particularly
+ * well-named and would allow any reader to understand the functionality of
+ * this part of the program without knowing the inner workings of our program.
+ * 
+ * @author Jake Conroy (jrc63) Started April 25, 2017
+ *
+ */
 
 public class AllPossibleMonsters extends ScrollPane {
+	private static final String NO_IMAGE = "NO_IMAGE";
+	private static final String SELECTED_FILE_NOT_SPAWNER = "SELECTED_FILE_NOT_SPAWNER";
 	private static final int IMAGE_SIZE = 100;
-	private DeveloperData myData;
 	private SpawnerCreation mySpawnerInfo;
 	private SpawnerInfoPane mySpawnerInfoPane;
 	private VBox monsterImages;
+	private ResourceBundle myResources;
 
-	public AllPossibleMonsters(SpawnerCreation spawnerInfo, DeveloperData data, SpawnerInfoPane spawnerInfoPane) {
+	public AllPossibleMonsters(SpawnerCreation spawnerInfo, SpawnerInfoPane spawnerInfoPane, ResourceBundle resources) {
+		myResources = resources;
 		mySpawnerInfoPane = spawnerInfoPane;
 		mySpawnerInfo = spawnerInfo;
-		myData = data;
 		monsterImages = new VBox();
 		this.setContent(monsterImages);
-	}
-
-	public void getMonstersOnScreen() {
-		List<SpriteMakerModel> allSprites = new ArrayList<SpriteMakerModel>(myData.getSprites());
-		List<SpriteMakerModel> onlyMonsters = new ArrayList<>();
-		for (SpriteMakerModel possibleMonster : allSprites) {
-			if (isMonster(possibleMonster)) {
-				onlyMonsters.add(possibleMonster);
-			}
-		}
-		for (SpriteMakerModel monster : onlyMonsters) {
-			Images imageComp = (Images) monster.getComponentByType(Images.TYPE);
-			ImageView iv = new ImageView(imageComp.image().getFXImage());
-			iv.setFitWidth(100);
-			iv.setFitHeight(100);
-			iv.setOnMouseClicked(click -> {
-				setCurrentMonster(monster, new ImageView(imageComp.image().getFXImage()));
-				mySpawnerInfo.setCurrentMonsterToSpawn(monster);
-			});
-			monsterImages.getChildren().add(iv);
-		}
+		this.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+		this.setPrefSize(IMAGE_SIZE, IMAGE_SIZE);
 	}
 
 	public void loadFromFile(SpriteMakerModel monster) {
 		if (isMonster(monster)) {
-			Images imageComp = (Images) monster.getComponentByType(Images.TYPE);
-			ImageView iv = new ImageView(imageComp.image().getFXImage());
-			iv.setFitWidth(IMAGE_SIZE);
-			iv.setFitHeight(IMAGE_SIZE);
-			iv.setOnMouseClicked(click -> {
-				setCurrentMonster(monster, new ImageView(imageComp.image().getFXImage()));
+			ImageView monsterImage = new ImageView(monster.getComponent(Images.TYPE).get().image().getFXImage());
+			monsterImage.setFitWidth(IMAGE_SIZE);
+			monsterImage.setFitHeight(IMAGE_SIZE);
+			monsterImage.setOnMouseClicked(click -> {
+				setCurrentMonster(monster, monsterImage);
 				mySpawnerInfo.setCurrentMonsterToSpawn(monster);
 			});
-			monsterImages.getChildren().add(iv);
+			monsterImages.getChildren().add(monsterImage);
+		} else {
+			Alert alert = new Alert(AlertType.ERROR, myResources.getString(SELECTED_FILE_NOT_SPAWNER));
+			alert.show();
 		}
 	}
 
 	private void setCurrentMonster(SpriteMakerModel monster, ImageView iv) {
 		mySpawnerInfo.setCurrentMonsterToSpawn(monster);
-		mySpawnerInfoPane.setImage((Images) monster.getComponentByType(Images.TYPE));
+		try {
+			mySpawnerInfoPane.setImage(monster.getComponent(Images.TYPE).get());
+		} catch (NullPointerException e) {
+			Alert alert = new Alert(AlertType.WARNING, myResources.getString(NO_IMAGE));
+			alert.show();
+		}
+		
 	}
 
 	private boolean isMonster(SpriteMakerModel possibleMonster) {
-		return (possibleMonster.getComponentByType(Images.TYPE) != null);// &&
-		// possibleMonster.getComponentByType(Speed.TYPE) != null &&
-		// possibleMonster.getComponentByType(Health.TYPE) != null &&
-		// possibleMonster.getComponentByType(PathFollower.TYPE) != null &&
-		// possibleMonster.getComponentByType(EventQueue.TYPE) != null);
-		// possibleMonster.getComponentByType(GameBus.TYPE) != null);
+		return possibleMonster.getComponent(Images.TYPE).isPresent() &&
+		 possibleMonster.getComponent(Speed.TYPE).isPresent() &&
+		 possibleMonster.getComponent(Health.TYPE).isPresent() &&
+		 possibleMonster.getComponent(PathFollower.TYPE).isPresent();
 	}
 }

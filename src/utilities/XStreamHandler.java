@@ -15,7 +15,7 @@ import newengine.sprite.Sprite;
 public class XStreamHandler {
 	//TODO: Remove duplicate code using generics
 	
-	public SpriteMakerModel getAttributeFromFile() {
+	public SpriteMakerModel getSpriteModelFromFile() {
 		XStream xstream = new XStream(new DomDriver());
 		FileChooser chooser = new FileChooser();
 		File attributeFile = chooser.showOpenDialog(new Stage());

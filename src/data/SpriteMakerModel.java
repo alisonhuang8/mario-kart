@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import bus.BusEvent;
 import javafx.util.Pair;
@@ -98,6 +99,11 @@ public class SpriteMakerModel {
 	
 	public Map<ComponentType<?>, Component > getComponents() {
 		return myComponents;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends Component> Optional<T> getComponent(ComponentType<T> type) {
+		return Optional.ofNullable((T) myComponents.get(type));
 	}
 	
 	public List<EventHandleData> getEventHandlers() {

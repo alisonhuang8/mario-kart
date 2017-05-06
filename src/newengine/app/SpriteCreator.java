@@ -70,7 +70,7 @@ public class SpriteCreator {//extends Application {
 		//sprite2.addComponent(new Spawner(100, new Path(), 0.01));
 		XStreamHandler xstream = new XStreamHandler();
 		xstream.saveToFile(sprite2);
-		SpriteMakerModel spawner = (SpriteMakerModel) xstream.getAttributeFromFile();
+		SpriteMakerModel spawner = (SpriteMakerModel) xstream.getSpriteModelFromFile();
 		
 		return spawner;
 	}

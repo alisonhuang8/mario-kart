@@ -11,16 +11,6 @@ public class SpawnerLevelEditorHolder extends LevelEditorHolder{
 	public SpawnerLevelEditorHolder(ObservableList<LevelData> data, double prefHeight, SpawnerCreation creationSpawner) {
 		super(data, prefHeight);
 		myCreationSpawner = creationSpawner;
-		createSpawnerButton();
-	}
-
-	private void createSpawnerButton(){
-		Button spawnerButton = new Button("Add Spawner to all levels");
-//		spawnerButton.setOnAction(action -> getLevelData().stream().forEach(level -> {
-//			level.addSpawner(myCreationSpawner.getSpawner());
-//		}));
-//		addNode(spawnerButton);
-
 	}
 	
 	@Override

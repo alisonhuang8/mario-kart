@@ -39,7 +39,7 @@ public class TowerSetButtonsPanel extends VBox {
 		saveSetupButton = new Button(myResources.getString(SAVE_THIS_SETUP));
 		loadSpriteButton = new Button(myResources.getString(LOAD_SPRITE_FROM_FILE));
 		loadSpriteButton.setOnAction(e -> {
-			SpriteMakerModel sprite = xstreamHandler.getAttributeFromFile();
+			SpriteMakerModel sprite = xstreamHandler.getSpriteModelFromFile();
 			mySMC.addPossibleSprite(sprite);
 		});
 		saveSetupButton.setOnAction(e -> {
