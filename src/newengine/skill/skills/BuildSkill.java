@@ -6,7 +6,7 @@ import java.util.List;
 import bus.EventBus;
 import data.SpriteMakerModel;
 import gamedata.AuthDataTranslator;
-import gamedata.SpriteFactory;
+import gamedata.SpriteBuilder;
 import helperAnnotations.ConstructorForDeveloper;
 import helperAnnotations.VariableName;
 import newengine.events.SpriteModelEvent;

@@ -14,11 +14,17 @@ import newengine.sprite.components.Position;
 /**
  * @author tahiaemran
  *
+ *This class is part of my masterpiece. 
+ *
+ *This code uses the Builder design pattern to construct sprites from the provided sprite maker model. It is the concrete implementation 
+ *of the SpriteConstructor interface, which defines the API for Sprite Construction. 
+ *
  * This class is used to construct a single sprite from a SpriteMakerModel, but one instance of it can be used to construct as 
- * many sprites as needed by passing in different SpriteMakerModels to the getConstructedSprite() method
+ * many sprites as needed by passing in different SpriteMakerModels to the getConstructedSprite() method. 
+ * 
  *
  */
-public class SpriteFactory {
+public class SpriteBuilder implements SpriteConstructor{
 
 	private int numRows; 
 	private int numCols; 
@@ -28,7 +34,7 @@ public class SpriteFactory {
 	 * @param numCols - number of columns defined by the user, needed to scale the position of the sprite being created
 	 * 
 	 */
-	public SpriteFactory(int numRows, int numCols) {
+	public SpriteBuilder(int numRows, int numCols) {
 		this.numRows = numRows; 
 		this.numCols = numCols;
 	}
@@ -37,10 +43,15 @@ public class SpriteFactory {
 	 * @param model - the SpriteMakerModel used to construct a given sprite
 	 * @return the Sprite object constructed from the model
 	 */
+	/* (non-Javadoc)
+	 * @see gamedata.SpriteConstructor#getConstructedSprite(data.SpriteMakerModel)
+	 */
+	@Override
 	public Sprite getConstructedSprite(SpriteMakerModel model){
 		return construct(model);
 	}
 
+	
 	private Sprite construct(SpriteMakerModel model) {
 		Sprite constructedSprite = new Sprite(); 
 		constructedSprite = handleComponents(model.getActualComponents());
