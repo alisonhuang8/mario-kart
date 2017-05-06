@@ -43,4 +43,6 @@ public interface ILevelData{
 	 * @return List of Spawners in the form of SpriteMakerModel objects
 	 */
 	public List<SpriteMakerModel> getSpawners();
+	
+	public boolean getShowPath();
 }

@@ -53,4 +53,10 @@ public class SerializableLevelData implements ILevelData {
 		return spawners;
 	}
 
+	//hardcoded so masterpiece won't break code, not part of masterpiece
+	@Override
+	public boolean getShowPath() {
+		return true;
+	}
+
 }

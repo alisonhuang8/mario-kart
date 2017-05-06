@@ -81,5 +81,10 @@ public class LevelData extends Observable implements ILevelData {
 	public List<SpriteMakerModel> getSpawners() {
 		return spawners;
 	}
+	
+	//hardcoded currently so that my masterpiece wouldn't break code if implemented
+	public boolean getShowPath(){
+		return true;
+	}
 
 }

@@ -2,10 +2,10 @@ package newengine.managers.levels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import bus.EventBus;
-import commons.point.GamePoint;
 import data.SpriteMakerModel;
 import gamecreation.level.ILevelData;
 import gamedata.AuthDataTranslator;
@@ -18,28 +18,38 @@ import newengine.events.game.GamePauseResumeEvent;
 import newengine.events.levels.InitILevelsEvent;
 import newengine.events.levels.SetLevelEvent;
 import newengine.events.levels.WinGameEvent;
-import newengine.player.Player;
-import newengine.skill.skills.BuildSkill;
 import newengine.sprite.Sprite;
-import newengine.sprite.components.GameBus;
-import newengine.sprite.components.Images;
-import newengine.sprite.components.Owner;
-import newengine.sprite.components.PathFollower;
-import newengine.sprite.components.Position;
-import newengine.sprite.components.SkillSet;
-import newengine.utils.image.LtubImage;
 import player.winnerorloser.LosePresentation;
 import player.winnerorloser.ResultAccessor;
 import player.winnerorloser.WinPresentation;
 import utilities.CustomAlert;
 
-public class LevelManager{
-	private static final String STONE_FILE_PATH = "images/characters/Stone.jpg";
+//This entire file is part of my masterpiece.
+//Matthew Tribby
+
+/**
+ * The goal of this class is to act as the hub for switching levels in any genre of game. It was intentionally built
+ * to not be tied to any genre. In order to work it needs to take in ILevelData which is an interface defining the
+ * characteristics of a level. This level manager is well designed because it has a very clean API and all the work
+ * it does to load the levels are completely encapsulated. It can also act without anyone having a reference to it
+ * because of our event-based system. 
+ * @author Matthew Tribby
+ */
+public class LevelManager implements ILevelManager{
 	private EventBus bus;
 	private List<ILevelData> data;
 	private int numLevels;
 	private int currentLevel;
+	public static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
+	public static final String RESOURCE_FILE_NAME = "engine";
+	private ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
+
 	
+	/**
+	 * Creates a LevelManager with an event bus used to connect to event based system. Also the constructor calls
+	 * to initializes the handlers so it is in sync with the event-based system.
+	 * @param bus
+	 */
 	public LevelManager(EventBus bus){
 		this.bus = bus;
 		initHandlers();
@@ -66,32 +76,40 @@ public class LevelManager{
 		bus.on(SetLevelEvent.SET, e -> {if(data!= null) setLevel(e.getLevelNumber());});
 	}
 
+	/**
+	 * Increases the level by one and makes a call to end game if there are no more levels. If there are more
+	 * levels it will call to load in the next level
+	 */
 	public void nextLevel(){
 		if(!(currentLevel == numLevels)){
-			Alert winAlert = new CustomAlert(AlertType.CONFIRMATION, "You beat the level!");
+			Alert winAlert = new CustomAlert(AlertType.CONFIRMATION, myResources.getString("beatLevel"));
 			winAlert.setOnCloseRequest(e -> bus.emit(new GamePauseResumeEvent()));
 			winAlert.show();
 			bus.emit(new GamePauseResumeEvent());
-			///System.out.println("next level loading");
 			currentLevel++;
-			//System.out.println("Current level: " + currentLevel);
 			loadLevel(data.get(currentLevel-1));
 			return;
 		}
 			new WinPresentation().show(new ResultAccessor());;
 			bus.emit(new WinGameEvent(WinGameEvent.WIN));
 			bus.emit(new GamePauseResumeEvent());
-
 	}
 	
+	/**
+	 * Loads in the current level again, thus resetting this level
+	 */
 	public void resetLevel(){
 		loadLevel(data.get(currentLevel-1));
 	}
 	
+	/**
+	 * Sets the current level to the level corresponding to the integer passed in if that level is present
+	 */
 	public void setLevel(int levelNumber){
 		if(levelNumber > 0 && levelNumber <= numLevels){
 			loadLevel(data.get(levelNumber-1));
 		}
+		new CustomAlert(AlertType.ERROR, myResources.getString("levelNum") + levelNumber + myResources.getString("notPresent")).show();
 	}
 	
 	private void loadLevel(ILevelData newLevel){
@@ -105,40 +123,9 @@ public class LevelManager{
 		}).collect(Collectors.toList()));
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
 		
-		
-		makePathTiles(spriteMakerModels);
-		
-	}
-
-	private void makePathTiles(List<SpriteMakerModel> spriteMakerModels) {
-		List<Sprite> pathSprites = new ArrayList<>();
-		for (int m = 0; m < spriteMakerModels.size(); m++) {
-			SkillSet skillSet = (SkillSet) spriteMakerModels.get(m).getComponentByType(SkillSet.TYPE);
-			BuildSkill buildSkill = (BuildSkill) skillSet.getSkill(BuildSkill.TYPE);
-			PathFollower pathFollowerComponent = (PathFollower) buildSkill.getSpriteMakerModel().getComponentByType(PathFollower.TYPE);
-			List<GamePoint> points = new ArrayList<> (pathFollowerComponent.getPath().getPath());
-			
-			for (int i = 0; i < points.size()-1; i++) {
-				GamePoint point1 = points.get(i);
-				GamePoint point2 = points.get(i+1);
-				double dist = point1.distFrom(point2);
-				double dx = point2.x() - point1.x();
-				double dy = point2.y() - point1.y();
-				double tileInterval = 30;
-				for (int j = 0; j <= dist / tileInterval; j++) {
-					GamePoint pathPoint = new GamePoint(
-							point1.x() + tileInterval * dx / dist * j,
-							point1.y() + tileInterval * dy / dist * j);
-					Sprite step = new Sprite();
-					step.addComponent(new Position(pathPoint));
-					LtubImage ltubimage = new LtubImage(STONE_FILE_PATH);
-					step.addComponent(new Images(ltubimage));
-					step.addComponent(new GameBus());
-					step.addComponent(new Owner(Player.NATURE));
-					pathSprites.add(step);
-				}
-			}	
+		if(newLevel.getShowPath()){
+			PathCreator pathCreator = new SimplePathCreator(bus);
+			pathCreator.createPath(spriteMakerModels);
 		}
-		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, pathSprites));
 	}
 }
