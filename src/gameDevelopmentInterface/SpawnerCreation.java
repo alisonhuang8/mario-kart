@@ -52,11 +52,20 @@ public class SpawnerCreation extends BorderPane {
 		myResources = ResourceBundle.getBundle(RESOURCE_FILE_PATH);
 		instantiate();
 	}
-	
+	/**
+	 * 
+	 * @param monster The monster that the spawner is supposed to spawn
+	 */
 	public void setCurrentMonsterToSpawn(SpriteMakerModel monster) {
 		monsterToSpawn = monster;
 	}
-	
+	/**
+	 * 
+	 * @param spawnBetweenTime how many seconds to wait in between
+	 * spawning monsters 
+	 * @return the info needed to xstream into a spawner object that
+	 * the back end can use
+	 */
 	public SpriteMakerModel getSpawner(double spawnBetweenTime) {
 		SpriteMakerModel spawnerData = new SpriteMakerModel();
 		Map<SkillType<? extends Skill>, Skill> spawnerSkills = new HashMap<>();
@@ -68,11 +77,19 @@ public class SpawnerCreation extends BorderPane {
 		spawnerData.addComponent(new Spawner(myMonsterAdder.getNumMonsters(), spawnBetweenTime, monsterToSpawn));
 		return spawnerData;
 	}
-	
+	/**
+	 * 
+	 * @return the first coordinate of the path the monster is 
+	 * supposed to follow
+	 */
 	private GamePoint getStartingPosition() {
 		return monsterToSpawn.getComponent(PathFollower.TYPE).get().getStartingPosition();
 	}
-	
+	/**
+	 * Set up the class with new instances of SpawnerInfoPane,
+	 * AllPossibleMonster, and MonsterAdder and then put them
+	 * into the BorderPane in the correct places
+	 */
 	private void instantiate() {
 		mySpawnerInfo = new SpawnerInfoPane();
 		myPossibleMonsters = new AllPossibleMonsters(this, mySpawnerInfo, myResources);

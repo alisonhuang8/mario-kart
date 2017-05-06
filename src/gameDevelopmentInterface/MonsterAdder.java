@@ -44,7 +44,9 @@ public class MonsterAdder extends HBox {
 		makeButton();		
 		this.getChildren().addAll(new Text(myResources.getString(CREATE_A_SPAWNER)), loadMonster, numberOfMonsters);		
 	}
-
+	/**
+	 * Name and create the "Load a monster from a file" button
+	 */
 	private void makeButton() {
 		loadMonster = new Button(myResources.getString(LOAD_A_MONSTER_FROM_FILE));
 		loadMonster.setOnAction(click -> {
@@ -58,7 +60,10 @@ public class MonsterAdder extends HBox {
 			}
 		});
 	}
-	
+	/**
+	 * 
+	 * @return the number of monsters to spawn from this spawner
+	 */
 	public int getNumMonsters() {
 		return Integer.parseInt(numberOfMonsters.getValue());
 	}

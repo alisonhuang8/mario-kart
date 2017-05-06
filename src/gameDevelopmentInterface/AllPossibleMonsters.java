@@ -51,24 +51,31 @@ public class AllPossibleMonsters extends ScrollPane {
 		this.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 		this.setPrefSize(IMAGE_SIZE, IMAGE_SIZE);
 	}
-
+	/**
+	 * Load in the data for a monster so that it can be clicked on and added
+	 * to the spawner
+	 * @param monster a sprite model
+	 */
 	public void loadFromFile(SpriteMakerModel monster) {
 		if (isMonster(monster)) {
 			ImageView monsterImage = new ImageView(monster.getComponent(Images.TYPE).get().image().getFXImage());
 			monsterImage.setFitWidth(IMAGE_SIZE);
 			monsterImage.setFitHeight(IMAGE_SIZE);
 			monsterImage.setOnMouseClicked(click -> {
-				setCurrentMonster(monster, monsterImage);
+				setCurrentMonster(monster);
 				mySpawnerInfo.setCurrentMonsterToSpawn(monster);
 			});
 			monsterImages.getChildren().add(monsterImage);
 		} else {
-			Alert alert = new Alert(AlertType.ERROR, myResources.getString(SELECTED_FILE_NOT_SPAWNER));
+			Alert alert = new Alert(AlertType.WARNING, myResources.getString(SELECTED_FILE_NOT_SPAWNER));
 			alert.show();
 		}
 	}
-
-	private void setCurrentMonster(SpriteMakerModel monster, ImageView iv) {
+	/**
+	 * 
+	 * @param monster the monster that has been clicked on
+	 */
+	private void setCurrentMonster(SpriteMakerModel monster) {
 		mySpawnerInfo.setCurrentMonsterToSpawn(monster);
 		try {
 			mySpawnerInfoPane.setImage(monster.getComponent(Images.TYPE).get());
@@ -78,7 +85,12 @@ public class AllPossibleMonsters extends ScrollPane {
 		}
 		
 	}
-
+	/**
+	 * 
+	 * @param possibleMonster A sprite model that may or may not have the
+	 * components necessary to be a monster
+	 * @return if the sprite model is a monster or not
+	 */
 	private boolean isMonster(SpriteMakerModel possibleMonster) {
 		return possibleMonster.getComponent(Images.TYPE).isPresent() &&
 		 possibleMonster.getComponent(Speed.TYPE).isPresent() &&

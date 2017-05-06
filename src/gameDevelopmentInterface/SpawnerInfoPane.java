@@ -21,14 +21,21 @@ public class SpawnerInfoPane extends BorderPane {
 	public SpawnerInfoPane() {
 		refresh();
 	}
-
+	/**
+	 * 
+	 * @param monsterImages the images component of a sprite that tells
+	 * one what type of image it should appear as on the screen
+	 */
 	public void setImage(Images monsterImages) {
 		currentMonsterPicture = new ImageView(monsterImages.image().getFXImage());
 		currentMonsterPicture.setFitHeight(getHeight());
 		currentMonsterPicture.setFitWidth(getWidth());
 		refresh();
 	}
-	
+	/**
+	 * When a new image is clicked, reset the center of the screen to show
+	 * this image
+	 */
 	private void refresh() {
 		this.setCenter(currentMonsterPicture);
 	}
