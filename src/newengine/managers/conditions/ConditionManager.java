@@ -1,7 +1,7 @@
 package newengine.managers.conditions;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import bus.EventBus;
 import newengine.events.conditions.EndConditionTriggeredEvent;
@@ -52,6 +52,8 @@ public class ConditionManager {
 		this.spriteModel = spriteModel;
 		this.playerStatsModel = playerStatsModel;
 		this.playerRelationModel = playerRelationModel;
+		this.winning = new ArrayList<ICondition>();
+		this.losing = new ArrayList<ICondition>();
 		initHandlers();
 	} 
 	
