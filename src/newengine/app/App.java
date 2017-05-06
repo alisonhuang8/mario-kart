@@ -78,7 +78,7 @@ public class App extends Application {
 		List<Sprite> listSprites = new ArrayList<>();
 		for (SpriteMakerModel smm : listSpriteModels) {
 			AuthDataTranslator translator = new AuthDataTranslator(smm);
-			listSprites.add(translator.getSprite());
+			listSprites.add(translator.getTranslated().get(0));
 		}
 		Player player2 = new Player("Player 2");
 

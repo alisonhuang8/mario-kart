@@ -100,7 +100,7 @@ public class LevelManager{
 		List<SpriteMakerModel> spriteMakerModels = newLevel.getSpawners();
 		List<Sprite> sprites = new ArrayList<>();
 		sprites.addAll(spriteMakerModels.stream().map((spriteMakerModel) -> {
-			return (new AuthDataTranslator(spriteMakerModel)).getSprite();
+			return (new AuthDataTranslator(spriteMakerModel)).getTranslated().get(0);
 		}).collect(Collectors.toList()));
 		bus.emit(new SpriteModelEvent(SpriteModelEvent.ADD, sprites));
 		

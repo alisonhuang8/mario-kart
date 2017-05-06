@@ -16,6 +16,9 @@ public interface Translator<K> {
 	 */
 	public void translate(); 
 	
+	/**
+	 * @return a list of the translated objects
+	 */
 	public List<K> getTranslated(); 
 	
 	

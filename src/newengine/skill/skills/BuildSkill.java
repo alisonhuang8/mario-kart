@@ -6,6 +6,7 @@ import java.util.List;
 import bus.EventBus;
 import data.SpriteMakerModel;
 import gamedata.AuthDataTranslator;
+import gamedata.SpriteFactory;
 import helperAnnotations.ConstructorForDeveloper;
 import helperAnnotations.VariableName;
 import newengine.events.SpriteModelEvent;
@@ -72,7 +73,7 @@ public class BuildSkill extends Skill {
 //					.emit(new SpriteModelEvent(SpriteModelEvent.ADD, spritesToCreate));
 //=======
 		AuthDataTranslator translator = new AuthDataTranslator(mySpriteMakerModel);
-		Sprite spriteToCreate = translator.getSprite();
+		Sprite spriteToCreate = translator.getTranslated().get(0);
 		Player player = getSource().get().getComponent(Owner.TYPE).get().player();
 		if (spriteToCreate.getComponent(Cost.TYPE).isPresent()) {
 			System.out.println("cost monney");
