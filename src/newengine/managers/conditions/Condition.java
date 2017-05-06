@@ -4,7 +4,7 @@ import newengine.model.PlayerRelationModel;
 import newengine.model.PlayerStatsModel;
 import newengine.model.SpriteModel; 
 //This entire file is part of my masterpiece.
-//YOUR NAME
+//Matthew Tribby
 /**
  * Condition which is to be extended to fit a game's winning or losing condition. The goal of a condition is basically
  * to be a complex boolean that returns true when the condition is met. This can then be used by the condition manager
