@@ -1,11 +1,13 @@
 // This entire file is part of my masterpiece.
 // Alison Huang
+
 /**
  * This is the abstract class that will be used for all weapon types.
  * 
  * The object hierarchy used here is good for adding new weapons. They all have similar features like speed,
  * range, strength, and image so it makes sense to put them all in one object.
  */
+
 package newengine.sprite.weapons;
 
 import newengine.utils.image.LtubImage;

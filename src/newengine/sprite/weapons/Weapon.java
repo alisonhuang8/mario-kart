@@ -1,7 +1,7 @@
 // This entire file is part of my masterpiece.
 // Alison Huang
+
 /**
- * @author AlisonHuang
  * Concepts applied in this masterpiece are object hierarchies and composition.
  * This is the component that the actual monster sprite will need in order to launch 
  * any kind of attack concerning weapons.

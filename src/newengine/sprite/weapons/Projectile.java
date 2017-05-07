@@ -9,9 +9,9 @@
  * can add it to the composition map.
  */
 
+
 package newengine.sprite.weapons;
 
-import newengine.sprite.component.ComponentType;
 import newengine.utils.image.LtubImage;
 
 public class Projectile extends WeaponObject{

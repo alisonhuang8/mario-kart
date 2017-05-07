@@ -6,6 +6,7 @@
  * same composition map.
  */
 
+
 package newengine.sprite.weapons;
 
 public class WeaponType<T> {
