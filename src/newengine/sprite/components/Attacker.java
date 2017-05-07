@@ -20,6 +20,8 @@ import newengine.sprite.Sprite;
 import newengine.sprite.component.Component;
 import newengine.sprite.component.ComponentType;
 import newengine.sprite.components.Collidable.CollisionBoundType;
+import newengine.sprite.weapons.Projectile;
+import newengine.sprite.weapons.Weapon;
 import newengine.utils.Target;
 import newengine.utils.image.ImageSet;
 import newengine.utils.image.LtubImage;
@@ -56,18 +58,7 @@ public class Attacker extends Component {
 			Sprite target = e.getTarget();
 
 			Sprite weapon = new Sprite();
-			Map<SkillType<? extends Skill>, Skill> skillMap = new HashMap<>();
-			MoveSkill moveSkill = new MoveSkill();
-			skillMap.put(MoveSkill.TYPE, moveSkill);
-			weapon.addComponent(new SkillSet(skillMap));
-			weapon.addComponent(new Owner(source.getComponent(Owner.TYPE).get().player()));
-			weapon.addComponent(new Position(source.getComponent(Position.TYPE).get().pos(), source.getComponent(Position.TYPE).get().heading()));
-			weapon.addComponent(new Images(ltubImage.getFileName()));
-			weapon.addComponent(new Speed(400));
-			weapon.addComponent(new Collidable(CollisionBoundType.IMAGE));
-			weapon.addComponent(new DamageStrength(damageStrength));
-			weapon.addComponent(new GameBus());	
-			weapon.addComponent(new Weapon());
+			weapon.addComponent(new Weapon(source, target, Projectile.TYPE));
 			
 			List<Sprite> spritesToAdd = new ArrayList<Sprite>();
 			spritesToAdd.add(weapon);
@@ -79,6 +70,8 @@ public class Attacker extends Component {
 				System.out.println(gameBus.getGameBus() == null);
 			});
 
+			Skill moveSkill = weapon.getComponent(SkillSet.TYPE).get().getSkill(MoveSkill.TYPE);
+			
 			moveSkill.setTarget(new Target(target));
 			moveSkill.trigger();
 		});

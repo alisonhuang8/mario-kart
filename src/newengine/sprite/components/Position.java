@@ -26,6 +26,7 @@ import newengine.events.timer.DelayedEvent;
 import newengine.sprite.Sprite;
 import newengine.sprite.component.Component;
 import newengine.sprite.component.ComponentType;
+import newengine.sprite.weapons.Weapon;
 import newengine.utils.Target;
 
 public class Position extends Component {

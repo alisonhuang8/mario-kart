@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import newengine.sprite.Sprite;
 import newengine.sprite.components.Range;
-import newengine.sprite.components.Weapon;
+import newengine.sprite.weapons.Weapon;
 import newengine.utils.SpriteUtils;
 
 /**
