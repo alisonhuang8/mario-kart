@@ -11,10 +11,11 @@ import newengine.sprite.components.GameBus;
 import newengine.sprite.components.Images;
 import newengine.sprite.components.Position;
 
+// This entire file is a part of my masterpiece. 
+// TAHIA EMRAN
+
 /**
  * @author tahiaemran
- *
- *This class is part of my masterpiece. 
  *
  *This code uses the Builder design pattern to construct sprites from the provided sprite maker model. It is the concrete implementation 
  *of the SpriteConstructor interface, which defines the API for Sprite Construction. 

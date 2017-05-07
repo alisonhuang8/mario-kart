@@ -9,10 +9,13 @@ import data.SerializableDeveloperData;
 import data.SpriteMakerModel;
 import utilities.XStreamHandler;
 
+
+//This entire file is a part of my masterpiece. 
+// TAHIA EMRAN
+
 /**
  * @author tahiaemran
  * 
- * This class is part of my masterpiece. 
  * 
  * I think that this code is well designed because it has the flexibility to accommodate translation of 
  * any data format to another data format. This is achieved through Composition, where the translator component of this class

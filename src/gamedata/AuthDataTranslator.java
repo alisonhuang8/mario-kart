@@ -8,10 +8,12 @@ import javafx.collections.ObservableList;
 import newengine.sprite.Sprite;
 
 
+// This entire file is a part of my masterpiece. 
+// TAHIA EMRAN
+
 /**
  * @author tahiaemran
  * 
- * This class is part of my masterpiece. 
  * 
  * This class is the concrete implementation of the Translator interface used to make Sprites from 
  * SpriteMaker models within the TranslationController. It is the vehicle through which the functionality of 
