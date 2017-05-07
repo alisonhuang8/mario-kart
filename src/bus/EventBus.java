@@ -1,5 +1,20 @@
 package bus;
 
+// This entire file is part of my masterpiece.
+// Keping Wang (kw238)
+// Actually, this whole package is my masterpiece.
+// Refer to the specific usage in test/bus package.
+// Why it is good:
+// 1. Events eliminates the need for explicit dependencies.
+// 2. Generic methods allow the event handlers to directly get
+// the correct type of event.
+// 3. Dynamic registration of event handlers enables the
+// game logics to be changed flexibly.
+
+// This interface remains unchanged since April 2 and people have
+// used it everywhere in the engine.
+// (Though the implementation did get improved once.)
+
 /**
  * An EventBus for registering and emitting events.
  * @author keping
