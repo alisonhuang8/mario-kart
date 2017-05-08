@@ -3,6 +3,7 @@ package gameDevelopmentInterface.spriteCreator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import data.DeveloperData;
 import data.SpriteMakerModel;
@@ -19,9 +20,8 @@ import utilities.AlertHandler;
 /**
  * 
  * @author Daniel
- * Loads up a sprite's components and displays a sprites name. Does not actually modify said spritemakermodel-
- * allows user to set a new one instead.
- * Can then be used to produce a new set of components+name info for a brand new sprite.
+ * Displays a series of component setters on a scrollpane. Can be called upon to replace a SpriteMakerModel with 
+ * components based on what is currently shown on the screen.
  *
  */
 public class SpriteDataPane extends ScrollPane{
@@ -29,6 +29,9 @@ public class SpriteDataPane extends ScrollPane{
 	private ComponentLister lister;
 	private DeveloperData developerData;
 	private double PREF_WIDTH=600;
+	public static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
+	public static final String RESOURCE_FILE_NAME = "gameAuthoringEnvironment";
+	private static ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
 	
 	public SpriteDataPane(SpriteMakerModel spriteData, DeveloperData developerData){
 		instantiate(spriteData, developerData);
@@ -37,23 +40,12 @@ public class SpriteDataPane extends ScrollPane{
 		}
 	}
 	
-//	public SpriteDataPane(SpriteMakerModel spriteData, DeveloperData developerData, boolean removableComponents){
-//		this.developerData=developerData;
-//		myPane=new VBox();
-//		this.spriteData=new SpriteMakerModel();
-//		descriptor=new SpriteDescriptor();
-//		lister=new ComponentLister();
-//		myPane.getChildren().addAll(descriptor,lister);
-//		this.setContent(myPane);
-//		this.setPrefWidth(PREF_WIDTH);
-//	}
-	
 	private void instantiate(SpriteMakerModel spriteData, DeveloperData developerData){
 		this.developerData=developerData;
 		myPane=new VBox();
 		lister=new ComponentLister();
 		updateLister(spriteData);
-		myPane.getChildren().addAll(new Label("Sprite Components"), lister);
+		myPane.getChildren().addAll(new Label(myResources.getString("spriteComponents")), lister);
 		myPane.setPrefWidth(PREF_WIDTH);
 		this.setContent(myPane);
 		this.setPrefWidth(PREF_WIDTH);
@@ -101,6 +93,11 @@ public class SpriteDataPane extends ScrollPane{
 		lister.updateSpriteModel(spriteData);		
 	}
 	
+	/**
+	 * Lists a series of ObjectSetters that are used for Components.
+	 * @author Daniel
+	 *
+	 */
 	private class ComponentLister extends VBox{
 		private List<ObjectSetter<? extends Component>> componentViews;
 		
@@ -153,7 +150,7 @@ public class SpriteDataPane extends ScrollPane{
 				super(mySetter.getObjectType());
 				this.mySetter=mySetter;
 				this.getChildren().addAll(mySetter);
-				Button removeButton =new Button("Remove component");
+				Button removeButton =new Button(myResources.getString("removeComponent"));
 				removeButton.setOnAction((click)->{
 					removeMe();
 				});

@@ -1,5 +1,7 @@
 package gamecreation.level;
 
+import java.util.ResourceBundle;
+
 import data.DeveloperData;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
@@ -15,7 +17,9 @@ import javafx.scene.text.Text;
  */
 public class LevelCreationPane extends BorderPane {
 	public static final double DEFAULT_PREF_HEIGHT = 600.0;
-	
+	public static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
+	public static final String RESOURCE_FILE_NAME = "gameAuthoringEnvironment";
+	private static ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
 	/**
 	 * Passes in the DeveloperData, data used to construct game on front end and the pref height of the pane. 
 	 * @param modelData

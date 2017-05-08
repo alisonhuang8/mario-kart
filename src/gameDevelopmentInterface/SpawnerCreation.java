@@ -1,5 +1,11 @@
 package gameDevelopmentInterface;
-
+/**
+ * This class is the the holder for all of the spawner creation
+ * screen objects. It extends border pane to place them logically
+ * on the screen and provides the logic to create a spawner
+ * SpriteMakerModel to be saved to the model
+ * Jake
+ */
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +25,7 @@ import newengine.sprite.components.SkillSet;
 import newengine.sprite.components.Spawner;
 
 public class SpawnerCreation extends BorderPane {
+	private static final String TOWERS = "TOWERS";
 	private SpriteMakerModel spawnerData;
 	private SpriteMakerModel spriteToSpawn;
 	private DeveloperData model;
@@ -39,8 +46,6 @@ public class SpawnerCreation extends BorderPane {
 		this.setLeft(myPossibleMonsters);
 		this.setCenter(mySpawnerInfo);
 		this.setTop(myMonsterAdder);
-
-		//this.setBottom(new SaveSpawner(model, this, myMonsterAdder));
 		this.setRight(new SpawnerLevelEditorHolder(model.getLevelData(), 600, this));
 	}
 	
@@ -59,7 +64,7 @@ public class SpawnerCreation extends BorderPane {
 		spawnerSkills.put(BuildSkill.TYPE, new BuildSkill(spriteToSpawn));
 		spawnerData.addComponent(new GameBus());
 		spawnerData.addComponent(new SkillSet(spawnerSkills));
-		spawnerData.addComponent(new Owner(new Player("TOWERS")));
+		spawnerData.addComponent(new Owner(new Player(TOWERS)));
 		spawnerData.addComponent(new Position(new GamePoint(0.1, 0.1), 0));
 		spawnerData.addComponent(new Spawner(myMonsterAdder.getNumMonsters(), new Path(), spawnBetweenTime, spriteToSpawn));
 		return spawnerData;

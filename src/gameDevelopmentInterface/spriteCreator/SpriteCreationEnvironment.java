@@ -11,7 +11,11 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import utilities.XStreamHandler;
-
+/**
+ * Represents a single screen where
+ * @author Daniel
+ *
+ */
 public class SpriteCreationEnvironment extends BorderPane{
 	private TabPane creationScreens;
 	private DeveloperData developerData;

@@ -1,5 +1,10 @@
 package data;
 
+/**
+ * This class holds all of the data needed to reconstruct a sprite in the
+ * game engine. 
+ */
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -185,21 +190,5 @@ public class SpriteMakerModel {
 	public List<Skill> getSkills(){
 		return skills; 
 	}
-	
-	
-	
-//	/**
-//	 * Call this AFTER unserialization to avoid the bus issues
-//	 * @return
-//	 */
-//	public Sprite produceSprite(){
-//		Sprite sprite=new Sprite();
-//		myComponents.forEach((componentType, component)->{
-//			sprite.addComponent(component);
-//		});
-//		myScriptMap.forEach((event, script)->{
-//			sprite.produceHandler(event.getEventType(), script);
-//		});
-//		return sprite;
-//	}
+
 }

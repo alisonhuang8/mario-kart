@@ -2,6 +2,7 @@ package gameDevelopmentInterface.spriteCreator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import data.DeveloperData;
 import data.SpriteMakerModel;
@@ -26,12 +27,24 @@ import newengine.sprite.components.TowerDefenceTypeInformation;
 import newengine.sprite.components.Upgrade;
 import utilities.AlertHandler;
 
+/**
+ * This is a screen with various panes that allow the user to add components to a sprite, specify 
+ * the parameters of those components, write scripts to handle events received by sprites, and save 
+ * sprites to a file.
+ * Can be used to either load up a preexisting sprite, or instantiate a completely new sprite.
+ * 
+ * @author Daniel
+ * 
+ */
 public class SpriteCreationScreen extends BorderPane {
 	private SpriteDataPane infoPane;
 	private EventHandlerPane scriptPane;
 	private DeveloperData developerData;
 	private SpriteDescriptorPane descriptorPane;
 	private SavePanel savePanel;
+	public static final String DEFAULT_RESOURCE_PACKAGE = "resources/";
+	public static final String RESOURCE_FILE_NAME = "gameAuthoringEnvironment";
+	private static ResourceBundle myResources = ResourceBundle.getBundle(DEFAULT_RESOURCE_PACKAGE + RESOURCE_FILE_NAME);
 
 	public SpriteCreationScreen(DeveloperData model, SpriteMakerModel spriteData) {
 		this.developerData = model;
@@ -48,7 +61,7 @@ public class SpriteCreationScreen extends BorderPane {
 		descriptorPane = new SpriteDescriptorPane(sprite);
 		savePanel=new SavePanel(this,developerData);
 		this.setRight(instantiateSelector());
-		this.setLeft(scriptPane);
+		//this.setLeft(scriptPane);
 		this.setCenter(infoPane);
 		this.setTop(descriptorPane);
 		this.setBottom(savePanel);
@@ -77,7 +90,7 @@ public class SpriteCreationScreen extends BorderPane {
 		observableComponents.add(TowerDefenceTypeInformation.class);
 		observableComponents.add(Upgrade.class);
 
-		return new ComponentSelectorPane("Add components", observableComponents, infoPane);
+		return new ComponentSelectorPane(myResources.getString("addComponents"), observableComponents, infoPane);
 	}
 
 	public SpriteMakerModel produceNewModel() {
@@ -87,14 +100,14 @@ public class SpriteCreationScreen extends BorderPane {
 			infoPane.updateSpriteData(sprite);
 			descriptorPane.updateSpriteData(sprite);
 		} catch (Exception e) {
-			AlertHandler.showError("Model could not be created");
+			AlertHandler.showError(myResources.getString("modelError"));
 			return null;
 
 		}
 
 		String name = sprite.getName();
 		if (name == null || name.equals("")) {
-			AlertHandler.showError("Model has no name");
+			AlertHandler.showError(myResources.getString("modelNoName"));
 			return null;
 		}
 

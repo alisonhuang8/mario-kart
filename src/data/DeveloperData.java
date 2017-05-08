@@ -37,13 +37,13 @@ public class DeveloperData {
 	private int numRows = 6;
 	private int numCols = 6;
 	private ObservableList<SpriteMakerModel> mySprites; //need
-	private SpritesForScreenUse jakeSprites = new SpritesForScreenUse();  //need
+	private SpritesForScreenUse sprites = new SpritesForScreenUse();  //need
  	
 	public DeveloperData() {
 		List<SpriteMakerModel> list=new ArrayList<SpriteMakerModel>();
 		levelData = FXCollections.observableArrayList();
 		mySprites=FXCollections.observableList(list);
-		jakeSprites=new SpritesForScreenUse();
+		sprites=new SpritesForScreenUse();
 		List<Path> dummyPaths=new ArrayList<>();
 		myPaths=FXCollections.observableList(dummyPaths);
 		myPaths.add(new Path());
@@ -81,20 +81,12 @@ public class DeveloperData {
 	}
 	
 	public void addSprite(SpriteMakerModel sprite){
-		//FIXME jake sprite?
-		jakeSprites.addPossibleSprite(sprite);
+		sprites.addPossibleSprite(sprite);
 		System.out.println("reached end");
 	}
 	
 	public void addPath(Path path){
 		myPaths.add(path);
-		System.out.println("Current paths list: ");
-		for (Path p : myPaths) {
-			System.out.println();
-			p.getPath().forEach(gp -> {
-				System.out.println(gp.x() + " "+ gp.y());
-			});
-		}
 	}
 	
 	public ObservableList<Path> getPaths(){
@@ -107,7 +99,7 @@ public class DeveloperData {
 	
 	@Deprecated
 	public SpritesForScreenUse getScreenSprites(){
-		return jakeSprites;
+		return sprites;
 	}
 	
 	public ObservableList<LevelData> getLevelData(){
