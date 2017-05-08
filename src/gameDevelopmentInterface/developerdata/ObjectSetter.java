@@ -7,8 +7,9 @@ package gameDevelopmentInterface.developerdata;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import newengine.sprite.component.GUISettableObject;
 
-public abstract class ObjectSetter<T> extends VBox {
+public abstract class  ObjectSetter<T extends GUISettableObject> extends VBox {
 	private Class<? extends T> myType;
 	
 	public ObjectSetter(Class<? extends T> clazz){
