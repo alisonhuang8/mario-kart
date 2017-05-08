@@ -17,6 +17,15 @@ import user.GameHistory;
 import user.MessagingHistory;
 import user.User;
 
+/**
+ * @author tahiaemran Social Page view for a given User 
+ * Depends upon a user object to obtain the information it needs to display
+ * 
+ * Use Case: To create a view for a given user, instantiate this class with said User
+ * and then add the page to any given Scene 
+ * 
+ *
+ */
 public class UserSocialPage extends BorderPane{
 	
 	//BorderPane myPageView; 
@@ -41,7 +50,6 @@ public class UserSocialPage extends BorderPane{
 		
 	}
 
-	//TODO CONFIG OBSERVABLEZ
 	private void configure() {
 		contents.getChildren().addAll(playHistory, authoredHistory, messages);
 		contents.fillHeightProperty().setValue(true);

@@ -15,6 +15,16 @@ import javafx.scene.text.TextFlow;
 import user.MessagingHistory;
 import user.User;
 
+/**
+ * @author tahiaemran 
+ * 
+ * This class represents the Messaging Panel of the User Social Page
+ * 
+ * Depends upon a user object, from which it extracts any messages to display
+ * Also depends upon the messaging history of the User object, so that it can update
+ * instantly when the user receives a new message 
+ *
+ */
 public class MessagingView extends VBox implements Observer{
 	private VBox messagesToDisplay; 
 	private VBox messageInputBox; 
@@ -74,6 +84,9 @@ public class MessagingView extends VBox implements Observer{
 		return messagesBox; 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		MessagingHistory newHist = (MessagingHistory) o;

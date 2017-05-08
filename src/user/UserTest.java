@@ -5,6 +5,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import user.view.UserSocialPage;
 
+/**
+ * @author tahiaemran
+ * 
+ * tester class for social center/ user classes
+ *
+ */
 public class UserTest extends Application {
 
 	@Override

@@ -7,6 +7,12 @@ import java.util.Map;
 import user.GameHistory;
 import user.UserHistory;
 
+/**
+ * @author tahiaemran
+ * 
+ * serializable version of the user history object
+ *
+ */
 public class SerializableUserHist {
 	
 	Map<String, String> gameToFile; 

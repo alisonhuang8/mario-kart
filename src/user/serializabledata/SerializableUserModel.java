@@ -7,6 +7,12 @@ import java.util.Map;
 import user.User;
 import user.UsersModel;
 
+/**
+ * @author tahiaemran
+ * 
+ * serializable version of the users model 
+ *
+ */
 public class SerializableUserModel {
 	
 	

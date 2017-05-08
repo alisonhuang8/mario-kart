@@ -17,6 +17,15 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import user.GameHistory;
 
+/**
+ * @author tahiaemran
+ *
+ *View for game stats of a certain user, ends up being a panel on the user's social page
+ *
+ *Depends upon the User object for which it displays information and said User's GameHistory, 
+ *which it observes in order to update. 
+ *
+ */
 public class GameStatsView extends VBox implements Observer {
 	private VBox myStats; 
 	private HBox myInteractiveElements; 
@@ -84,6 +93,9 @@ public class GameStatsView extends VBox implements Observer {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		GameHistory newHistory = (GameHistory) o; 

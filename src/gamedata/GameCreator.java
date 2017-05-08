@@ -59,9 +59,19 @@ public class GameCreator {
 		return towerBuilder;
 	}
 	
+	/**
+	 * @param gameFilePath - file path of the game being loaded
+	 * @return a Game Object that can be played within the engine 
+	 * @throws GameLoadException
+	 */
 	public Game createGame(String gameFilePath) throws GameLoadException {
 		return createGame(new File(gameFilePath));
 	}
+	/**
+	 * @param gameFile - file path of game being loaded
+	 * @return Game object that can be played within the engine 
+	 * @throws GameLoadException
+	 */
 	public Game createGame(File gameFile) throws GameLoadException {
 		try {
 			Game game = new Game();
@@ -69,11 +79,6 @@ public class GameCreator {
 			
 			XStreamHandler xstreamHandler = new XStreamHandler();
 			SerializableDeveloperData myData = xstreamHandler.<SerializableDeveloperData>getObjectFromFile(gameFile);
-			// serializableDeveloperData?
-			
-			// sync the players authoring and game.
-			// player 1: the user, towers
-			// enemy: the monsters
 			Player userPlayer = myData.getUserPlayer();
 			
 		

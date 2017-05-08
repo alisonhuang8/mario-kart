@@ -25,10 +25,17 @@ public class Level {
 		mySprites = new ArrayList<Sprite>(); 
 	}
 	
+	/**
+	 * @param s - sprite to be added for the level 
+	 * method used to add a Sprite to a level 
+	 */
 	public void addSprite(Sprite s){
 		mySprites.add(s);
 	}
 	
+	/**
+	 * @return List of Sprites within the level 
+	 */
 	public List<Sprite> getSprites(){
 		return Collections.unmodifiableList(mySprites); 
 	}

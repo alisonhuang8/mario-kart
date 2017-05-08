@@ -5,6 +5,12 @@ import user.User;
 import user.UserHistory;
 import user.UsersModel.MessagingHandler;
 
+/**
+ * @author tahiaemran
+ * 
+ * serializable version of the user object 
+ *
+ */
 public class SerializableUser {
 	private String name; 
 	private String imageFilePath; 

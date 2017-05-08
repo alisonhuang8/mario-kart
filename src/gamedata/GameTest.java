@@ -4,6 +4,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import newengine.app.Game;
 
+/**
+ * @author tahiaemran
+ *
+ *tester class for testing game creation
+ *
+ */
 public class GameTest extends Application {
 	
 	
