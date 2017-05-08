@@ -150,7 +150,7 @@ public class SpriteDataPane extends ScrollPane{
 				super(mySetter.getObjectType());
 				this.mySetter=mySetter;
 				this.getChildren().addAll(mySetter);
-				Button removeButton =new Button(myResources.getString("removeComponent"));
+				Button removeButton =new Button("removeComponent");
 				removeButton.setOnAction((click)->{
 					removeMe();
 				});
