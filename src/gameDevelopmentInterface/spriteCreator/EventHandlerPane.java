@@ -9,20 +9,15 @@ import bus.BusEvent;
 import data.SpriteMakerModel;
 import helperAnnotations.DeveloperMethod;
 import javafx.collections.FXCollections;
-import javafx.collections.MapChangeListener;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 import newengine.sprite.Sprite;
 import newengine.sprite.component.Component;
-import newengine.sprite.component.ComponentType;
 
 /**
  * 

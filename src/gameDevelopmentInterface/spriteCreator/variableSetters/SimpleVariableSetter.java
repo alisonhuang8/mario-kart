@@ -1,3 +1,6 @@
+// This entire class is part of my masterpiece.
+// DANIEL LI
+
 package gameDevelopmentInterface.spriteCreator.variableSetters;
 
 import exception.UnsupportedTypeException;
@@ -11,6 +14,7 @@ import javafx.scene.layout.HBox;
  * @author Daniel
  * A GUI component that sets the value of a variable of form String or primitive based on the user's 
  * text inputs.
+ * I believe this class is well written because it demonstrates the flexibility of the ObjectSetter.
  * 
  * @param <T>
  */

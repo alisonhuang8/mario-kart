@@ -1,3 +1,6 @@
+//This entire class is part of my masterpiece.
+//DANIEL LI
+
 package gameDevelopmentInterface.spriteCreator.variableSetters;
 
 import data.DeveloperData;
@@ -13,6 +16,8 @@ import javafx.util.Callback;
  * A GUI component that allows the user to select and get back a SpriteMakerModel from the collection of 
  * SpriteMakerModels that have currently been saved to the DeveloperData object's list of SpriteMakerModels.
  * @author Daniel
+ * 
+ * I believe this is well written because it shows how the variable setter can be used for complex data.
  *
  */
 
@@ -20,6 +25,7 @@ public class SpriteVariableSelector extends VariableSetter<SpriteMakerModel> {
 	private ComboBox<SpriteMakerModel> availableSprites;
 	private ObservableList<SpriteMakerModel> sprites;
 
+	//Produces a combobox of SpriteMakerModels. Displays sprite names.
 	public SpriteVariableSelector(String variableName, DeveloperData data) {
 		super(variableName);
 		sprites=data.getSprites();

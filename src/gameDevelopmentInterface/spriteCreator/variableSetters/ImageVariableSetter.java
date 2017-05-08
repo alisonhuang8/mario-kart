@@ -1,7 +1,6 @@
 package gameDevelopmentInterface.spriteCreator.variableSetters;
 
 import java.io.File;
-import java.io.IOException;
 
 import exception.UnsupportedTypeException;
 import javafx.beans.property.SimpleStringProperty;
@@ -42,12 +41,10 @@ public class ImageVariableSetter extends VariableSetter<LtubImage>{
 			if(imageFile!=null){
 				File relativePath=new File(base.toURI().relativize(imageFile.toURI()).getPath());
 				myImagePath.set(relativePath.toString());
-				System.out.println(relativePath);
 			}
 		});
 		myContents.getChildren().addAll(new ImageDisplay(),button);
 		myContents.setSpacing(20);
-		System.out.println(base);
 	}
 
 	@Override

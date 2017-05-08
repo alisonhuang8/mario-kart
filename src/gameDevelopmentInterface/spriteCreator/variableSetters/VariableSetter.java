@@ -1,5 +1,5 @@
-//This entire file is part of my masterpiece.
-//DANIEL LI
+// This entire file is part of my masterpiece.
+// DANIEL LI
 
 package gameDevelopmentInterface.spriteCreator.variableSetters;
 
@@ -11,8 +11,8 @@ import javafx.scene.layout.HBox;
  * @author Daniel
  * An GUI object designed to produce and return a generic variable.
  * 
- * I believe this class is well designed because this abstract class provides the interface needed
- * to produce arbitrary variables
+ * I believe this class is well designed because this abstract class provides the framework needed
+ * to produce arbitrary variables from a GUI component.
  * @param <T>
  */
 public abstract class VariableSetter<T> extends HBox{
